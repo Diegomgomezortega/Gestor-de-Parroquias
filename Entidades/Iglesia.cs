@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Iglesia
+    public abstract class Iglesia
     {
         #region Atributos
         private string nombre;
