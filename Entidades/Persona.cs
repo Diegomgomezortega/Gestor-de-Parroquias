@@ -63,8 +63,9 @@ namespace Entidades
         public Persona(int Dni, string Nom, string Apel, string Dir, int Tel, DateTime FecNac, char Sex)//Contructor hecho por programador
         {
 
-            nombre = Nom;
+            
             dni = Dni;
+            nombre = Nom;
             apellido = Apel;
             direccion = Dir;
             telefono = Tel;
