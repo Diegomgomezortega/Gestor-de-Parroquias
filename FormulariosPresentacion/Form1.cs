@@ -7,10 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidades;
-using Negocios;
 
-namespace Presentacion
+namespace FormulariosPresentacion
 {
     public partial class Form1 : Form
     {
@@ -18,5 +16,6 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+
     }
 }
