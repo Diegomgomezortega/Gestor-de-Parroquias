@@ -15,7 +15,7 @@ namespace Datos
         #region Atributos
 
         public SqlConnection conexion;
-        public string Cadenaconexion = "Data Source=DESKTOP-UM2AVUB\\SQLEXPRESS;Initial Catalog=PruebaDb;Integrated Security=True";
+        public string Cadenaconexion = "Data Source=DESKTOP-UM2AVUB\\SQLEXPRESS;Initial Catalog=GestorParroquialBD;Integrated Security=True";
         #endregion
         #region Contructor
         public DatosConexionBD()
