@@ -43,8 +43,8 @@ namespace Entidades
             FechNac = FecNac;
             Telefono = Tel;
             Sexo = Sex;
-            Id_Catecumeno = Id_Cat;
-            Cod_Catequesis = Cod_Cat;
+            id_Catecumeno = Id_Cat;
+            cod_Catequesis = Cod_Cat;
 
 
 

@@ -30,7 +30,7 @@ namespace Entidades
             FechNac = FecNac;
             Telefono = Tel;
             Sexo = Sex;
-            Id_Sacerdote = Id_Sac;
+            id_Sacerdote = Id_Sac;
 
         }
     }

@@ -37,7 +37,7 @@ namespace Entidades
             FechNac = FecNac;
             Telefono = Tel;
             Sexo = Sex;
-            Id_Catequista = Id_Cat;
+            id_Catequista = Id_Cat;
             
 
         }//Inicializa todos sus atributos, y los de la base Personas tambien
