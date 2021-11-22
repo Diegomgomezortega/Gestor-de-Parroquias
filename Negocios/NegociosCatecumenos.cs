@@ -16,5 +16,14 @@ namespace Negocios
         {
             return ObjdatosCatecumenos.listadoCatecumenos(cual);
         }
+
+        DatosCatecumenos objDatosCatecumeno = new DatosCatecumenos();
+        public int abmCatecumeno(string accion, Catecumeno objCatecumeno)
+        {
+            return objDatosCatecumeno.abmCatecumeno(accion, objCatecumeno);
+        }
+        
+
     }
+
 }

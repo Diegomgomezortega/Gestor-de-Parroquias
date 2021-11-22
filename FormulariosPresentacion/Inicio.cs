@@ -65,7 +65,7 @@ namespace FormulariosPresentacion
                     {
                         dr[7] = "Indefinido";
                     }
-                    dgvCatecumenos.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3],dr[4], Convert.ToDateTime(dr[5]).ToShortDateString(), dr[7], dr[8]);////Rellena el dgv por cada ds que trae de la bd
+                    dgvCatecumenos.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], Convert.ToDateTime(dr[5]).ToShortDateString(), dr[7], dr[8].ToString());////Rellena el dgv por cada ds que trae de la bd
                 }
             }
 
