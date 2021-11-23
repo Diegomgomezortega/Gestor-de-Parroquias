@@ -26,7 +26,7 @@ namespace FormulariosPresentacion
             dgvCatecumenos.Columns[4].HeaderText = "TELEFONO";
             dgvCatecumenos.Columns[5].HeaderText = "NACIMIENTO";
             dgvCatecumenos.Columns[6].HeaderText = "SEXO";
-            dgvCatecumenos.Columns[7].HeaderText = "CATEQUESIS";
+            dgvCatecumenos.Columns[7].HeaderText = "CAT";
             dgvCatecumenos.Columns[0].Width = 50;
             dgvCatecumenos.Columns[1].Width = 100;
             dgvCatecumenos.Columns[2].Width = 100;
@@ -37,6 +37,7 @@ namespace FormulariosPresentacion
             dgvCatecumenos.Columns[7].Width = 50;
             #endregion
             LlenarDGV();
+
         }
 
         //A la instancia de la clase Profesional de la capa de Entidad la llamaremos objEntProf
@@ -53,22 +54,37 @@ namespace FormulariosPresentacion
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
                 {
-                    if (Convert.ToString(dr[7]) == "m")
+                    if (Convert.ToString(dr[6]) == "m")
                     {
-                        dr[7] = "Masculino";
+                        dr[6] = "Masculino";
                     }
-                    if (Convert.ToString(dr[7]) == "f")
+                    if (Convert.ToString(dr[6]) == "f")
                     {
-                        dr[7] = "Femenino";
+                        dr[6] = "Femenino";
                     }
-                    if (Convert.ToString(dr[7]) == "X")
+                    if (Convert.ToString(dr[6]) == "X")
                     {
-                        dr[7] = "Indefinido";
+                        dr[6] = "Indefinido";
                     }
-                    dgvCatecumenos.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], Convert.ToDateTime(dr[5]).ToShortDateString(), dr[7], dr[8].ToString());////Rellena el dgv por cada ds que trae de la bd
+                    dgvCatecumenos.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], Convert.ToDateTime(dr[5]).ToShortDateString(), dr[6], dr[7].ToString());////Rellena el dgv por cada ds que trae de la bd
                 }
             }
+            else
+            {
+                //lblInformacion.Text = "No hay personas cargadas en el sistema";
+            }
 
+        }
+
+        private void btnNuevaPersona_Click(object sender, EventArgs e)
+        {
+            CrearPersona crear = new CrearPersona();
+            crear.ShowDialog();
+        }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            LlenarDGV();
         }
     }
 }
