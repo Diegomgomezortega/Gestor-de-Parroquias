@@ -12,9 +12,9 @@ namespace Negocios
     public class NegociosCatecumenos
     {
         DatosCatecumenos ObjdatosCatecumenos = new DatosCatecumenos();
-        public DataSet listadoCatecumenos(string cual)
+        public DataSet listadoCatecumenos(string que, int cual)
         {
-            return ObjdatosCatecumenos.listadoCatecumenos(cual);
+            return ObjdatosCatecumenos.listadoCatecumenos(que,cual);
         }
 
         DatosCatecumenos objDatosCatecumeno = new DatosCatecumenos();

@@ -52,14 +52,22 @@ namespace Datos
             }
         }
         #endregion
-        public DataSet listadoCatecumenos(string cual)//Este método listadoAlumnos devuelve un DataSet ds con los registros solicitados,recibe un string que indica el código que deseo buscar, o si sesolicitan “Todos”
+        public DataSet listadoCatecumenos(string que, int cual)//Este método listadoAlumnos devuelve un DataSet ds con los registros solicitados,recibe un string que indica el código que deseo buscar, o si sesolicitan “Todos”
         {
             string orden = string.Empty;
             //if (cual != "Todos")
             //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
-            if(cual != "Todos")
+            if(que != "Todos")
             {
-                orden = "select ";
+                if (que == "capillas")
+                {
+                    orden = "select c.Id_Catecumeno,c.DNI,c.Nombre,c.Apellido,c.Telefono, c.Fecha_nac,c.Sexo,cap.Nombre from Catecumenos c, Catequesis cq,Salones s, Capillas cap where cap.Id_Capilla='"+cual+"' and c.Cod_Catequesis=cq.Id_Catequesis and  cq.Id_Salon=s.Id_Salon and cap.Id_Capilla=s.Id_Capilla";
+                }
+                else
+                {
+                    orden = "select c.Id_Catecumeno,c.DNI,c.Nombre,c.Apellido,c.Telefono, c.Fecha_nac,c.Sexo,s.Nombre from Catecumenos c, Catequesis cq,Salones s where c.Cod_Catequesis=cq.Id_Catequesis and c.Cod_Catequesis='" + cual + "' and cq.Id_Salon=s.Id_Salon";
+                }
+                
             }
             //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
             else

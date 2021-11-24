@@ -49,7 +49,7 @@ namespace Datos
             }
             catch (Exception e)
             {
-                throw new Exception("Error al listar Alumnos", e);
+                throw new Exception("Error al listar", e);
             }
             finally
             {
