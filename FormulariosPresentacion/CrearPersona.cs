@@ -84,6 +84,7 @@ namespace FormulariosPresentacion
 
         private void Txtbox_a_obj()//metodo para tomar los datos del formulario/text box y colocar los atributos a la instacia de la clase, Toma los datos de ls txbox y utiliza las propiedades de la clase docente
         {
+            i = cbxDia.SelectedIndex;
             objetoCatecumeno.Dni = System.Convert.ToInt32(txtDNI.Text);
             objetoCatecumeno.Apellido = txtApellido.Text;
             objetoCatecumeno.Nombre = txtNombre.Text;
@@ -100,7 +101,7 @@ namespace FormulariosPresentacion
             objetoCatecumeno.Sexo = Genero;
             objetoCatecumeno.FechNac = dtpFecNac.Value;
             objetoCatecumeno.Telefono = System.Convert.ToInt64(txtTelefono.Text);
-            objetoCatecumeno.Cod_Catequesis = id[i - 1];
+            objetoCatecumeno.Cod_Catequesis = id[i];
             //objEntDoc.CodProf = Convert.ToInt32(txtCodigo.Text);
             //objEntDoc.Materia = cbxMateria.SelectedItem.ToString();
 
@@ -193,22 +194,22 @@ namespace FormulariosPresentacion
 
 
         }
-        private void GetDia(string capilla)
-        {
-            cbxDia.Items.Clear();
-            DataSet dsSalones = new DataSet();
-            dsSalones = negociosParroquias.listado("Salones", capilla);
-            if (dsSalones.Tables[0].Rows.Count > 0)
-            {
-                foreach (DataRow dr in dsSalones.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
-                {
-                    cbxSalon.Items.Add(dr[1]);
+        //private void GetDia(string capilla)
+        //{
+        //    cbxDia.Items.Clear();
+        //    DataSet dsSalones = new DataSet();
+        //    dsSalones = negociosParroquias.listado("Salones", capilla);
+        //    if (dsSalones.Tables[0].Rows.Count > 0)
+        //    {
+        //        foreach (DataRow dr in dsSalones.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
+        //        {
+        //            cbxSalon.Items.Add(dr[1]);
 
-                }
-            }
+        //        }
+        //    }
 
 
-        }
+        //}
        
     }
     

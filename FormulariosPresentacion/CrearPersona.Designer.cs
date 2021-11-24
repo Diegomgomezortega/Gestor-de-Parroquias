@@ -44,6 +44,9 @@ namespace FormulariosPresentacion
             this.rbMasculino = new System.Windows.Forms.RadioButton();
             this.rbFemenino = new System.Windows.Forms.RadioButton();
             this.gbSalon = new System.Windows.Forms.GroupBox();
+            this.lblHorario = new System.Windows.Forms.Label();
+            this.labelSalon = new System.Windows.Forms.Label();
+            this.lblCapilla = new System.Windows.Forms.Label();
             this.cbxDia = new System.Windows.Forms.ComboBox();
             this.cbxSalon = new System.Windows.Forms.ComboBox();
             this.cbxCapilla = new System.Windows.Forms.ComboBox();
@@ -52,9 +55,6 @@ namespace FormulariosPresentacion
             this.lblRol = new System.Windows.Forms.Label();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.lblCapilla = new System.Windows.Forms.Label();
-            this.labelSalon = new System.Windows.Forms.Label();
-            this.lblHorario = new System.Windows.Forms.Label();
             this.gbSalon.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +73,7 @@ namespace FormulariosPresentacion
             this.cbxRol.Location = new System.Drawing.Point(135, 87);
             this.cbxRol.Name = "cbxRol";
             this.cbxRol.Size = new System.Drawing.Size(121, 23);
-            this.cbxRol.TabIndex = 1;
+            this.cbxRol.TabIndex = 12;
             this.cbxRol.SelectedIndexChanged += new System.EventHandler(this.cbxRol_SelectedIndexChanged);
             // 
             // lblNombre
@@ -117,7 +117,7 @@ namespace FormulariosPresentacion
             this.dtpFecNac.Location = new System.Drawing.Point(135, 299);
             this.dtpFecNac.Name = "dtpFecNac";
             this.dtpFecNac.Size = new System.Drawing.Size(200, 23);
-            this.dtpFecNac.TabIndex = 7;
+            this.dtpFecNac.TabIndex = 17;
             // 
             // lblSexo
             // 
@@ -141,14 +141,14 @@ namespace FormulariosPresentacion
             this.txtApellido.Location = new System.Drawing.Point(134, 206);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(120, 23);
-            this.txtApellido.TabIndex = 14;
+            this.txtApellido.TabIndex = 15;
             // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(134, 248);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(120, 23);
-            this.txtTelefono.TabIndex = 15;
+            this.txtTelefono.TabIndex = 16;
             // 
             // lblNuevaPersona
             // 
@@ -163,6 +163,7 @@ namespace FormulariosPresentacion
             // rbMasculino
             // 
             this.rbMasculino.AutoSize = true;
+            this.rbMasculino.Checked = true;
             this.rbMasculino.Location = new System.Drawing.Point(135, 342);
             this.rbMasculino.Name = "rbMasculino";
             this.rbMasculino.Size = new System.Drawing.Size(80, 19);
@@ -198,14 +199,40 @@ namespace FormulariosPresentacion
             this.gbSalon.TabStop = false;
             this.gbSalon.Visible = false;
             // 
+            // lblHorario
+            // 
+            this.lblHorario.AutoSize = true;
+            this.lblHorario.Location = new System.Drawing.Point(276, 48);
+            this.lblHorario.Name = "lblHorario";
+            this.lblHorario.Size = new System.Drawing.Size(47, 15);
+            this.lblHorario.TabIndex = 19;
+            this.lblHorario.Text = "Horario";
+            // 
+            // labelSalon
+            // 
+            this.labelSalon.AutoSize = true;
+            this.labelSalon.Location = new System.Drawing.Point(144, 48);
+            this.labelSalon.Name = "labelSalon";
+            this.labelSalon.Size = new System.Drawing.Size(36, 15);
+            this.labelSalon.TabIndex = 18;
+            this.labelSalon.Text = "Salón";
+            // 
+            // lblCapilla
+            // 
+            this.lblCapilla.AutoSize = true;
+            this.lblCapilla.Location = new System.Drawing.Point(17, 48);
+            this.lblCapilla.Name = "lblCapilla";
+            this.lblCapilla.Size = new System.Drawing.Size(43, 15);
+            this.lblCapilla.TabIndex = 17;
+            this.lblCapilla.Text = "Capilla";
+            // 
             // cbxDia
             // 
             this.cbxDia.FormattingEnabled = true;
             this.cbxDia.Location = new System.Drawing.Point(276, 78);
             this.cbxDia.Name = "cbxDia";
             this.cbxDia.Size = new System.Drawing.Size(101, 23);
-            this.cbxDia.TabIndex = 16;
-            //this.cbxDia.SelectedIndexChanged += new System.EventHandler(this.cbxDia_SelectedIndexChanged);
+            this.cbxDia.TabIndex = 22;
             // 
             // cbxSalon
             // 
@@ -213,7 +240,7 @@ namespace FormulariosPresentacion
             this.cbxSalon.Location = new System.Drawing.Point(144, 78);
             this.cbxSalon.Name = "cbxSalon";
             this.cbxSalon.Size = new System.Drawing.Size(110, 23);
-            this.cbxSalon.TabIndex = 14;
+            this.cbxSalon.TabIndex = 21;
             this.cbxSalon.SelectedIndexChanged += new System.EventHandler(this.cbxSalon_SelectedIndexChanged);
             // 
             // cbxCapilla
@@ -222,7 +249,7 @@ namespace FormulariosPresentacion
             this.cbxCapilla.Location = new System.Drawing.Point(17, 78);
             this.cbxCapilla.Name = "cbxCapilla";
             this.cbxCapilla.Size = new System.Drawing.Size(101, 23);
-            this.cbxCapilla.TabIndex = 13;
+            this.cbxCapilla.TabIndex = 20;
             this.cbxCapilla.SelectedIndexChanged += new System.EventHandler(this.cbxCapilla_SelectedIndexChanged);
             // 
             // lblSalon
@@ -239,7 +266,7 @@ namespace FormulariosPresentacion
             this.txtNombre.Location = new System.Drawing.Point(135, 165);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(120, 23);
-            this.txtNombre.TabIndex = 21;
+            this.txtNombre.TabIndex = 14;
             // 
             // lblRol
             // 
@@ -269,33 +296,6 @@ namespace FormulariosPresentacion
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // lblCapilla
-            // 
-            this.lblCapilla.AutoSize = true;
-            this.lblCapilla.Location = new System.Drawing.Point(17, 48);
-            this.lblCapilla.Name = "lblCapilla";
-            this.lblCapilla.Size = new System.Drawing.Size(43, 15);
-            this.lblCapilla.TabIndex = 17;
-            this.lblCapilla.Text = "Capilla";
-            // 
-            // labelSalon
-            // 
-            this.labelSalon.AutoSize = true;
-            this.labelSalon.Location = new System.Drawing.Point(144, 48);
-            this.labelSalon.Name = "labelSalon";
-            this.labelSalon.Size = new System.Drawing.Size(36, 15);
-            this.labelSalon.TabIndex = 18;
-            this.labelSalon.Text = "Salón";
-            // 
-            // lblHorario
-            // 
-            this.lblHorario.AutoSize = true;
-            this.lblHorario.Location = new System.Drawing.Point(276, 48);
-            this.lblHorario.Name = "lblHorario";
-            this.lblHorario.Size = new System.Drawing.Size(47, 15);
-            this.lblHorario.TabIndex = 19;
-            this.lblHorario.Text = "Horario";
             // 
             // CrearPersona
             // 
