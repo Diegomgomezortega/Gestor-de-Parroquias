@@ -27,7 +27,7 @@ namespace FormulariosPresentacion
             cbxSalon.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
             cbxCapilla.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
             cbxDia.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
-            cbxHora.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
+            
             GetCapillas();
 
 
@@ -38,7 +38,8 @@ namespace FormulariosPresentacion
         string capilla;
         string salon;
         string dia;
-        int[] id;
+        public int[] id;
+        public int i;
         public NegociosCatecumenos negociosCatecumenos = new NegociosCatecumenos();
         public Catecumeno objetoCatecumeno = new Catecumeno();
         public NegociosParroquias negociosParroquias = new NegociosParroquias();
@@ -74,9 +75,10 @@ namespace FormulariosPresentacion
                 }
 
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("LLenar todos los campos");
+                throw new Exception("Error al listar Alumnos", ex);
+                //MessageBox.Show(e,"LLenar todos los campos");
             }
         }
 
@@ -97,8 +99,8 @@ namespace FormulariosPresentacion
             
             objetoCatecumeno.Sexo = Genero;
             objetoCatecumeno.FechNac = dtpFecNac.Value;
-            objetoCatecumeno.Telefono = System.Convert.ToInt32(txtTelefono.Text);
-            objetoCatecumeno.Cod_Catequesis = 8;
+            objetoCatecumeno.Telefono = System.Convert.ToInt64(txtTelefono.Text);
+            objetoCatecumeno.Cod_Catequesis = id[i - 1];
             //objEntDoc.CodProf = Convert.ToInt32(txtCodigo.Text);
             //objEntDoc.Materia = cbxMateria.SelectedItem.ToString();
 
@@ -135,6 +137,8 @@ namespace FormulariosPresentacion
 
         private void cbxSalon_SelectedIndexChanged(object sender, EventArgs e)
         {
+            id[0] = 0;
+            i = 0;
             salon = cbxSalon.SelectedItem.ToString();
             cbxDia.Items.Clear();
             
@@ -145,6 +149,10 @@ namespace FormulariosPresentacion
                 foreach (DataRow dr in dsDia.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
                 {
                     cbxDia.Items.Add(dr[1]+"-"+dr[2]);
+                    id[i] = System.Convert.ToInt32(dr[0]);
+                    i++;
+                    
+                    
                     
                 }
                 
@@ -152,29 +160,13 @@ namespace FormulariosPresentacion
 
         }
 
-        private void cbxDia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            dia = cbxDia.SelectedItem.ToString();
-            cbxHora.Items.Clear();
-            DataSet dsHora = new DataSet();
-            dsHora = negociosParroquias.listado("Hora", dia);
-            if (dsHora.Tables[0].Rows.Count > 0)
-            {
-                foreach (DataRow dr in dsHora.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
-                {
-
-                        cbxHora.Items.Add(dr[1]);
-
-                }
-            }
-
-        }
+       
         private void GetSalones(string capilla)
         {
             cbxSalon.Items.Clear();
             DataSet dsSalones = new DataSet();
             dsSalones = negociosParroquias.listado("Salones", capilla);
+            id = new int[dsSalones.Tables[0].Rows.Count];
             if (dsSalones.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow dr in dsSalones.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
@@ -217,22 +209,7 @@ namespace FormulariosPresentacion
 
 
         }
-        private void GetId(string capilla)
-        {
-            cbxDia.Items.Clear();
-            DataSet dsSalones = new DataSet();
-            dsSalones = negociosParroquias.listado("Salones", capilla);
-            if (dsSalones.Tables[0].Rows.Count > 0)
-            {
-                foreach (DataRow dr in dsSalones.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
-                {
-                    cbxSalon.Items.Add(dr[1]);
-
-                }
-            }
-
-
-        }
+       
     }
     
 }

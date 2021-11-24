@@ -13,7 +13,7 @@ namespace Entidades
         private string nombre;
         private string apellido;
         private string direccion;
-        private int telefono;
+        private long telefono;
         private DateTime Fecha_nac;
         private char sexo;
         #endregion
@@ -51,7 +51,7 @@ namespace Entidades
             set { direccion = value; }
         }
 
-        public int Telefono
+        public long Telefono
         {
             get { return telefono; }
             set { telefono = value; }
@@ -60,7 +60,7 @@ namespace Entidades
         #region Constructores
         public Persona()//por defecto
         { }
-        public Persona(int Dni, string Nom, string Apel, string Dir, int Tel, DateTime FecNac, char Sex)//Contructor hecho por programador
+        public Persona(int Dni, string Nom, string Apel, string Dir, long Tel, DateTime FecNac, char Sex)//Contructor hecho por programador
         {
 
             

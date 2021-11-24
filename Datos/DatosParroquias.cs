@@ -15,13 +15,7 @@ namespace Datos
         public DataSet listado(string que, string cual)//
         {
             string orden = string.Empty;
-            //if (cual != "Todos")
-            //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
-            //if (que != "Todos")
-            //{
-            //    orden = "select ";
-            //}
-            //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
+            
             if (que == "Capillas")
             {
                 orden = "select c.Nombre, c.Id_Capilla from Capillas c where c.Id_Parroquia=1";
@@ -37,11 +31,11 @@ namespace Datos
                 orden = "select c.Id_Catequesis,c.Dia, c.Hora from Catequesis c, Salones s where c.Id_Salon=s.Id_Salon and s.Nombre='"+cual+"'";
                 //orden = "select s.Id_Capilla,c.Nombre,s.Nombre from Capillas c,Salones s where  c.Id_Capilla=s.Id_Capilla";
             }
-            if (que == "Hora")
-            {
-                orden = "select c.Id_Catequesis,c.Hora from Catequesis c, Salones s where c.Id_Salon=s.Id_Salon and s.Nombre='" + cual + "'";
-                //orden = "select s.Id_Capilla,c.Nombre,s.Nombre from Capillas c,Salones s where  c.Id_Capilla=s.Id_Capilla";
-            }
+            //if (que == "Hora")
+            //{
+            //    orden = "select c.Id_Catequesis,c.Hora from Catequesis c, Salones s where c.Id_Salon=s.Id_Salon and s.Nombre='" + cual + "'";
+            //    //orden = "select s.Id_Capilla,c.Nombre,s.Nombre from Capillas c,Salones s where  c.Id_Capilla=s.Id_Capilla";
+            //}
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();

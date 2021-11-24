@@ -20,7 +20,7 @@ namespace Entidades
         {
             id_Sacerdote = ID_Sac;
         }
-        public Sacerdote(int Du, string Nom, string Apel, string Dir, DateTime FecNac, int Tel, char Sex, int Id_Sac) : base(Du, Nom, Apel, Dir, Tel, FecNac, Sex)
+        public Sacerdote(int Du, string Nom, string Apel, string Dir, DateTime FecNac, long Tel, char Sex, int Id_Sac) : base(Du, Nom, Apel, Dir, Tel, FecNac, Sex)
         {
 
             Dni = Du;

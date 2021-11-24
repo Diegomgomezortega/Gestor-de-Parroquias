@@ -34,7 +34,7 @@ namespace Entidades
             id_Catecumeno = Id_Catecumeno;
             cod_Catequesis = Cod_Catequesis;
         }
-        public Catecumeno(int Du, string Nom, string Apel, string Dir, DateTime FecNac, int Tel, char Sex, int Id_Cat, int Cod_Cat) : base(Du, Nom, Apel, Dir, Tel, FecNac, Sex)
+        public Catecumeno(int Du, string Nom, string Apel, string Dir, DateTime FecNac, long Tel, char Sex, int Id_Cat, int Cod_Cat) : base(Du, Nom, Apel, Dir, Tel, FecNac, Sex)
         {
             Dni = Du;
             Nombre = Nom;
