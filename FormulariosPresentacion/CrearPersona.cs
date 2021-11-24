@@ -144,7 +144,7 @@ namespace FormulariosPresentacion
             {
                 foreach (DataRow dr in dsDia.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
                 {
-                    cbxDia.Items.Add(dr[1]);
+                    cbxDia.Items.Add(dr[1]+"-"+dr[2]);
                     
                 }
                 

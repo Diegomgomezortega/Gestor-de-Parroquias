@@ -34,7 +34,7 @@ namespace Datos
             }
             if (que == "Dia")
             {
-                orden = "select c.Id_Catequesis,c.Dia from Catequesis c, Salones s where c.Id_Salon=s.Id_Salon and s.Nombre='"+cual+"'";
+                orden = "select c.Id_Catequesis,c.Dia, c.Hora from Catequesis c, Salones s where c.Id_Salon=s.Id_Salon and s.Nombre='"+cual+"'";
                 //orden = "select s.Id_Capilla,c.Nombre,s.Nombre from Capillas c,Salones s where  c.Id_Capilla=s.Id_Capilla";
             }
             if (que == "Hora")
