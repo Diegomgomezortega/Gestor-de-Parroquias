@@ -239,5 +239,11 @@ namespace FormulariosPresentacion
             lblDia.Visible = false;
             capillas = true;
         }
+
+        private void btnPersonas_Click(object sender, EventArgs e)
+        {
+            ABM_Personas aBM_Personas = new ABM_Personas();
+            aBM_Personas.ShowDialog();
+        }
     }
 }

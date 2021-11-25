@@ -62,6 +62,9 @@ namespace FormulariosPresentacion
             this.cbxSalon = new System.Windows.Forms.ComboBox();
             this.cbxCapilla = new System.Windows.Forms.ComboBox();
             this.lblSalon = new System.Windows.Forms.Label();
+            this.btnPersonas = new System.Windows.Forms.Button();
+            this.btnAsistencia = new System.Windows.Forms.Button();
+            this.btnCatequesis = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCatecumenos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.gbxFiltro.SuspendLayout();
@@ -156,27 +159,27 @@ namespace FormulariosPresentacion
             this.porCatequesisToolStripMenuItem,
             this.porCapillaToolStripMenuItem});
             this.sacerdotesToolStripMenuItem.Name = "sacerdotesToolStripMenuItem";
-            this.sacerdotesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sacerdotesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.sacerdotesToolStripMenuItem.Text = "Catecumenos";
             // 
             // todosToolStripMenuItem
             // 
             this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.todosToolStripMenuItem.Text = "Todos";
             this.todosToolStripMenuItem.Click += new System.EventHandler(this.todosToolStripMenuItem_Click);
             // 
             // porCatequesisToolStripMenuItem
             // 
             this.porCatequesisToolStripMenuItem.Name = "porCatequesisToolStripMenuItem";
-            this.porCatequesisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.porCatequesisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.porCatequesisToolStripMenuItem.Text = "Por Catequesis";
             this.porCatequesisToolStripMenuItem.Click += new System.EventHandler(this.porCatequesisToolStripMenuItem_Click);
             // 
             // porCapillaToolStripMenuItem
             // 
             this.porCapillaToolStripMenuItem.Name = "porCapillaToolStripMenuItem";
-            this.porCapillaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.porCapillaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.porCapillaToolStripMenuItem.Text = "Por Capilla";
             this.porCapillaToolStripMenuItem.Click += new System.EventHandler(this.porCapillaToolStripMenuItem_Click);
             // 
@@ -186,7 +189,7 @@ namespace FormulariosPresentacion
             this.todosToolStripMenuItem1,
             this.porCapillaToolStripMenuItem1});
             this.sacerdotesToolStripMenuItem1.Name = "sacerdotesToolStripMenuItem1";
-            this.sacerdotesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.sacerdotesToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
             this.sacerdotesToolStripMenuItem1.Text = "Sacerdotes";
             // 
             // todosToolStripMenuItem1
@@ -208,7 +211,7 @@ namespace FormulariosPresentacion
             this.porCapillaToolStripMenuItem2,
             this.porCatequesisToolStripMenuItem1});
             this.catequistasToolStripMenuItem.Name = "catequistasToolStripMenuItem";
-            this.catequistasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.catequistasToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.catequistasToolStripMenuItem.Text = "Catequistas";
             // 
             // todosToolStripMenuItem2
@@ -235,7 +238,7 @@ namespace FormulariosPresentacion
             this.todosToolStripMenuItem3,
             this.porCapillaToolStripMenuItem3});
             this.salonesToolStripMenuItem.Name = "salonesToolStripMenuItem";
-            this.salonesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salonesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.salonesToolStripMenuItem.Text = "Salones";
             // 
             // todosToolStripMenuItem3
@@ -262,7 +265,7 @@ namespace FormulariosPresentacion
             this.gbxFiltro.Controls.Add(this.cbxSalon);
             this.gbxFiltro.Controls.Add(this.cbxCapilla);
             this.gbxFiltro.Controls.Add(this.lblSalon);
-            this.gbxFiltro.Location = new System.Drawing.Point(174, 116);
+            this.gbxFiltro.Location = new System.Drawing.Point(370, 216);
             this.gbxFiltro.Name = "gbxFiltro";
             this.gbxFiltro.Size = new System.Drawing.Size(441, 155);
             this.gbxFiltro.TabIndex = 4;
@@ -352,11 +355,45 @@ namespace FormulariosPresentacion
             this.lblSalon.TabIndex = 23;
             this.lblSalon.Text = "Seleccionar Catequesis";
             // 
+            // btnPersonas
+            // 
+            this.btnPersonas.Font = new System.Drawing.Font("Comic Sans MS", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.btnPersonas.Location = new System.Drawing.Point(54, 73);
+            this.btnPersonas.Name = "btnPersonas";
+            this.btnPersonas.Size = new System.Drawing.Size(191, 77);
+            this.btnPersonas.TabIndex = 5;
+            this.btnPersonas.Text = "Ver Personas";
+            this.btnPersonas.UseVisualStyleBackColor = true;
+            this.btnPersonas.Click += new System.EventHandler(this.btnPersonas_Click);
+            // 
+            // btnAsistencia
+            // 
+            this.btnAsistencia.Font = new System.Drawing.Font("Comic Sans MS", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.btnAsistencia.Location = new System.Drawing.Point(470, 73);
+            this.btnAsistencia.Name = "btnAsistencia";
+            this.btnAsistencia.Size = new System.Drawing.Size(191, 77);
+            this.btnAsistencia.TabIndex = 6;
+            this.btnAsistencia.Text = "Tomar Asistencia";
+            this.btnAsistencia.UseVisualStyleBackColor = true;
+            // 
+            // btnCatequesis
+            // 
+            this.btnCatequesis.Font = new System.Drawing.Font("Comic Sans MS", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.btnCatequesis.Location = new System.Drawing.Point(263, 73);
+            this.btnCatequesis.Name = "btnCatequesis";
+            this.btnCatequesis.Size = new System.Drawing.Size(191, 77);
+            this.btnCatequesis.TabIndex = 7;
+            this.btnCatequesis.Text = "Ver Catequesis";
+            this.btnCatequesis.UseVisualStyleBackColor = true;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 450);
+            this.Controls.Add(this.btnCatequesis);
+            this.Controls.Add(this.btnAsistencia);
+            this.Controls.Add(this.btnPersonas);
             this.Controls.Add(this.gbxFiltro);
             this.Controls.Add(this.btnRefrescar);
             this.Controls.Add(this.dgvCatecumenos);
@@ -409,6 +446,9 @@ namespace FormulariosPresentacion
         private System.Windows.Forms.ComboBox cbxSalon;
         private System.Windows.Forms.ComboBox cbxCapilla;
         private System.Windows.Forms.Label lblSalon;
+        private System.Windows.Forms.Button btnPersonas;
+        private System.Windows.Forms.Button btnAsistencia;
+        private System.Windows.Forms.Button btnCatequesis;
     }
 }
 
