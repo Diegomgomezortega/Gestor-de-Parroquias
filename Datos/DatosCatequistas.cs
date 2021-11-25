@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class DatosSacerdotes : DatosConexionBD
+    public class DatosCatequistas: DatosConexionBD
     {
-        #region Metodo ABM Catecumeno
-        public int abmSacerdotes(string accion, Sacerdote objSacerdote)
+        #region Metodo ABM Catequista
+        public int abmCatequista(string accion, Catequista objCatequista)
         {
             int resultado = -1;
             string orden = string.Empty;
             if (accion == "Alta")
                 //orden=insert into Catecumenos values(37594703,'Diana','Pezzelato',2512644879,'1993-10-05','f',8)
-                orden = "insert into Sacerdotes values (" + objSacerdote.Dni + ",'" + objSacerdote.Nombre + "', '" + objSacerdote.Apellido + "', " + objSacerdote.Telefono + ",'" + objSacerdote.FechNac.Year + "/" + objSacerdote.FechNac.Date.Month + "/" + objSacerdote.FechNac.Date.Day + "', '" + objSacerdote.Sexo + "', " + objSacerdote.Id_Sacerdote + ")";
+                orden = "insert into Catequistas values (" + objCatequista.Dni + ",'" + objCatequista.Nombre + "', '" + objCatequista.Apellido + "', " + objCatequista.Telefono + ",'" + objCatequista.FechNac.Year + "/" + objCatequista.FechNac.Date.Month + "/" + objCatequista.FechNac.Date.Day + "', '" + objCatequista.Sexo + "', " + objCatequista.Id_Catequista + ")";
 
             //orden = "insert into Alumnos values (" + objalumno.Dni + ",'" + objalumno.Nombre + "','" + objalumno.Apellido + "','" + objalumno.Carrera + "','" + objalumno.Sexo + "','" + objalumno.FechNac.Year + "/" + objalumno.FechNac.Date.Month + "/" + objalumno.FechNac.Date.Day + "');"; Este es el que funciona en Alumnos
             //if (accion == "Modificar")
@@ -26,7 +26,7 @@ namespace Datos
             //UPDATE nombre_tabla SET columna1 = valor1, columna2 = valor2 WHERE columna3 = valor3
             if (accion == "Borrar")
                 //orden = "delete from Alumnos  where Legajo=" + objalumno.Legajo + "";
-                orden = "delete from Sacerdotes  where Id_Sacerdote=" + objSacerdote.Id_Sacerdote + "";
+                orden = "delete from Catequistas  where Id_Sacerdote=" + objCatequista.Id_Catequista + "";
             //DELETE FROM nombre_tabla WHERE nombre_columna = valor
             SqlCommand cmd = new SqlCommand(orden, conexion);
             {
@@ -39,7 +39,7 @@ namespace Datos
                 {
 
 
-                    throw new Exception("Error al tratar de guardar,borrar o modificar sacerdotes", e);
+                    throw new Exception("Error al tratar de guardar,borrar o modificar catequistas", e);
 
 
                 }
@@ -52,7 +52,7 @@ namespace Datos
             }
         }
         #endregion
-        public DataSet listadoSacerdotes(string que, int cual)//Este método listadoAlumnos devuelve un DataSet ds con los registros solicitados,recibe un string que indica el código que deseo buscar, o si sesolicitan “Todos”
+        public DataSet listadoCatequistas(string que, int cual)//Este método listadoAlumnos devuelve un DataSet ds con los registros solicitados,recibe un string que indica el código que deseo buscar, o si sesolicitan “Todos”
         {
             string orden = string.Empty;
             //if (cual != "Todos")
@@ -71,7 +71,7 @@ namespace Datos
             }
             //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
             else
-                orden = "select * from Sacerdotes";
+                orden = "select * from Catequistas";
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter();
@@ -84,7 +84,7 @@ namespace Datos
             }
             catch (Exception e)
             {
-                throw new Exception("Error al listar Sacerdotes", e);
+                throw new Exception("Error al listar Catequistas", e);
             }
             finally
             {

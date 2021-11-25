@@ -52,6 +52,7 @@ namespace FormulariosPresentacion
         public Catecumeno objEntCatecumeno = new Catecumeno();
         public Sacerdote sacerdote = new Sacerdote();
         public NegociosSacerdotes objNegSacerdotes = new NegociosSacerdotes();
+        public NegociosCatequistas negociosCatequistas = new NegociosCatequistas(); 
         public NegociosCatecumenos objNegCatecumeno = new NegociosCatecumenos();
         public NegociosParroquias negociosParroquias = new NegociosParroquias();
         private void LlenarDGVCatecumenos(string que, int cual)
@@ -88,10 +89,48 @@ namespace FormulariosPresentacion
         private void LlenarDGVSacerdotes(string que, int cual)
 
         {
-            dgvPersonas.Columns.Remove(nombreColumna);
+            if (dgvPersonas.Columns.Contains(nombreColumna))
+            {
+                dgvPersonas.Columns.Remove(nombreColumna);
+            }
             dgvPersonas.Rows.Clear();//vacia el DGV
             DataSet ds = new DataSet();
             ds = objNegSacerdotes.listadoSacerdotes(que, cual);//Data set devuelve una lista, en este caso de catecumenos cargados, como el argumento es "Todos", me devolvera todos las personas cargadas
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
+                {
+                    if (Convert.ToString(dr[6]) == "m")
+                    {
+                        dr[6] = "Masculino";
+                    }
+                    if (Convert.ToString(dr[6]) == "f")
+                    {
+                        dr[6] = "Femenino";
+                    }
+
+                    dgvPersonas.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], Convert.ToDateTime(dr[5]).ToShortDateString(), dr[6]);////Rellena el dgv por cada ds que trae de la bd
+                }
+            }
+            else
+            {
+                //lblInformacion.Text = "No hay personas cargadas en el sistema";
+            }
+            dgvPersonas.Visible = true;
+
+        }
+        private void LlenarDGVCatequistas(string que, int cual)
+
+        {
+            if (dgvPersonas.Columns.Contains(nombreColumna))
+            {
+                dgvPersonas.Columns.Remove(nombreColumna);
+            }
+           
+                //dgvPersonas.Columns.Remove(nombreColumna);
+            dgvPersonas.Rows.Clear();//vacia el DGV
+            DataSet ds = new DataSet();
+            ds = negociosCatequistas.listadoCatequistas(que, cual);//Data set devuelve una lista, en este caso de catecumenos cargados, como el argumento es "Todos", me devolvera todos las personas cargadas
             if (ds.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
@@ -124,7 +163,7 @@ namespace FormulariosPresentacion
 
         private void btnCatequistas_Click(object sender, EventArgs e)
         {
-
+            LlenarDGVCatequistas("Todos", cual);
         }
 
         private void btnSacerdotes_Click(object sender, EventArgs e)
