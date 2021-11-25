@@ -36,9 +36,11 @@ namespace FormulariosPresentacion
             dgvPersonas.Columns[6].Width = 100;
             //dgvPersonas.Columns[7].Width = 50;
             #endregion
+            //public CrearPersona Editar = new CrearPersona();
 
-            
+
         }
+        public CrearPersona Editar;
         public string nombreColumna="columna";
         public string capilla;
         public int[] idCatequesis;
@@ -48,9 +50,14 @@ namespace FormulariosPresentacion
         public string que = "";
         public bool capillas;
         public bool catequesis;
+        public bool EditarCatequista;
+        public bool EditarCatecumeno;
+        public bool EditarSacerdote;
         public int[] idCapilla;
+        
         public Catecumeno objEntCatecumeno = new Catecumeno();
         public Sacerdote sacerdote = new Sacerdote();
+        public Catequista catequista = new Catequista();
         public NegociosSacerdotes objNegSacerdotes = new NegociosSacerdotes();
         public NegociosCatequistas negociosCatequistas = new NegociosCatequistas(); 
         public NegociosCatecumenos objNegCatecumeno = new NegociosCatecumenos();
@@ -158,17 +165,61 @@ namespace FormulariosPresentacion
         private void btnCatecumenos_Click(object sender, EventArgs e)
         {
             LlenarDGVCatecumenos("Todos", cual);
+            EditarCatecumeno = true;
+            EditarCatequista = false;
+            EditarSacerdote = false;
 
         }
 
         private void btnCatequistas_Click(object sender, EventArgs e)
         {
             LlenarDGVCatequistas("Todos", cual);
+            EditarCatecumeno = false;
+            EditarCatequista = true;
+            EditarSacerdote = false;
         }
 
         private void btnSacerdotes_Click(object sender, EventArgs e)
         {
             LlenarDGVSacerdotes("Todos", cual);
+            EditarCatecumeno = false;
+            EditarCatequista = false;
+            EditarSacerdote = true;
+
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {            
+            Editar.ShowDialog();
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Inicio inicio = new Inicio();
+            inicio.Show();
+        }
+
+        
+
+        private void dgvPersonas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Editar = new CrearPersona();
+            DataSet ds = new DataSet();
+            if (EditarCatecumeno == true)
+            {
+                objEntCatecumeno.Id_Catecumeno = Convert.ToInt32(dgvPersonas.CurrentRow.Cells[0].Value);
+                //txtCodigo.Enabled = false;
+                ds = objNegCatecumeno.listadoCatecumenos("", objEntCatecumeno.Id_Catecumeno);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    Editar.Ds_a_TxtBox(ds, EditarCatecumeno, objEntCatecumeno);
+                    //btnNuevo.Visible = false;
+                    //lblInformacion.Text = string.Empty;
+                }
+
+            }
+            Editar.ShowDialog();
 
         }
     }

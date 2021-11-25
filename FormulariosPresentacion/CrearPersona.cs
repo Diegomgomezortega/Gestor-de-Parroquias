@@ -27,14 +27,21 @@ namespace FormulariosPresentacion
             cbxSalon.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
             cbxCapilla.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
             cbxDia.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
-            
+            //if (editar == true)
+            //{
+            //    lblNuevaPersona.Text = "Editar Persona";
+            //    cbxRol.Visible = false;
+            //}
+
             GetCapillas();
 
 
         }
-        
-        
+
+
+        //public ABM_Personas aBM = new ABM_Personas();
         private bool catecumeno;
+        private bool editarpersona;
         string capilla;
         string salon;
         string dia;
@@ -43,6 +50,7 @@ namespace FormulariosPresentacion
         public NegociosCatecumenos negociosCatecumenos = new NegociosCatecumenos();
         public Catecumeno objetoCatecumeno = new Catecumeno();
         public NegociosParroquias negociosParroquias = new NegociosParroquias();
+
         
 
 
@@ -58,20 +66,47 @@ namespace FormulariosPresentacion
             {
                 int ngrabados = -1;//la utilizo para detectar si fue grabado exitosamente o no
                 Txtbox_a_obj();
-                ngrabados = negociosCatecumenos.abmCatecumeno("Alta", objetoCatecumeno);//
-                if (ngrabados == -1)
+                if (editarpersona)
                 {
-                    //lblInformacion.Text = "No se pudo grabar los datos en el sistema";
+                    ngrabados = negociosCatecumenos.abmCatecumeno("Modificar", objetoCatecumeno);//Invoco a la capa de negocios
+
+
+                    if (ngrabados != -1)
+                    {
+                        MessageBox.Show("Se modifico con exito");
+                        
+                        //lblInformacion.Text = "Los datos fueron modificados con éxito";
+                        //Limpiar();
+                        //LlenarDGV();
+                        //txtCodigo.Enabled = true;
+                    }
+                    else
+                    {
+                        //lblInformacion.Text = ("Se produjo un error al intentar modificar los datos");
+                    }
+
                 }
                 else
+
+
                 {
-                    //lblInformacion.Text = "Se grabaron los datos con éxito";
-                    //LlenarDGV();
-                    //Limpiar();//Limpia los textBox
-                    //groupBox1.Visible = false;
-                    //btnNuevo.Visible = true;
-                    //btnBorrar.Visible = false;
-                    this.Close();
+
+                    ngrabados = negociosCatecumenos.abmCatecumeno("Alta", objetoCatecumeno);//
+                    if (ngrabados == -1)
+                    {
+                        //lblInformacion.Text = "No se pudo grabar los datos en el sistema";
+                    }
+                    else
+                    {
+                        //lblInformacion.Text = "Se grabaron los datos con éxito";
+                        //LlenarDGV();
+                        //Limpiar();//Limpia los textBox
+                        //groupBox1.Visible = false;
+                        //btnNuevo.Visible = true;
+                        //btnBorrar.Visible = false;
+                        this.Close();
+                    }
+
                 }
 
             }
@@ -80,6 +115,7 @@ namespace FormulariosPresentacion
                 throw new Exception("Error al listar Alumnos", ex);
                 //MessageBox.Show(e,"LLenar todos los campos");
             }
+            this.Close();
         }
 
         private void Txtbox_a_obj()//metodo para tomar los datos del formulario/text box y colocar los atributos a la instacia de la clase, Toma los datos de ls txbox y utiliza las propiedades de la clase docente
@@ -102,10 +138,7 @@ namespace FormulariosPresentacion
             objetoCatecumeno.FechNac = dtpFecNac.Value;
             objetoCatecumeno.Telefono = System.Convert.ToInt64(txtTelefono.Text);
             objetoCatecumeno.Cod_Catequesis = id[i];
-            //objEntDoc.CodProf = Convert.ToInt32(txtCodigo.Text);
-            //objEntDoc.Materia = cbxMateria.SelectedItem.ToString();
-
-
+       
         }
 
         private void cbxRol_SelectedIndexChanged(object sender, EventArgs e)//Ver/Ocultar cbxRol
@@ -194,8 +227,22 @@ namespace FormulariosPresentacion
 
 
         }
+
         
-       
+        public void Ds_a_TxtBox(DataSet ds,bool editar, Catecumeno catecumeno)// Para modificar los datos haciendo click en la celda del dgv
+        {
+            txtDNI.Text = (ds.Tables[0].Rows[0]["DNI"].ToString());
+            txtNombre.Text = ds.Tables[0].Rows[0]["Nombre"].ToString();
+            txtApellido.Text = ds.Tables[0].Rows[0]["Apellido"].ToString();
+            txtTelefono.Text= ds.Tables[0].Rows[0]["Telefono"].ToString();
+            //dtpFecNac.Value = System.Convert.ToDateTime(ds.Tables[0].Rows[0]["Nacimiento"]);
+            //dtpFecNac.Value.= System.Convert.ToDateTime(ds.Tables[0].Rows[0]["Nacimiento"]);
+            //cbxMateria.SelectedItem = ds.Tables[0].Rows[0]["MATERIA"].ToString();
+            editarpersona = editar;
+            objetoCatecumeno.Id_Catecumeno = catecumeno.Id_Catecumeno;
+        }
+
+
     }
-    
+
 }

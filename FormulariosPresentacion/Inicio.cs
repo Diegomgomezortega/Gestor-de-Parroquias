@@ -242,8 +242,11 @@ namespace FormulariosPresentacion
 
         private void btnPersonas_Click(object sender, EventArgs e)
         {
-            ABM_Personas aBM_Personas = new ABM_Personas();
-            aBM_Personas.ShowDialog();
+            //ABM_Personas aBM_Personas = new ABM_Personas();
+            ABM_Personas form = new ABM_Personas();
+            form.ShowDialog();
+            
+            this.Hide();
         }
     }
 }

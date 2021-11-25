@@ -21,12 +21,17 @@ namespace Datos
                 orden = "insert into Catecumenos values ("+objCatecumeno.Dni+",'"+objCatecumeno.Nombre+"', '"+ objCatecumeno.Apellido+"', "+ objCatecumeno.Telefono+ ",'" + objCatecumeno.FechNac.Year + "/" + objCatecumeno.FechNac.Date.Month + "/" + objCatecumeno.FechNac.Date.Day + "', '"+objCatecumeno.Sexo+"', "+objCatecumeno.Cod_Catequesis+")";
                 
             //orden = "insert into Alumnos values (" + objalumno.Dni + ",'" + objalumno.Nombre + "','" + objalumno.Apellido + "','" + objalumno.Carrera + "','" + objalumno.Sexo + "','" + objalumno.FechNac.Year + "/" + objalumno.FechNac.Date.Month + "/" + objalumno.FechNac.Date.Day + "');"; Este es el que funciona en Alumnos
-            //if (accion == "Modificar")
-            //    orden = "update Alumnos set DNI=" + objalumno.Dni + " ,Nombre ='" + objalumno.Nombre + "',Apellido='" + objalumno.Apellido + "',Carrera='" + objalumno.Carrera + "',Genero='" + objalumno.Sexo + "',FechaNac='" + objalumno.FechNac.Year + "/" + objalumno.FechNac.Date.Month + "/" + objalumno.FechNac.Date.Day + "'  where Legajo=" + objalumno.Legajo + " ";
-            //UPDATE nombre_tabla SET columna1 = valor1, columna2 = valor2 WHERE columna3 = valor3
+            if (accion == "Modificar")
+            {
+                orden = "update Catecumenos set DNI=" + objCatecumeno.Dni + ",Nombre='" + objCatecumeno.Nombre + "',Apellido='" + objCatecumeno.Apellido + "',Telefono=" + objCatecumeno.Telefono + ",Fecha_nac='" + objCatecumeno.FechNac.Year + "/" + objCatecumeno.FechNac.Date.Month + "/" + objCatecumeno.FechNac.Date.Day + "',Sexo='" + objCatecumeno.Sexo + "',Cod_Catequesis=" + objCatecumeno.Cod_Catequesis + " where Id_Catecumeno=" + objCatecumeno.Id_Catecumeno + "";
+                //UPDATE nombre_tabla SET columna1 = valor1, columna2 = valor2 WHERE columna3 = valor3
+            }
             if (accion == "Borrar")
+            {
                 //orden = "delete from Alumnos  where Legajo=" + objalumno.Legajo + "";
-            orden = "delete from Alumnos  where Id_Catecumeno=" + objCatecumeno.Id_Catecumeno + "";
+                orden = "delete from Alumnos  where Id_Catecumeno=" + objCatecumeno.Id_Catecumeno + "";
+            }
+                
             //DELETE FROM nombre_tabla WHERE nombre_columna = valor
             SqlCommand cmd = new SqlCommand(orden, conexion);
             {
@@ -59,14 +64,14 @@ namespace Datos
             //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
             if(que != "Todos")
             {
-                if (que == "capillas")
-                {
-                    orden = "select c.Id_Catecumeno,c.DNI,c.Nombre,c.Apellido,c.Telefono, c.Fecha_nac,c.Sexo,cap.Nombre as 'Salon' from Catecumenos c, Catequesis cq,Salones s, Capillas cap where cap.Id_Capilla='"+cual+"' and c.Cod_Catequesis=cq.Id_Catequesis and  cq.Id_Salon=s.Id_Salon and cap.Id_Capilla=s.Id_Capilla";
-                }
-                else
-                {
-                    orden = "select c.Id_Catecumeno,c.DNI,c.Nombre,c.Apellido,c.Telefono, c.Fecha_nac,c.Sexo,s.Nombre from Catecumenos c, Catequesis cq,Salones s where c.Cod_Catequesis=cq.Id_Catequesis and c.Cod_Catequesis='" + cual + "' and cq.Id_Salon=s.Id_Salon";
-                }
+                //if (que == "capillas")
+                //{
+                //    orden = "select c.Id_Catecumeno,c.DNI,c.Nombre,c.Apellido,c.Telefono, c.Fecha_nac,c.Sexo,cap.Nombre as 'Salon' from Catecumenos c, Catequesis cq,Salones s, Capillas cap where cap.Id_Capilla='"+cual+"' and c.Cod_Catequesis=cq.Id_Catequesis and  cq.Id_Salon=s.Id_Salon and cap.Id_Capilla=s.Id_Capilla";
+                //}
+                orden= "select * from Catecumenos where Id_Catecumeno = " + cual + ";";
+
+                //orden = "select c.Id_Catecumeno,c.DNI,c.Nombre,c.Apellido,c.Telefono, c.Fecha_nac,c.Sexo,s.Nombre from Catecumenos c, Catequesis cq,Salones s where c.Cod_Catequesis=cq.Id_Catequesis and c.Cod_Catequesis='" + cual + "' and cq.Id_Salon=s.Id_Salon";
+                
                 
             }
             //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
