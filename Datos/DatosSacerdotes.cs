@@ -18,7 +18,7 @@ namespace Datos
             string orden = string.Empty;
             if (accion == "Alta")
                 //orden=insert into Catecumenos values(37594703,'Diana','Pezzelato',2512644879,'1993-10-05','f',8)
-                orden = "insert into Sacerdotes values (" + objSacerdote.Dni + ",'" + objSacerdote.Nombre + "', '" + objSacerdote.Apellido + "', " + objSacerdote.Telefono + ",'" + objSacerdote.FechNac.Year + "/" + objSacerdote.FechNac.Date.Month + "/" + objSacerdote.FechNac.Date.Day + "', '" + objSacerdote.Sexo + "', " + objSacerdote.Id_Sacerdote + ")";
+                orden = "insert into Sacerdotes values (" + objSacerdote.Dni + ",'" + objSacerdote.Nombre + "', '" + objSacerdote.Apellido + "', " + objSacerdote.Telefono + ",'" + objSacerdote.FechNac.Year + "/" + objSacerdote.FechNac.Date.Month + "/" + objSacerdote.FechNac.Date.Day + "', '" + objSacerdote.Sexo + "')";
 
             //orden = "insert into Alumnos values (" + objalumno.Dni + ",'" + objalumno.Nombre + "','" + objalumno.Apellido + "','" + objalumno.Carrera + "','" + objalumno.Sexo + "','" + objalumno.FechNac.Year + "/" + objalumno.FechNac.Date.Month + "/" + objalumno.FechNac.Date.Day + "');"; Este es el que funciona en Alumnos
             if (accion == "Modificar")

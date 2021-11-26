@@ -125,7 +125,7 @@ namespace FormulariosPresentacion
                 }
                 if (cbxRol.SelectedIndex == 2)
                 {
-                    objetoSacerdote.Id_Sacerdote = id_Persona;
+                    //objetoSacerdote.Id_Sacerdote = id_Persona;
                     ngrabados = negociosSacerdotes.abmSacerdotes(accion, objetoSacerdote);//Invoco a la capa de negocios
 
                     if (ngrabados != -1)
