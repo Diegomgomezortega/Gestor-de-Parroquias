@@ -248,5 +248,10 @@ namespace FormulariosPresentacion
             
             this.Hide();
         }
+
+        private void btnAsistencia_Click(object sender, EventArgs e)
+        {
+            gbxFiltro.Visible = true;
+        }
     }
 }

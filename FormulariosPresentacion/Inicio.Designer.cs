@@ -60,7 +60,7 @@ namespace FormulariosPresentacion
             this.dgvCatecumenos.AllowUserToAddRows = false;
             this.dgvCatecumenos.AllowUserToDeleteRows = false;
             this.dgvCatecumenos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCatecumenos.Location = new System.Drawing.Point(49, 288);
+            this.dgvCatecumenos.Location = new System.Drawing.Point(49, 388);
             this.dgvCatecumenos.Name = "dgvCatecumenos";
             this.dgvCatecumenos.ReadOnly = true;
             this.dgvCatecumenos.RowTemplate.Height = 25;
@@ -70,7 +70,7 @@ namespace FormulariosPresentacion
             // 
             // btnRefrescar
             // 
-            this.btnRefrescar.Location = new System.Drawing.Point(49, 234);
+            this.btnRefrescar.Location = new System.Drawing.Point(49, 359);
             this.btnRefrescar.Name = "btnRefrescar";
             this.btnRefrescar.Size = new System.Drawing.Size(75, 23);
             this.btnRefrescar.TabIndex = 2;
@@ -103,26 +103,26 @@ namespace FormulariosPresentacion
             // cargarNuevaPersonaToolStripMenuItem
             // 
             this.cargarNuevaPersonaToolStripMenuItem.Name = "cargarNuevaPersonaToolStripMenuItem";
-            this.cargarNuevaPersonaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cargarNuevaPersonaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.cargarNuevaPersonaToolStripMenuItem.Text = "Nueva Persona";
             this.cargarNuevaPersonaToolStripMenuItem.Click += new System.EventHandler(this.cargarNuevaPersonaToolStripMenuItem_Click);
             // 
             // cargarNuevaCapillaToolStripMenuItem
             // 
             this.cargarNuevaCapillaToolStripMenuItem.Name = "cargarNuevaCapillaToolStripMenuItem";
-            this.cargarNuevaCapillaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cargarNuevaCapillaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.cargarNuevaCapillaToolStripMenuItem.Text = "Nueva Capilla";
             // 
             // cargarToolStripMenuItem
             // 
             this.cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
-            this.cargarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cargarToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.cargarToolStripMenuItem.Text = "Nuevo Salón";
             // 
             // nuevaCatequesisToolStripMenuItem
             // 
             this.nuevaCatequesisToolStripMenuItem.Name = "nuevaCatequesisToolStripMenuItem";
-            this.nuevaCatequesisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevaCatequesisToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.nuevaCatequesisToolStripMenuItem.Text = "Nueva Catequesis";
             // 
             // gbxFiltro
@@ -136,16 +136,16 @@ namespace FormulariosPresentacion
             this.gbxFiltro.Controls.Add(this.cbxSalon);
             this.gbxFiltro.Controls.Add(this.cbxCapilla);
             this.gbxFiltro.Controls.Add(this.lblSalon);
-            this.gbxFiltro.Location = new System.Drawing.Point(370, 216);
+            this.gbxFiltro.Location = new System.Drawing.Point(49, 178);
             this.gbxFiltro.Name = "gbxFiltro";
-            this.gbxFiltro.Size = new System.Drawing.Size(441, 155);
+            this.gbxFiltro.Size = new System.Drawing.Size(700, 155);
             this.gbxFiltro.TabIndex = 4;
             this.gbxFiltro.TabStop = false;
             this.gbxFiltro.Visible = false;
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(216, 118);
+            this.btnCancelar.Location = new System.Drawing.Point(534, 77);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 31;
@@ -155,7 +155,7 @@ namespace FormulariosPresentacion
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(123, 118);
+            this.btnBuscar.Location = new System.Drawing.Point(441, 77);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 30;
@@ -220,7 +220,7 @@ namespace FormulariosPresentacion
             // lblSalon
             // 
             this.lblSalon.AutoSize = true;
-            this.lblSalon.Location = new System.Drawing.Point(140, 19);
+            this.lblSalon.Location = new System.Drawing.Point(16, 19);
             this.lblSalon.Name = "lblSalon";
             this.lblSalon.Size = new System.Drawing.Size(127, 15);
             this.lblSalon.TabIndex = 23;
@@ -229,7 +229,7 @@ namespace FormulariosPresentacion
             // btnPersonas
             // 
             this.btnPersonas.Font = new System.Drawing.Font("Comic Sans MS", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnPersonas.Location = new System.Drawing.Point(54, 73);
+            this.btnPersonas.Location = new System.Drawing.Point(574, 73);
             this.btnPersonas.Name = "btnPersonas";
             this.btnPersonas.Size = new System.Drawing.Size(191, 77);
             this.btnPersonas.TabIndex = 5;
@@ -240,17 +240,18 @@ namespace FormulariosPresentacion
             // btnAsistencia
             // 
             this.btnAsistencia.Font = new System.Drawing.Font("Comic Sans MS", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnAsistencia.Location = new System.Drawing.Point(470, 73);
+            this.btnAsistencia.Location = new System.Drawing.Point(49, 73);
             this.btnAsistencia.Name = "btnAsistencia";
             this.btnAsistencia.Size = new System.Drawing.Size(191, 77);
             this.btnAsistencia.TabIndex = 6;
             this.btnAsistencia.Text = "Tomar Asistencia";
             this.btnAsistencia.UseVisualStyleBackColor = true;
+            this.btnAsistencia.Click += new System.EventHandler(this.btnAsistencia_Click);
             // 
             // btnCatequesis
             // 
             this.btnCatequesis.Font = new System.Drawing.Font("Comic Sans MS", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnCatequesis.Location = new System.Drawing.Point(263, 73);
+            this.btnCatequesis.Location = new System.Drawing.Point(303, 73);
             this.btnCatequesis.Name = "btnCatequesis";
             this.btnCatequesis.Size = new System.Drawing.Size(191, 77);
             this.btnCatequesis.TabIndex = 7;
