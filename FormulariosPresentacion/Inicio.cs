@@ -244,7 +244,7 @@ namespace FormulariosPresentacion
         {
             //ABM_Personas aBM_Personas = new ABM_Personas();
             ABM_Personas form = new ABM_Personas();
-            form.ShowDialog();
+            form.Show();
             
             this.Hide();
         }

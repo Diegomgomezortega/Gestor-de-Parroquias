@@ -42,13 +42,19 @@ namespace FormulariosPresentacion
         //public ABM_Personas aBM = new ABM_Personas();
         private bool catecumeno;
         private bool editarpersona;
+        public string accion;
         string capilla;
         string salon;
         string dia;
-        public int[] id;
+        public int[] Cod_Catequesis;
         public int i;
+        public int id_Persona;
         public NegociosCatecumenos negociosCatecumenos = new NegociosCatecumenos();
+        public NegociosCatequistas negociosCatequistas = new NegociosCatequistas();
+        public NegociosSacerdotes negociosSacerdotes = new NegociosSacerdotes();
         public Catecumeno objetoCatecumeno = new Catecumeno();
+        public Catequista objetoCatequista = new Catequista();
+        public Sacerdote objetoSacerdote = new Sacerdote();
         public NegociosParroquias negociosParroquias = new NegociosParroquias();
 
         
@@ -68,13 +74,25 @@ namespace FormulariosPresentacion
                 Txtbox_a_obj();
                 if (editarpersona)
                 {
-                    ngrabados = negociosCatecumenos.abmCatecumeno("Modificar", objetoCatecumeno);//Invoco a la capa de negocios
+                    accion = "Modificar";
+                    objetoCatecumeno.Id_Catecumeno = id_Persona;
+                    objetoCatequista.Id_Catequista = id_Persona;
+                    objetoSacerdote.Id_Sacerdote = id_Persona;
+                }
+                else
+                {
+                    accion = "Alta";
+                }
+                if (cbxRol.SelectedIndex == 0)
+                {
 
+
+                    ngrabados = negociosCatecumenos.abmCatecumeno(accion, objetoCatecumeno);//Invoco a la capa de negocios
 
                     if (ngrabados != -1)
                     {
-                        MessageBox.Show("Se modifico con exito");
-                        
+                        MessageBox.Show("la accion se realizo con exito");
+
                         //lblInformacion.Text = "Los datos fueron modificados con éxito";
                         //Limpiar();
                         //LlenarDGV();
@@ -82,37 +100,55 @@ namespace FormulariosPresentacion
                     }
                     else
                     {
-                        //lblInformacion.Text = ("Se produjo un error al intentar modificar los datos");
+                        MessageBox.Show("Se produjo un error al intentar la acción");
                     }
 
                 }
-                else
-
-
+                if (cbxRol.SelectedIndex == 1)
                 {
+                    ngrabados = negociosCatequistas.abmCatequista(accion, objetoCatequista);//Invoco a la capa de negocios
 
-                    ngrabados = negociosCatecumenos.abmCatecumeno("Alta", objetoCatecumeno);//
-                    if (ngrabados == -1)
+                    if (ngrabados != -1)
                     {
-                        //lblInformacion.Text = "No se pudo grabar los datos en el sistema";
+                        MessageBox.Show("la accion se realizo con exito");
+
+                        //lblInformacion.Text = "Los datos fueron modificados con éxito";
+                        //Limpiar();
+                        //LlenarDGV();
+                        //txtCodigo.Enabled = true;
                     }
                     else
                     {
-                        //lblInformacion.Text = "Se grabaron los datos con éxito";
-                        //LlenarDGV();
-                        //Limpiar();//Limpia los textBox
-                        //groupBox1.Visible = false;
-                        //btnNuevo.Visible = true;
-                        //btnBorrar.Visible = false;
-                        this.Close();
+                        MessageBox.Show("Se produjo un error al intentar la acción");
                     }
 
                 }
+                if (cbxRol.SelectedIndex == 2)
+                {
+                    objetoSacerdote.Id_Sacerdote = id_Persona;
+                    ngrabados = negociosSacerdotes.abmSacerdotes(accion, objetoSacerdote);//Invoco a la capa de negocios
+
+                    if (ngrabados != -1)
+                    {
+                        MessageBox.Show("la accion se realizo con exito");
+
+                        //lblInformacion.Text = "Los datos fueron modificados con éxito";
+                        //Limpiar();
+                        //LlenarDGV();
+                        //txtCodigo.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se produjo un error al intentar la acción");
+                    }
+
+                }
+
 
             }
             catch (Exception ex)
             {
-                throw new Exception("Error al listar Alumnos", ex);
+                throw new Exception("Error de grabado de datos", ex);
                 //MessageBox.Show(e,"LLenar todos los campos");
             }
             this.Close();
@@ -120,24 +156,70 @@ namespace FormulariosPresentacion
 
         private void Txtbox_a_obj()//metodo para tomar los datos del formulario/text box y colocar los atributos a la instacia de la clase, Toma los datos de ls txbox y utiliza las propiedades de la clase docente
         {
-            i = cbxDia.SelectedIndex;
-            objetoCatecumeno.Dni = System.Convert.ToInt32(txtDNI.Text);
-            objetoCatecumeno.Apellido = txtApellido.Text;
-            objetoCatecumeno.Nombre = txtNombre.Text;
-            char Genero = new char();
-            if (rbMasculino.Checked)
+            
+            if (cbxRol.SelectedIndex == 0)
             {
-                Genero = 'M';
+                objetoCatecumeno.Dni = System.Convert.ToInt32(txtDNI.Text);
+                objetoCatecumeno.Apellido = txtApellido.Text;
+                objetoCatecumeno.Nombre = txtNombre.Text;
+                char Genero = new char();
+                if (rbMasculino.Checked)
+                {
+                    Genero = 'm';
+                }
+                else if (rbFemenino.Checked)
+                {
+                    Genero = 'f';
+                }
+
+                objetoCatecumeno.Sexo = Genero;
+                objetoCatecumeno.FechNac = dtpFecNac.Value;
+                objetoCatecumeno.Telefono = System.Convert.ToInt64(txtTelefono.Text);
+                i = cbxDia.SelectedIndex;
+                objetoCatecumeno.Cod_Catequesis = Cod_Catequesis[i];
+
             }
-            else if (rbFemenino.Checked)
+            if (cbxRol.SelectedIndex == 1)
             {
-                Genero = 'F';
+                objetoCatequista.Dni = System.Convert.ToInt32(txtDNI.Text);
+                objetoCatequista.Apellido = txtApellido.Text;
+                objetoCatequista.Nombre = txtNombre.Text;
+                char Genero = new char();
+                if (rbMasculino.Checked)
+                {
+                    Genero = 'm';
+                }
+                else if (rbFemenino.Checked)
+                {
+                    Genero = 'f';
+                }
+
+                objetoCatequista.Sexo = Genero;
+                objetoCatequista.FechNac = dtpFecNac.Value;
+                objetoCatequista.Telefono = System.Convert.ToInt64(txtTelefono.Text);
+
+            }
+            if (cbxRol.SelectedIndex == 2)
+            {
+                objetoSacerdote.Dni = System.Convert.ToInt32(txtDNI.Text);
+                objetoSacerdote.Apellido = txtApellido.Text;
+                objetoSacerdote.Nombre = txtNombre.Text;
+                char Genero = new char();
+                if (rbMasculino.Checked)
+                {
+                    Genero = 'm';
+                }
+                else if (rbFemenino.Checked)
+                {
+                    Genero = 'f';
+                }
+
+                objetoSacerdote.Sexo = Genero;
+                objetoSacerdote.FechNac = dtpFecNac.Value;
+                objetoSacerdote.Telefono = System.Convert.ToInt64(txtTelefono.Text);
+
             }
             
-            objetoCatecumeno.Sexo = Genero;
-            objetoCatecumeno.FechNac = dtpFecNac.Value;
-            objetoCatecumeno.Telefono = System.Convert.ToInt64(txtTelefono.Text);
-            objetoCatecumeno.Cod_Catequesis = id[i];
        
         }
 
@@ -171,7 +253,7 @@ namespace FormulariosPresentacion
 
         private void cbxSalon_SelectedIndexChanged(object sender, EventArgs e)
         {
-            id[0] = 0;
+            Cod_Catequesis[0] = 0;
             i = 0;
             salon = cbxSalon.SelectedItem.ToString();
             cbxDia.Items.Clear();
@@ -183,7 +265,7 @@ namespace FormulariosPresentacion
                 foreach (DataRow dr in dsDia.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
                 {
                     cbxDia.Items.Add(dr[1]+"-"+dr[2]);
-                    id[i] = System.Convert.ToInt32(dr[0]);
+                    Cod_Catequesis[i] = System.Convert.ToInt32(dr[0]);
                     i++;
                     
                     
@@ -200,7 +282,7 @@ namespace FormulariosPresentacion
             cbxSalon.Items.Clear();
             DataSet dsSalones = new DataSet();
             dsSalones = negociosParroquias.listado("Salones", capilla);
-            id = new int[dsSalones.Tables[0].Rows.Count];
+            Cod_Catequesis = new int[dsSalones.Tables[0].Rows.Count];
             if (dsSalones.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow dr in dsSalones.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
@@ -229,7 +311,7 @@ namespace FormulariosPresentacion
         }
 
         
-        public void Ds_a_TxtBox(DataSet ds,bool editar, Catecumeno catecumeno)// Para modificar los datos haciendo click en la celda del dgv
+        public void Ds_a_TxtBox(DataSet ds,bool editar, int id)// Para modificar los datos haciendo click en la celda del dgv
         {
             txtDNI.Text = (ds.Tables[0].Rows[0]["DNI"].ToString());
             txtNombre.Text = ds.Tables[0].Rows[0]["Nombre"].ToString();
@@ -239,8 +321,10 @@ namespace FormulariosPresentacion
             //dtpFecNac.Value.= System.Convert.ToDateTime(ds.Tables[0].Rows[0]["Nacimiento"]);
             //cbxMateria.SelectedItem = ds.Tables[0].Rows[0]["MATERIA"].ToString();
             editarpersona = editar;
-            objetoCatecumeno.Id_Catecumeno = catecumeno.Id_Catecumeno;
+            id_Persona = id;
         }
+
+
 
 
     }

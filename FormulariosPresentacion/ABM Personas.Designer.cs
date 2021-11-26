@@ -53,7 +53,6 @@ namespace FormulariosPresentacion
             this.dgvPersonas.Size = new System.Drawing.Size(752, 269);
             this.dgvPersonas.TabIndex = 0;
             this.dgvPersonas.Visible = false;
-            //this.dgvPersonas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPersonas_CellClick);
             this.dgvPersonas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPersonas_CellDoubleClick);
             // 
             // btnCatecumenos
@@ -153,7 +152,6 @@ namespace FormulariosPresentacion
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 510);
-            this.ControlBox = false;
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.gbxAcciones);

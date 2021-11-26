@@ -50,15 +50,17 @@ namespace FormulariosPresentacion
         public string que = "";
         public bool capillas;
         public bool catequesis;
+        public bool editarPer;
         public bool EditarCatequista;
         public bool EditarCatecumeno;
         public bool EditarSacerdote;
+        public int id_Persona;
         public int[] idCapilla;
         
         public Catecumeno objEntCatecumeno = new Catecumeno();
         public Sacerdote sacerdote = new Sacerdote();
         public Catequista catequista = new Catequista();
-        public NegociosSacerdotes objNegSacerdotes = new NegociosSacerdotes();
+        public NegociosSacerdotes negociosSacerdotes = new NegociosSacerdotes();
         public NegociosCatequistas negociosCatequistas = new NegociosCatequistas(); 
         public NegociosCatecumenos objNegCatecumeno = new NegociosCatecumenos();
         public NegociosParroquias negociosParroquias = new NegociosParroquias();
@@ -102,7 +104,7 @@ namespace FormulariosPresentacion
             }
             dgvPersonas.Rows.Clear();//vacia el DGV
             DataSet ds = new DataSet();
-            ds = objNegSacerdotes.listadoSacerdotes(que, cual);//Data set devuelve una lista, en este caso de catecumenos cargados, como el argumento es "Todos", me devolvera todos las personas cargadas
+            ds = negociosSacerdotes.listadoSacerdotes(que, cual);//Data set devuelve una lista, en este caso de catecumenos cargados, como el argumento es "Todos", me devolvera todos las personas cargadas
             if (ds.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
@@ -189,8 +191,9 @@ namespace FormulariosPresentacion
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
-        {            
-            Editar.ShowDialog();
+        {
+            CrearPersona crear = new CrearPersona();
+            crear.ShowDialog();
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -206,14 +209,37 @@ namespace FormulariosPresentacion
         {
             Editar = new CrearPersona();
             DataSet ds = new DataSet();
+            id_Persona = Convert.ToInt32(dgvPersonas.CurrentRow.Cells[0].Value);
+            editarPer = true;
+            
             if (EditarCatecumeno == true)
             {
-                objEntCatecumeno.Id_Catecumeno = Convert.ToInt32(dgvPersonas.CurrentRow.Cells[0].Value);
-                //txtCodigo.Enabled = false;
-                ds = objNegCatecumeno.listadoCatecumenos("", objEntCatecumeno.Id_Catecumeno);
+                ds = objNegCatecumeno.listadoCatecumenos("", id_Persona);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    Editar.Ds_a_TxtBox(ds, EditarCatecumeno, objEntCatecumeno);
+                    Editar.Ds_a_TxtBox(ds, EditarCatecumeno, id_Persona);
+                    //btnNuevo.Visible = false;
+                    //lblInformacion.Text = string.Empty;
+                }
+
+            }
+            if (EditarCatequista == true)
+            {
+                ds = negociosCatequistas.listadoCatequistas("", id_Persona);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    Editar.Ds_a_TxtBox(ds, EditarCatequista, id_Persona);
+                    //btnNuevo.Visible = false;
+                    //lblInformacion.Text = string.Empty;
+                }
+
+            }
+            if (EditarSacerdote == true)
+            {
+                ds =negociosSacerdotes.listadoSacerdotes ("", id_Persona);
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    Editar.Ds_a_TxtBox(ds, EditarSacerdote, id_Persona);
                     //btnNuevo.Visible = false;
                     //lblInformacion.Text = string.Empty;
                 }

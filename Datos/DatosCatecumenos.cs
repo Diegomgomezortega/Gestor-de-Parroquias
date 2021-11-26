@@ -44,7 +44,7 @@ namespace Datos
                 {
 
 
-                    throw new Exception("Error al tratar de guardar,borrar o modificar estudiantes", e);
+                    throw new Exception("Error al tratar de guardar,borrar o modificar catecumenos", e);
 
 
                 }

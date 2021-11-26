@@ -21,12 +21,12 @@ namespace Datos
                 orden = "insert into Catequistas values (" + objCatequista.Dni + ",'" + objCatequista.Nombre + "', '" + objCatequista.Apellido + "', " + objCatequista.Telefono + ",'" + objCatequista.FechNac.Year + "/" + objCatequista.FechNac.Date.Month + "/" + objCatequista.FechNac.Date.Day + "', '" + objCatequista.Sexo + "', " + objCatequista.Id_Catequista + ")";
 
             //orden = "insert into Alumnos values (" + objalumno.Dni + ",'" + objalumno.Nombre + "','" + objalumno.Apellido + "','" + objalumno.Carrera + "','" + objalumno.Sexo + "','" + objalumno.FechNac.Year + "/" + objalumno.FechNac.Date.Month + "/" + objalumno.FechNac.Date.Day + "');"; Este es el que funciona en Alumnos
-            //if (accion == "Modificar")
-            //    orden = "update Alumnos set DNI=" + objalumno.Dni + " ,Nombre ='" + objalumno.Nombre + "',Apellido='" + objalumno.Apellido + "',Carrera='" + objalumno.Carrera + "',Genero='" + objalumno.Sexo + "',FechaNac='" + objalumno.FechNac.Year + "/" + objalumno.FechNac.Date.Month + "/" + objalumno.FechNac.Date.Day + "'  where Legajo=" + objalumno.Legajo + " ";
+            if (accion == "Modificar")
+                orden = "update Catequistas set DNI=" + objCatequista.Dni + ",Nombre='" + objCatequista.Nombre + "',Apellido='" + objCatequista.Apellido + "',Telefono=" + objCatequista.Telefono + ",Fecha_nac='" + objCatequista.FechNac.Year + "/" + objCatequista.FechNac.Date.Month + "/" + objCatequista.FechNac.Date.Day + "',Sexo='" + objCatequista.Sexo + "' where Id_Catequista=" + objCatequista.Id_Catequista + "";
             //UPDATE nombre_tabla SET columna1 = valor1, columna2 = valor2 WHERE columna3 = valor3
             if (accion == "Borrar")
                 //orden = "delete from Alumnos  where Legajo=" + objalumno.Legajo + "";
-                orden = "delete from Catequistas  where Id_Sacerdote=" + objCatequista.Id_Catequista + "";
+                orden = "delete from Catequistas  where Id_Catequista=" + objCatequista.Id_Catequista + "";
             //DELETE FROM nombre_tabla WHERE nombre_columna = valor
             SqlCommand cmd = new SqlCommand(orden, conexion);
             {
@@ -59,14 +59,15 @@ namespace Datos
             //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
             if (que != "Todos")
             {
-                if (que == "capillas")
-                {
-                    orden = "select c.Id_Catecumeno,c.DNI,c.Nombre,c.Apellido,c.Telefono, c.Fecha_nac,c.Sexo,cap.Nombre as 'Salon' from Catecumenos c, Catequesis cq,Salones s, Capillas cap where cap.Id_Capilla='" + cual + "' and c.Cod_Catequesis=cq.Id_Catequesis and  cq.Id_Salon=s.Id_Salon and cap.Id_Capilla=s.Id_Capilla";
-                }
-                else
-                {
-                    orden = "select c.Id_Catecumeno,c.DNI,c.Nombre,c.Apellido,c.Telefono, c.Fecha_nac,c.Sexo,s.Nombre from Catecumenos c, Catequesis cq,Salones s where c.Cod_Catequesis=cq.Id_Catequesis and c.Cod_Catequesis='" + cual + "' and cq.Id_Salon=s.Id_Salon";
-                }
+                orden = "select * from Catequistas where Id_Catequista = " + cual + ";";
+                //    if (que == "capillas")
+                //    {
+                //        orden = "select c.Id_Catecumeno,c.DNI,c.Nombre,c.Apellido,c.Telefono, c.Fecha_nac,c.Sexo,cap.Nombre as 'Salon' from Catecumenos c, Catequesis cq,Salones s, Capillas cap where cap.Id_Capilla='" + cual + "' and c.Cod_Catequesis=cq.Id_Catequesis and  cq.Id_Salon=s.Id_Salon and cap.Id_Capilla=s.Id_Capilla";
+                //    }
+                //    else
+                //    {
+                //        orden = "select c.Id_Catecumeno,c.DNI,c.Nombre,c.Apellido,c.Telefono, c.Fecha_nac,c.Sexo,s.Nombre from Catecumenos c, Catequesis cq,Salones s where c.Cod_Catequesis=cq.Id_Catequesis and c.Cod_Catequesis='" + cual + "' and cq.Id_Salon=s.Id_Salon";
+                //    }
 
             }
             //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
