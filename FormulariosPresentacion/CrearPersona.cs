@@ -27,11 +27,11 @@ namespace FormulariosPresentacion
             cbxSalon.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
             cbxCapilla.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
             cbxDia.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
-            //if (editar == true)
-            //{
-            //    lblNuevaPersona.Text = "Editar Persona";
-            //    cbxRol.Visible = false;
-            //}
+            if (editarpersona == true)
+            {
+                lblNuevaPersona.Text = "Editar Persona";
+                cbxRol.Visible = false;
+            }
 
             GetCapillas();
 
@@ -41,7 +41,7 @@ namespace FormulariosPresentacion
 
         //public ABM_Personas aBM = new ABM_Personas();
         private bool catecumeno;
-        private bool editarpersona;
+        public bool editarpersona;
         public string accion;
         string capilla;
         string salon;

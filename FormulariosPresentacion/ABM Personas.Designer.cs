@@ -38,6 +38,7 @@ namespace FormulariosPresentacion
             this.btnVolver = new System.Windows.Forms.Button();
             this.gbxAcciones = new System.Windows.Forms.GroupBox();
             this.btnEditar = new System.Windows.Forms.Button();
+            this.lblInformacion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).BeginInit();
             this.gbxAcciones.SuspendLayout();
             this.SuspendLayout();
@@ -133,9 +134,10 @@ namespace FormulariosPresentacion
             this.gbxAcciones.Controls.Add(this.btnBorrar);
             this.gbxAcciones.Location = new System.Drawing.Point(12, 162);
             this.gbxAcciones.Name = "gbxAcciones";
-            this.gbxAcciones.Size = new System.Drawing.Size(325, 61);
+            this.gbxAcciones.Size = new System.Drawing.Size(251, 61);
             this.gbxAcciones.TabIndex = 6;
             this.gbxAcciones.TabStop = false;
+            this.gbxAcciones.Visible = false;
             // 
             // btnEditar
             // 
@@ -149,11 +151,23 @@ namespace FormulariosPresentacion
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
+            // lblInformacion
+            // 
+            this.lblInformacion.AutoSize = true;
+            this.lblInformacion.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblInformacion.Location = new System.Drawing.Point(275, 138);
+            this.lblInformacion.Name = "lblInformacion";
+            this.lblInformacion.Size = new System.Drawing.Size(217, 23);
+            this.lblInformacion.TabIndex = 8;
+            this.lblInformacion.Text = "No hay registros cargados";
+            this.lblInformacion.Visible = false;
+            // 
             // ABM_Personas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 510);
+            this.Controls.Add(this.lblInformacion);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.gbxAcciones);
@@ -166,6 +180,7 @@ namespace FormulariosPresentacion
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).EndInit();
             this.gbxAcciones.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -180,5 +195,6 @@ namespace FormulariosPresentacion
         private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.GroupBox gbxAcciones;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Label lblInformacion;
     }
 }
