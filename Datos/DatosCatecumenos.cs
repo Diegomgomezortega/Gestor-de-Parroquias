@@ -29,7 +29,7 @@ namespace Datos
             if (accion == "Borrar")
             {
                 //orden = "delete from Alumnos  where Legajo=" + objalumno.Legajo + "";
-                orden = "delete from Alumnos  where Id_Catecumeno=" + objCatecumeno.Id_Catecumeno + "";
+                orden = "delete from Asistencia where Id_Catecumeno=" + objCatecumeno.Id_Catecumeno + ";delete from Catecumenos where Id_Catecumeno=" + objCatecumeno.Id_Catecumeno + "";
             }
                 
             //DELETE FROM nombre_tabla WHERE nombre_columna = valor

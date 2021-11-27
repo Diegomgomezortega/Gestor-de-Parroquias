@@ -56,6 +56,8 @@ namespace FormulariosPresentacion
         public bool EditarSacerdote;
         public int id_Persona;
         public int[] idCapilla;
+        private string nombre;
+        private string apellido;
         
         public Catecumeno objEntCatecumeno = new Catecumeno();
         public Sacerdote sacerdote = new Sacerdote();
@@ -203,23 +205,25 @@ namespace FormulariosPresentacion
             inicio.Show();
         }
 
-        
-
         private void dgvPersonas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditarPersona();
+        }
+        private void EditarPersona()
         {
             Editar = new CrearPersona();
             DataSet ds = new DataSet();
+
             id_Persona = Convert.ToInt32(dgvPersonas.CurrentRow.Cells[0].Value);
             editarPer = true;
-            
+
             if (EditarCatecumeno == true)
             {
                 ds = objNegCatecumeno.listadoCatecumenos("", id_Persona);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     Editar.Ds_a_TxtBox(ds, EditarCatecumeno, id_Persona);
-                    //btnNuevo.Visible = false;
-                    //lblInformacion.Text = string.Empty;
+                    
                 }
 
             }
@@ -229,24 +233,91 @@ namespace FormulariosPresentacion
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     Editar.Ds_a_TxtBox(ds, EditarCatequista, id_Persona);
-                    //btnNuevo.Visible = false;
-                    //lblInformacion.Text = string.Empty;
                 }
 
             }
             if (EditarSacerdote == true)
             {
-                ds =negociosSacerdotes.listadoSacerdotes ("", id_Persona);
+                ds = negociosSacerdotes.listadoSacerdotes("", id_Persona);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     Editar.Ds_a_TxtBox(ds, EditarSacerdote, id_Persona);
-                    //btnNuevo.Visible = false;
-                    //lblInformacion.Text = string.Empty;
+                    
                 }
 
             }
             Editar.ShowDialog();
 
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            EditarPersona();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            nombre = dgvPersonas.CurrentRow.Cells[2].Value.ToString();
+            apellido = dgvPersonas.CurrentRow.Cells[3].Value.ToString();
+            DialogResult dr = MessageBox.Show("Desea eliminar a "+nombre+" "+apellido+"?", "Atencion!", MessageBoxButtons.OKCancel);
+            switch (dr)
+            {
+                case DialogResult.OK:
+                    {
+                        BorrarPersona();
+                        break;
+                    }
+                case DialogResult.Cancel:
+                    {
+                        this.Text = "[Cancel]";
+                        break;
+                    }
+            }
+        }
+
+        private void BorrarPersona()
+        {
+            DataSet ds = new DataSet();
+            id_Persona = Convert.ToInt32(dgvPersonas.CurrentRow.Cells[0].Value);
+            
+            int ngrabados = -1;//la utilizo para detectar si fue grabado exitosamente o no
+            if (EditarCatecumeno == true)
+            {
+                objEntCatecumeno.Id_Catecumeno = id_Persona;
+                ngrabados = objNegCatecumeno.abmCatecumeno("Borrar", objEntCatecumeno);
+                AvisoConfirmacion(ngrabados);
+                LlenarDGVCatecumenos("Todos", cual);
+
+            }
+            if (EditarCatequista == true)
+            {
+                catequista.Id_Catequista = id_Persona;
+                ngrabados = negociosCatequistas.abmCatequista("Borrar", catequista);
+                AvisoConfirmacion(ngrabados);
+                LlenarDGVCatequistas("Todos", cual);
+
+            }
+            if (EditarSacerdote == true)
+            {
+                sacerdote.Id_Sacerdote = id_Persona;
+                ngrabados = negociosSacerdotes.abmSacerdotes("Borrar", sacerdote);
+                AvisoConfirmacion(ngrabados);
+                LlenarDGVSacerdotes("Todos", cual);
+
+            }
+
+        }
+
+        private void AvisoConfirmacion(int ngrabados)
+        {
+            if (ngrabados != -1)
+            {
+                MessageBox.Show("la accion se realizo con exito");
+            }
+            else
+            {
+                MessageBox.Show("Se produjo un error al intentar la acción");
+            }
         }
     }
 }

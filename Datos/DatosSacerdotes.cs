@@ -11,7 +11,8 @@ namespace Datos
 {
     public class DatosSacerdotes : DatosConexionBD
     {
-        #region Metodo ABM Catecumeno
+        #region Metodo ABM Sacerdote
+
         public int abmSacerdotes(string accion, Sacerdote objSacerdote)
         {
             int resultado = -1;

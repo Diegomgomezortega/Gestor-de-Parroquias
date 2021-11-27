@@ -33,11 +33,11 @@ namespace FormulariosPresentacion
             this.btnCatecumenos = new System.Windows.Forms.Button();
             this.btnSacerdotes = new System.Windows.Forms.Button();
             this.btnCatequistas = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
-            this.gbxAcciones = new System.Windows.Forms.GroupBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.gbxAcciones = new System.Windows.Forms.GroupBox();
+            this.btnEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).BeginInit();
             this.gbxAcciones.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +59,7 @@ namespace FormulariosPresentacion
             // 
             this.btnCatecumenos.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCatecumenos.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnCatecumenos.Location = new System.Drawing.Point(18, 102);
+            this.btnCatecumenos.Location = new System.Drawing.Point(20, 60);
             this.btnCatecumenos.Name = "btnCatecumenos";
             this.btnCatecumenos.Size = new System.Drawing.Size(148, 37);
             this.btnCatecumenos.TabIndex = 1;
@@ -71,7 +71,7 @@ namespace FormulariosPresentacion
             // 
             this.btnSacerdotes.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnSacerdotes.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnSacerdotes.Location = new System.Drawing.Point(183, 102);
+            this.btnSacerdotes.Location = new System.Drawing.Point(185, 60);
             this.btnSacerdotes.Name = "btnSacerdotes";
             this.btnSacerdotes.Size = new System.Drawing.Size(148, 37);
             this.btnSacerdotes.TabIndex = 2;
@@ -83,24 +83,13 @@ namespace FormulariosPresentacion
             // 
             this.btnCatequistas.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnCatequistas.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnCatequistas.Location = new System.Drawing.Point(348, 102);
+            this.btnCatequistas.Location = new System.Drawing.Point(350, 60);
             this.btnCatequistas.Name = "btnCatequistas";
             this.btnCatequistas.Size = new System.Drawing.Size(148, 37);
             this.btnCatequistas.TabIndex = 3;
             this.btnCatequistas.Text = "Catequistas";
             this.btnCatequistas.UseVisualStyleBackColor = false;
             this.btnCatequistas.Click += new System.EventHandler(this.btnCatequistas_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnEditar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnEditar.Location = new System.Drawing.Point(6, 22);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(99, 29);
-            this.btnEditar.TabIndex = 4;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = false;
             // 
             // btnBorrar
             // 
@@ -112,22 +101,13 @@ namespace FormulariosPresentacion
             this.btnBorrar.TabIndex = 5;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = false;
-            // 
-            // gbxAcciones
-            // 
-            this.gbxAcciones.Controls.Add(this.btnEditar);
-            this.gbxAcciones.Controls.Add(this.btnBorrar);
-            this.gbxAcciones.Location = new System.Drawing.Point(12, 162);
-            this.gbxAcciones.Name = "gbxAcciones";
-            this.gbxAcciones.Size = new System.Drawing.Size(325, 61);
-            this.gbxAcciones.TabIndex = 6;
-            this.gbxAcciones.TabStop = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnNuevo.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnNuevo.Location = new System.Drawing.Point(516, 102);
+            this.btnNuevo.Location = new System.Drawing.Point(518, 60);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(148, 37);
             this.btnNuevo.TabIndex = 7;
@@ -146,6 +126,28 @@ namespace FormulariosPresentacion
             this.btnVolver.Text = "Volver";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
+            // gbxAcciones
+            // 
+            this.gbxAcciones.Controls.Add(this.btnEditar);
+            this.gbxAcciones.Controls.Add(this.btnBorrar);
+            this.gbxAcciones.Location = new System.Drawing.Point(12, 162);
+            this.gbxAcciones.Name = "gbxAcciones";
+            this.gbxAcciones.Size = new System.Drawing.Size(325, 61);
+            this.gbxAcciones.TabIndex = 6;
+            this.gbxAcciones.TabStop = false;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnEditar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.btnEditar.Location = new System.Drawing.Point(6, 22);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(99, 29);
+            this.btnEditar.TabIndex = 4;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // ABM_Personas
             // 
@@ -173,10 +175,10 @@ namespace FormulariosPresentacion
         private System.Windows.Forms.Button btnCatecumenos;
         private System.Windows.Forms.Button btnSacerdotes;
         private System.Windows.Forms.Button btnCatequistas;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnBorrar;
-        private System.Windows.Forms.GroupBox gbxAcciones;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.GroupBox gbxAcciones;
+        private System.Windows.Forms.Button btnEditar;
     }
 }
