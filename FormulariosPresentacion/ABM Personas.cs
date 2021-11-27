@@ -204,7 +204,7 @@ namespace FormulariosPresentacion
                 ds = objNegCatecumeno.listadoCatecumenos("", id_Persona);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    Editar.Ds_a_TxtBox(ds, EditarCatecumeno, id_Persona);
+                    Editar.Ds_a_TxtBox(ds, EditarCatecumeno, id_Persona,0);
                     
                 }
 
@@ -214,7 +214,7 @@ namespace FormulariosPresentacion
                 ds = negociosCatequistas.listadoCatequistas("", id_Persona);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    Editar.Ds_a_TxtBox(ds, EditarCatequista, id_Persona);
+                    Editar.Ds_a_TxtBox(ds, EditarCatequista, id_Persona,1);
                 }
 
             }
@@ -223,7 +223,7 @@ namespace FormulariosPresentacion
                 ds = negociosSacerdotes.listadoSacerdotes("", id_Persona);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    Editar.Ds_a_TxtBox(ds, EditarSacerdote, id_Persona);
+                    Editar.Ds_a_TxtBox(ds, EditarSacerdote, id_Persona,2);
                     
                 }
 

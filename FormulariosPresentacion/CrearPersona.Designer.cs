@@ -135,6 +135,7 @@ namespace FormulariosPresentacion
             this.txtDNI.Size = new System.Drawing.Size(120, 23);
             this.txtDNI.TabIndex = 13;
             this.txtDNI.TextChanged += new System.EventHandler(this.txtDNI_TextChanged);
+            this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
             // txtApellido
             // 
@@ -142,6 +143,7 @@ namespace FormulariosPresentacion
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(120, 23);
             this.txtApellido.TabIndex = 15;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtTelefono
             // 
@@ -149,6 +151,7 @@ namespace FormulariosPresentacion
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(120, 23);
             this.txtTelefono.TabIndex = 16;
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // lblNuevaPersona
             // 
@@ -233,6 +236,7 @@ namespace FormulariosPresentacion
             this.cbxDia.Name = "cbxDia";
             this.cbxDia.Size = new System.Drawing.Size(101, 23);
             this.cbxDia.TabIndex = 22;
+            this.cbxDia.SelectedIndexChanged += new System.EventHandler(this.cbxDia_SelectedIndexChanged);
             // 
             // cbxSalon
             // 
@@ -267,6 +271,7 @@ namespace FormulariosPresentacion
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(120, 23);
             this.txtNombre.TabIndex = 14;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblRol
             // 
@@ -285,6 +290,7 @@ namespace FormulariosPresentacion
             this.btnConfirmar.TabIndex = 23;
             this.btnConfirmar.Text = "CONFIRMAR";
             this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Visible = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // btnCancelar
@@ -323,6 +329,7 @@ namespace FormulariosPresentacion
             this.Controls.Add(this.lbDNI);
             this.Name = "CrearPersona";
             this.Text = "CrearPersona";
+            this.Load += new System.EventHandler(this.CrearPersona_Load);
             this.gbSalon.ResumeLayout(false);
             this.gbSalon.PerformLayout();
             this.ResumeLayout(false);
