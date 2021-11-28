@@ -56,9 +56,10 @@ namespace FormulariosPresentacion
         DateTime Fecha;
         string Tema;
 
-        public void LlenarDGV(DataSet ds, int id_Catequesis)
+        public void LlenarDGV(DataSet ds, int id_Catequesis, string nombreSalon)
 
         {
+            
             Cod_Catequesis = id_Catequesis;
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -74,25 +75,33 @@ namespace FormulariosPresentacion
             dgvPersonas.Visible = true;
             CantidadCate = dgvPersonas.Rows.Count;
             lblCantidad.Text = System.Convert.ToString(CantidadCate);
-            
+            lblNombreSalon.Text = nombreSalon;
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Fecha = dtpFecha.Value;
-            Tema = txtTema.Text;
-            Id_Catecumeno = new int[CantidadCate];
-            PresenteCate = new char [CantidadCate];
-            for (i = 0; i < CantidadCate; i++)
+            if (txtTema.Text == string.Empty)
             {
-                Id_Catecumeno[i] = System.Convert.ToInt32(dgvPersonas.Rows[i].Cells[0].Value);
+                MessageBox.Show("Por favor, ingrese el tema del encuentro.");
 
             }
-            i = 0;
-            foreach (DataGridViewRow row in dgvPersonas.Rows)
+            else
             {
-                DataGridViewCheckBoxCell cell = row.Cells[3] as DataGridViewCheckBoxCell;
-                
+                Fecha = dtpFecha.Value;
+                Tema = txtTema.Text;
+                Id_Catecumeno = new int[CantidadCate];
+                PresenteCate = new char[CantidadCate];
+                for (i = 0; i < CantidadCate; i++)
+                {
+                    Id_Catecumeno[i] = System.Convert.ToInt32(dgvPersonas.Rows[i].Cells[0].Value);
+
+                }
+                i = 0;
+                foreach (DataGridViewRow row in dgvPersonas.Rows)
+                {
+                    DataGridViewCheckBoxCell cell = row.Cells[3] as DataGridViewCheckBoxCell;
+
                     if (System.Convert.ToBoolean(cell.Value) == true)
                     {
                         PresenteCate[i] = 'p';
@@ -101,36 +110,75 @@ namespace FormulariosPresentacion
                     {
                         PresenteCate[i] = 'a';
                     }
-                
-                i++;
-            }
-            for (i = 0; i < CantidadCate; i++)
-            {
-                if (i == 0)
+
+                    i++;
+                }
+                for (i = 0; i < CantidadCate; i++)
                 {
-                    ordenSQL = ordenSQL + "('" + Fecha.Year + " / " + Fecha.Date.Month + " / " + Fecha.Date.Day + "','" + Tema + "','" + PresenteCate[i] + "'," + Id_Catecumeno[i] + "," + Cod_Catequesis + ")";
+                    if (i == 0)
+                    {
+                        ordenSQL = ordenSQL + "('" + Fecha.Year + " / " + Fecha.Date.Month + " / " + Fecha.Date.Day + "','" + Tema + "','" + PresenteCate[i] + "'," + Id_Catecumeno[i] + "," + Cod_Catequesis + ")";
+                    }
+                    else
+                    {
+                        ordenSQL = ordenSQL + ",";
+                        ordenSQL = ordenSQL + "('" + Fecha.Year + " / " + Fecha.Date.Month + " / " + Fecha.Date.Day + "','" + Tema + "','" + PresenteCate[i] + "'," + Id_Catecumeno[i] + "," + Cod_Catequesis + ")";
+                    }
+
+                }
+                int ngrabados = -1;
+                ngrabados = negociosAsistencia.altaAsistencia(ordenSQL);
+                if (ngrabados != -1)
+                {
+                    MessageBox.Show("la accion se realizo con exito");
+
                 }
                 else
                 {
-                    ordenSQL = ordenSQL + ",";
-                    ordenSQL = ordenSQL + "('" + Fecha.Year + " / " + Fecha.Date.Month + " / " + Fecha.Date.Day + "','" + Tema + "','" + PresenteCate[i] + "'," + Id_Catecumeno[i] + "," + Cod_Catequesis + ")";
+                    MessageBox.Show("Se produjo un error al intentar la acción");
                 }
-                
+                this.Close();
+
+
             }
-            int ngrabados = -1;
-            ngrabados = negociosAsistencia.altaAsistencia(ordenSQL);
-            if (ngrabados != -1)
+
+
+        }
+
+        private void txtTema_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtTema.Text.Length <= 99)
             {
-                MessageBox.Show("la accion se realizo con exito");
+
+                if (Char.IsLetter(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsControl(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsSeparator(e.KeyChar))
+                {
+                    e.Handled = false;
+                }
+                else if (Char.IsDigit(e.KeyChar))
+                {
+                                        
+                        e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
 
             }
             else
             {
-                MessageBox.Show("Se produjo un error al intentar la acción");
+
+                MessageBox.Show("Solo 100 caracteres disponibles");
+                txtTema.Text = string.Empty;
             }
-            this.Close();
-
-
         }
     }
 }

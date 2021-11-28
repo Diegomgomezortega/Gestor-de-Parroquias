@@ -214,7 +214,7 @@ namespace FormulariosPresentacion
             DataSet ds = new DataSet();
             ds = negociosCatecumeno.listadoCatecumenos("Asistencia", cual);
             Asistencia asistencia = new Asistencia();
-            asistencia.LlenarDGV(ds,cual);
+            asistencia.LlenarDGV(ds,cual,salon);
             asistencia.Show();
 
             //if (ds.Tables[0].Rows.Count > 0)
