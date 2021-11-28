@@ -10,9 +10,10 @@ namespace Datos
 {
     public class DatosAsistencia: DatosConexionBD
     {
-        public int AltaAsistencia(string accion, string orden)
+        public int AltaAsistencia( string orden)
         {
             int resultado = -1;
+            
             //string orden = string.Empty;
             //if (accion == "Alta")
                 //orden=insert into Catecumenos values(37594703,'Diana','Pezzelato',2512644879,'1993-10-05','f',8)

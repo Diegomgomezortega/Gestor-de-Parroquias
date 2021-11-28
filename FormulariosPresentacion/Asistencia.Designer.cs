@@ -41,6 +41,7 @@ namespace FormulariosPresentacion
             this.lblFecha = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.lblCantidad = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -149,11 +150,21 @@ namespace FormulariosPresentacion
             this.lblTotal.TabIndex = 7;
             this.lblTotal.Text = "Total:";
             // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCantidad.Location = new System.Drawing.Point(581, 208);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(0, 23);
+            this.lblCantidad.TabIndex = 8;
+            // 
             // Asistencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.lblFecha);
@@ -182,5 +193,6 @@ namespace FormulariosPresentacion
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Presente;
         private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblCantidad;
     }
 }

@@ -18,9 +18,9 @@ namespace Negocios
         //}
 
         DatosAsistencia objDatosAsistencia = new DatosAsistencia();
-        public int altaAsistencia(string accion, string orden)
+        public int altaAsistencia( string orden)
         {
-            return objDatosAsistencia.AltaAsistencia(accion, orden);
+            return objDatosAsistencia.AltaAsistencia(orden);
         }
     }
 }

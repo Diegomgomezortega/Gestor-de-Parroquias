@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using Negocios;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -44,12 +45,16 @@ namespace FormulariosPresentacion
             #endregion
 
         }
-        string ordenSQL;
+        NegociosAsistencia negociosAsistencia = new NegociosAsistencia();
+        
+        string ordenSQL= "insert into Asistencia (Fecha,Tema,Asistencia,Id_Catecumeno,Cod_Catequesis) values ";
         char[] PresenteCate;
         int[] Id_Catecumeno;
         int Cod_Catequesis;
         int CantidadCate;
         int i;
+        DateTime Fecha;
+        string Tema;
 
         public void LlenarDGV(DataSet ds, int id_Catequesis)
 
@@ -68,13 +73,14 @@ namespace FormulariosPresentacion
             }
             dgvPersonas.Visible = true;
             CantidadCate = dgvPersonas.Rows.Count;
+            lblCantidad.Text = System.Convert.ToString(CantidadCate);
             
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
-            
+            Fecha = dtpFecha.Value;
+            Tema = txtTema.Text;
             Id_Catecumeno = new int[CantidadCate];
             PresenteCate = new char [CantidadCate];
             for (i = 0; i < CantidadCate; i++)
@@ -87,8 +93,6 @@ namespace FormulariosPresentacion
             {
                 DataGridViewCheckBoxCell cell = row.Cells[3] as DataGridViewCheckBoxCell;
                 
-                
-                
                     if (System.Convert.ToBoolean(cell.Value) == true)
                     {
                         PresenteCate[i] = 'p';
@@ -100,8 +104,33 @@ namespace FormulariosPresentacion
                 
                 i++;
             }
+            for (i = 0; i < CantidadCate; i++)
+            {
+                if (i == 0)
+                {
+                    ordenSQL = ordenSQL + "('" + Fecha.Year + " / " + Fecha.Date.Month + " / " + Fecha.Date.Day + "','" + Tema + "','" + PresenteCate[i] + "'," + Id_Catecumeno[i] + "," + Cod_Catequesis + ")";
+                }
+                else
+                {
+                    ordenSQL = ordenSQL + ",";
+                    ordenSQL = ordenSQL + "('" + Fecha.Year + " / " + Fecha.Date.Month + " / " + Fecha.Date.Day + "','" + Tema + "','" + PresenteCate[i] + "'," + Id_Catecumeno[i] + "," + Cod_Catequesis + ")";
+                }
+                
+            }
+            int ngrabados = -1;
+            ngrabados = negociosAsistencia.altaAsistencia(ordenSQL);
+            if (ngrabados != -1)
+            {
+                MessageBox.Show("la accion se realizo con exito");
 
-            
+            }
+            else
+            {
+                MessageBox.Show("Se produjo un error al intentar la acción");
+            }
+            this.Close();
+
+
         }
     }
 }
