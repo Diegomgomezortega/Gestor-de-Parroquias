@@ -18,24 +18,24 @@ namespace FormulariosPresentacion
         {
             InitializeComponent();
             #region Formato DGV
-            DataGridViewCheckBoxColumn columnaCheck = new DataGridViewCheckBoxColumn();
-            DataGridViewTextBoxColumn colNombre = new DataGridViewTextBoxColumn();
-            DataGridViewTextBoxColumn colApellido = new DataGridViewTextBoxColumn();
+            //DataGridViewCheckBoxColumn columnaCheck = new DataGridViewCheckBoxColumn();
+            //DataGridViewTextBoxColumn colNombre = new DataGridViewTextBoxColumn();
+            //DataGridViewTextBoxColumn colApellido = new DataGridViewTextBoxColumn();
             
 
-            //dgvCatecumenos.Columns[1].HeaderText = "DNI";
-            dgvCatecumenos.Columns.Add(colNombre);
-            colNombre.Name = "Nombre";
+            ////dgvCatecumenos.Columns[1].HeaderText = "DNI";
+            //dgvCatecumenos.Columns.Add(colNombre);
+            //colNombre.Name = "Nombre";
 
-            dgvCatecumenos.Columns[0].HeaderText = "Nombre";
-            dgvCatecumenos.Columns["Nombre"].ReadOnly = true;
-            dgvCatecumenos.Columns.Add(colApellido);
-            colApellido.Name = "Apellido";
-            dgvCatecumenos.Columns[1].HeaderText = "Apellido";
-            dgvCatecumenos.Columns["Apellido"].ReadOnly = true;
+            //dgvCatecumenos.Columns[0].HeaderText = "Nombre";
+            //dgvCatecumenos.Columns["Nombre"].ReadOnly = true;
+            //dgvCatecumenos.Columns.Add(colApellido);
+            //colApellido.Name = "Apellido";
+            //dgvCatecumenos.Columns[1].HeaderText = "Apellido";
+            //dgvCatecumenos.Columns["Apellido"].ReadOnly = true;
             
-            dgvCatecumenos.Columns.Add(columnaCheck);
-            dgvCatecumenos.Columns[2].HeaderText = "Presente";
+            //dgvCatecumenos.Columns.Add(columnaCheck);
+            //dgvCatecumenos.Columns[2].HeaderText = "Presente";
             //dgvCatecumenos.Columns[4].HeaderText = "TELEFONO";
             //dgvCatecumenos.Columns[5].HeaderText = "NACIMIENTO";
             //dgvCatecumenos.Columns[6].HeaderText = "SEXO";
@@ -49,6 +49,9 @@ namespace FormulariosPresentacion
             //dgvCatecumenos.Columns[6].Width = 100;
             //dgvCatecumenos.Columns[7].Width = 50;
             #endregion
+            cbxSalon.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
+            cbxCapilla.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
+            cbxDia.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
             GetCapillas();
 
 
@@ -57,6 +60,7 @@ namespace FormulariosPresentacion
         public int[] idCatequesis;
         public int i;
         public string salon;
+        public string salonhora;
         public int cual;
         public string que = "";
         public bool capillas;
@@ -69,38 +73,38 @@ namespace FormulariosPresentacion
         public NegociosCatecumenos negociosCatecumeno = new NegociosCatecumenos();
         public NegociosParroquias negociosParroquias = new NegociosParroquias();
         public NegociosAsistencia negociosAsistencia = new NegociosAsistencia();
-        private void LlenarDGV(string que, int cual)
+        //private void LlenarDGV(string que, int cual)
 
-        {
-            dgvCatecumenos.Rows.Clear();//vacia el DGV
-            DataSet ds = new DataSet();
-            ds = negociosCatecumeno.listadoCatecumenos(que, cual);//Data set devuelve una lista, en este caso de catecumenos cargados, como el argumento es "Todos", me devolvera todos las personas cargadas
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
-                {
-                    if (Convert.ToString(dr[6]) == "m")
-                    {
-                        dr[6] = "Masculino";
-                    }
-                    if (Convert.ToString(dr[6]) == "f")
-                    {
-                        dr[6] = "Femenino";
-                    }
-                    if (Convert.ToString(dr[6]) == "X")
-                    {
-                        dr[6] = "Indefinido";
-                    }
-                    dgvCatecumenos.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], Convert.ToDateTime(dr[5]).ToShortDateString(), dr[6], dr[7].ToString());////Rellena el dgv por cada ds que trae de la bd
-                }
-            }
-            else
-            {
-                //lblInformacion.Text = "No hay personas cargadas en el sistema";
-            }
-            dgvCatecumenos.Visible = true;
+        //{
+        //    dgvCatecumenos.Rows.Clear();//vacia el DGV
+        //    DataSet ds = new DataSet();
+        //    ds = negociosCatecumeno.listadoCatecumenos(que, cual);//Data set devuelve una lista, en este caso de catecumenos cargados, como el argumento es "Todos", me devolvera todos las personas cargadas
+        //    if (ds.Tables[0].Rows.Count > 0)
+        //    {
+        //        foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
+        //        {
+        //            if (Convert.ToString(dr[6]) == "m")
+        //            {
+        //                dr[6] = "Masculino";
+        //            }
+        //            if (Convert.ToString(dr[6]) == "f")
+        //            {
+        //                dr[6] = "Femenino";
+        //            }
+        //            if (Convert.ToString(dr[6]) == "X")
+        //            {
+        //                dr[6] = "Indefinido";
+        //            }
+        //            dgvCatecumenos.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], Convert.ToDateTime(dr[5]).ToShortDateString(), dr[6], dr[7].ToString());////Rellena el dgv por cada ds que trae de la bd
+        //        }
+        //    }
+        //    else
+        //    {
+        //        //lblInformacion.Text = "No hay personas cargadas en el sistema";
+        //    }
+        //    dgvCatecumenos.Visible = true;
 
-        }
+        //}
 
         private void btnNuevaPersona_Click(object sender, EventArgs e)
         {
@@ -110,7 +114,7 @@ namespace FormulariosPresentacion
 
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
-            LlenarDGV("Todos",cual);
+            //LlenarDGV("Todos",cual);
         }
 
         private void cargarNuevaPersonaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,9 +125,9 @@ namespace FormulariosPresentacion
 
         private void todosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            que = "Todos";            
-            LlenarDGV(que,cual);
-            dgvCatecumenos.Visible = true;
+            //que = "Todos";            
+            //LlenarDGV(que,cual);
+            //dgvCatecumenos.Visible = true;
         }
 
         private void todosToolStripMenuItem3_Click(object sender, EventArgs e)
@@ -214,35 +218,21 @@ namespace FormulariosPresentacion
             DataSet ds = new DataSet();
             ds = negociosCatecumeno.listadoCatecumenos("Asistencia", cual);
             Asistencia asistencia = new Asistencia();
-            asistencia.LlenarDGV(ds,cual,salon);
+            asistencia.LlenarDGV(ds,cual,salonhora);
             asistencia.Show();
-
-            //if (ds.Tables[0].Rows.Count > 0)
-            //{
-            //    foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
-            //    {
-            //        dgvCatecumenos.Rows.Add(dr[0], dr[1]);////Rellena el dgv por cada ds que trae de la bd
-            //    }
-            //}
-            //else
-            //{
-            //    //lblInformacion.Text = "No hay personas cargadas en el sistema";
-            //}
-            //dgvCatecumenos.Visible = true;
-
-           
 
         }
 
         private void cbxDia_SelectedIndexChanged(object sender, EventArgs e)
         {
+            salonhora = salon+": "+ System.Convert.ToString(cbxDia.SelectedItem);
 
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             gbxFiltro.Visible = false;
-            dgvCatecumenos.Visible = false;
+            //dgvCatecumenos.Visible = false;
             catequesis = false;
             capillas = false;
         }

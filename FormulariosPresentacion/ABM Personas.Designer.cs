@@ -45,6 +45,7 @@ namespace FormulariosPresentacion
             // 
             // dgvPersonas
             // 
+            this.dgvPersonas.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dgvPersonas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonas.Location = new System.Drawing.Point(12, 229);
             this.dgvPersonas.Name = "dgvPersonas";
@@ -58,7 +59,7 @@ namespace FormulariosPresentacion
             // 
             // btnCatecumenos
             // 
-            this.btnCatecumenos.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCatecumenos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnCatecumenos.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.btnCatecumenos.Location = new System.Drawing.Point(20, 60);
             this.btnCatecumenos.Name = "btnCatecumenos";
@@ -70,7 +71,7 @@ namespace FormulariosPresentacion
             // 
             // btnSacerdotes
             // 
-            this.btnSacerdotes.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnSacerdotes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSacerdotes.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.btnSacerdotes.Location = new System.Drawing.Point(185, 60);
             this.btnSacerdotes.Name = "btnSacerdotes";
@@ -82,7 +83,7 @@ namespace FormulariosPresentacion
             // 
             // btnCatequistas
             // 
-            this.btnCatequistas.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnCatequistas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnCatequistas.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.btnCatequistas.Location = new System.Drawing.Point(350, 60);
             this.btnCatequistas.Name = "btnCatequistas";
@@ -106,7 +107,7 @@ namespace FormulariosPresentacion
             // 
             // btnNuevo
             // 
-            this.btnNuevo.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnNuevo.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.btnNuevo.Location = new System.Drawing.Point(518, 60);
             this.btnNuevo.Name = "btnNuevo";
@@ -118,7 +119,7 @@ namespace FormulariosPresentacion
             // 
             // btnVolver
             // 
-            this.btnVolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnVolver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnVolver.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.btnVolver.Location = new System.Drawing.Point(689, 12);
             this.btnVolver.Name = "btnVolver";
@@ -166,6 +167,7 @@ namespace FormulariosPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 510);
             this.Controls.Add(this.lblInformacion);
             this.Controls.Add(this.btnVolver);

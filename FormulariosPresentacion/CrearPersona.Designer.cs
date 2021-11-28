@@ -61,95 +61,106 @@ namespace FormulariosPresentacion
             // lbDNI
             // 
             this.lbDNI.AutoSize = true;
-            this.lbDNI.Location = new System.Drawing.Point(57, 127);
+            this.lbDNI.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lbDNI.Location = new System.Drawing.Point(32, 128);
             this.lbDNI.Name = "lbDNI";
-            this.lbDNI.Size = new System.Drawing.Size(70, 15);
+            this.lbDNI.Size = new System.Drawing.Size(76, 19);
             this.lbDNI.TabIndex = 0;
             this.lbDNI.Text = "Documento";
             // 
             // cbxRol
             // 
+            this.cbxRol.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.cbxRol.FormattingEnabled = true;
-            this.cbxRol.Location = new System.Drawing.Point(135, 87);
+            this.cbxRol.Location = new System.Drawing.Point(110, 88);
             this.cbxRol.Name = "cbxRol";
-            this.cbxRol.Size = new System.Drawing.Size(121, 23);
+            this.cbxRol.Size = new System.Drawing.Size(200, 27);
             this.cbxRol.TabIndex = 12;
             this.cbxRol.SelectedIndexChanged += new System.EventHandler(this.cbxRol_SelectedIndexChanged);
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(57, 168);
+            this.lblNombre.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblNombre.Location = new System.Drawing.Point(32, 169);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(51, 15);
+            this.lblNombre.Size = new System.Drawing.Size(58, 19);
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre";
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(57, 214);
+            this.lblApellido.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblApellido.Location = new System.Drawing.Point(32, 215);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(51, 15);
+            this.lblApellido.Size = new System.Drawing.Size(60, 19);
             this.lblApellido.TabIndex = 3;
             this.lblApellido.Text = "Apellido";
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(57, 256);
+            this.lblTelefono.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblTelefono.Location = new System.Drawing.Point(32, 257);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(52, 15);
+            this.lblTelefono.Size = new System.Drawing.Size(64, 19);
             this.lblTelefono.TabIndex = 4;
             this.lblTelefono.Text = "Teléfono";
             // 
             // lblFechaNac
             // 
             this.lblFechaNac.AutoSize = true;
-            this.lblFechaNac.Location = new System.Drawing.Point(58, 299);
+            this.lblFechaNac.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblFechaNac.Location = new System.Drawing.Point(33, 300);
             this.lblFechaNac.Name = "lblFechaNac";
-            this.lblFechaNac.Size = new System.Drawing.Size(69, 15);
+            this.lblFechaNac.Size = new System.Drawing.Size(79, 19);
             this.lblFechaNac.TabIndex = 6;
             this.lblFechaNac.Text = "Nacimiento";
             // 
             // dtpFecNac
             // 
-            this.dtpFecNac.Location = new System.Drawing.Point(135, 299);
+            this.dtpFecNac.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.dtpFecNac.Location = new System.Drawing.Point(110, 300);
             this.dtpFecNac.Name = "dtpFecNac";
-            this.dtpFecNac.Size = new System.Drawing.Size(200, 23);
+            this.dtpFecNac.Size = new System.Drawing.Size(199, 26);
             this.dtpFecNac.TabIndex = 17;
             // 
             // lblSexo
             // 
             this.lblSexo.AutoSize = true;
-            this.lblSexo.Location = new System.Drawing.Point(57, 342);
+            this.lblSexo.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblSexo.Location = new System.Drawing.Point(32, 343);
             this.lblSexo.Name = "lblSexo";
-            this.lblSexo.Size = new System.Drawing.Size(32, 15);
+            this.lblSexo.Size = new System.Drawing.Size(40, 19);
             this.lblSexo.TabIndex = 8;
             this.lblSexo.Text = "Sexo";
             // 
             // txtDNI
             // 
-            this.txtDNI.Location = new System.Drawing.Point(134, 127);
+            this.txtDNI.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.txtDNI.Location = new System.Drawing.Point(109, 128);
             this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Size = new System.Drawing.Size(120, 23);
+            this.txtDNI.Size = new System.Drawing.Size(199, 26);
             this.txtDNI.TabIndex = 13;
             this.txtDNI.TextChanged += new System.EventHandler(this.txtDNI_TextChanged);
             this.txtDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDNI_KeyPress);
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(134, 206);
+            this.txtApellido.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.txtApellido.Location = new System.Drawing.Point(109, 207);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(120, 23);
+            this.txtApellido.Size = new System.Drawing.Size(199, 26);
             this.txtApellido.TabIndex = 15;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(134, 248);
+            this.txtTelefono.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.txtTelefono.Location = new System.Drawing.Point(109, 249);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(120, 23);
+            this.txtTelefono.Size = new System.Drawing.Size(199, 26);
             this.txtTelefono.TabIndex = 16;
             this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
@@ -157,7 +168,7 @@ namespace FormulariosPresentacion
             // 
             this.lblNuevaPersona.AutoSize = true;
             this.lblNuevaPersona.Font = new System.Drawing.Font("Arial", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblNuevaPersona.Location = new System.Drawing.Point(168, 23);
+            this.lblNuevaPersona.Location = new System.Drawing.Point(133, 23);
             this.lblNuevaPersona.Name = "lblNuevaPersona";
             this.lblNuevaPersona.Size = new System.Drawing.Size(185, 29);
             this.lblNuevaPersona.TabIndex = 17;
@@ -167,9 +178,10 @@ namespace FormulariosPresentacion
             // 
             this.rbMasculino.AutoSize = true;
             this.rbMasculino.Checked = true;
-            this.rbMasculino.Location = new System.Drawing.Point(135, 342);
+            this.rbMasculino.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.rbMasculino.Location = new System.Drawing.Point(110, 343);
             this.rbMasculino.Name = "rbMasculino";
-            this.rbMasculino.Size = new System.Drawing.Size(80, 19);
+            this.rbMasculino.Size = new System.Drawing.Size(87, 23);
             this.rbMasculino.TabIndex = 18;
             this.rbMasculino.TabStop = true;
             this.rbMasculino.Text = "Masculino";
@@ -178,9 +190,10 @@ namespace FormulariosPresentacion
             // rbFemenino
             // 
             this.rbFemenino.AutoSize = true;
-            this.rbFemenino.Location = new System.Drawing.Point(235, 342);
+            this.rbFemenino.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.rbFemenino.Location = new System.Drawing.Point(210, 343);
             this.rbFemenino.Name = "rbFemenino";
-            this.rbFemenino.Size = new System.Drawing.Size(78, 19);
+            this.rbFemenino.Size = new System.Drawing.Size(84, 23);
             this.rbFemenino.TabIndex = 19;
             this.rbFemenino.TabStop = true;
             this.rbFemenino.Text = "Femenino";
@@ -195,9 +208,10 @@ namespace FormulariosPresentacion
             this.gbSalon.Controls.Add(this.cbxSalon);
             this.gbSalon.Controls.Add(this.cbxCapilla);
             this.gbSalon.Controls.Add(this.lblSalon);
-            this.gbSalon.Location = new System.Drawing.Point(41, 367);
+            this.gbSalon.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.gbSalon.Location = new System.Drawing.Point(12, 367);
             this.gbSalon.Name = "gbSalon";
-            this.gbSalon.Size = new System.Drawing.Size(419, 107);
+            this.gbSalon.Size = new System.Drawing.Size(477, 133);
             this.gbSalon.TabIndex = 20;
             this.gbSalon.TabStop = false;
             this.gbSalon.Visible = false;
@@ -205,18 +219,18 @@ namespace FormulariosPresentacion
             // lblHorario
             // 
             this.lblHorario.AutoSize = true;
-            this.lblHorario.Location = new System.Drawing.Point(276, 48);
+            this.lblHorario.Location = new System.Drawing.Point(312, 48);
             this.lblHorario.Name = "lblHorario";
-            this.lblHorario.Size = new System.Drawing.Size(47, 15);
+            this.lblHorario.Size = new System.Drawing.Size(56, 19);
             this.lblHorario.TabIndex = 19;
             this.lblHorario.Text = "Horario";
             // 
             // labelSalon
             // 
             this.labelSalon.AutoSize = true;
-            this.labelSalon.Location = new System.Drawing.Point(144, 48);
+            this.labelSalon.Location = new System.Drawing.Point(155, 48);
             this.labelSalon.Name = "labelSalon";
-            this.labelSalon.Size = new System.Drawing.Size(36, 15);
+            this.labelSalon.Size = new System.Drawing.Size(43, 19);
             this.labelSalon.TabIndex = 18;
             this.labelSalon.Text = "Salón";
             // 
@@ -225,25 +239,25 @@ namespace FormulariosPresentacion
             this.lblCapilla.AutoSize = true;
             this.lblCapilla.Location = new System.Drawing.Point(17, 48);
             this.lblCapilla.Name = "lblCapilla";
-            this.lblCapilla.Size = new System.Drawing.Size(43, 15);
+            this.lblCapilla.Size = new System.Drawing.Size(50, 19);
             this.lblCapilla.TabIndex = 17;
             this.lblCapilla.Text = "Capilla";
             // 
             // cbxDia
             // 
             this.cbxDia.FormattingEnabled = true;
-            this.cbxDia.Location = new System.Drawing.Point(276, 78);
+            this.cbxDia.Location = new System.Drawing.Point(312, 78);
             this.cbxDia.Name = "cbxDia";
-            this.cbxDia.Size = new System.Drawing.Size(101, 23);
+            this.cbxDia.Size = new System.Drawing.Size(140, 27);
             this.cbxDia.TabIndex = 22;
             this.cbxDia.SelectedIndexChanged += new System.EventHandler(this.cbxDia_SelectedIndexChanged);
             // 
             // cbxSalon
             // 
             this.cbxSalon.FormattingEnabled = true;
-            this.cbxSalon.Location = new System.Drawing.Point(144, 78);
+            this.cbxSalon.Location = new System.Drawing.Point(156, 78);
             this.cbxSalon.Name = "cbxSalon";
-            this.cbxSalon.Size = new System.Drawing.Size(110, 23);
+            this.cbxSalon.Size = new System.Drawing.Size(150, 27);
             this.cbxSalon.TabIndex = 21;
             this.cbxSalon.SelectedIndexChanged += new System.EventHandler(this.cbxSalon_SelectedIndexChanged);
             // 
@@ -252,7 +266,7 @@ namespace FormulariosPresentacion
             this.cbxCapilla.FormattingEnabled = true;
             this.cbxCapilla.Location = new System.Drawing.Point(17, 78);
             this.cbxCapilla.Name = "cbxCapilla";
-            this.cbxCapilla.Size = new System.Drawing.Size(101, 23);
+            this.cbxCapilla.Size = new System.Drawing.Size(125, 27);
             this.cbxCapilla.TabIndex = 20;
             this.cbxCapilla.SelectedIndexChanged += new System.EventHandler(this.cbxCapilla_SelectedIndexChanged);
             // 
@@ -261,53 +275,60 @@ namespace FormulariosPresentacion
             this.lblSalon.AutoSize = true;
             this.lblSalon.Location = new System.Drawing.Point(16, 19);
             this.lblSalon.Name = "lblSalon";
-            this.lblSalon.Size = new System.Drawing.Size(127, 15);
+            this.lblSalon.Size = new System.Drawing.Size(152, 19);
             this.lblSalon.TabIndex = 12;
             this.lblSalon.Text = "Seleccionar Catequesis";
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(135, 165);
+            this.txtNombre.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.txtNombre.Location = new System.Drawing.Point(110, 166);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(120, 23);
+            this.txtNombre.Size = new System.Drawing.Size(199, 26);
             this.txtNombre.TabIndex = 14;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblRol
             // 
             this.lblRol.AutoSize = true;
-            this.lblRol.Location = new System.Drawing.Point(57, 95);
+            this.lblRol.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblRol.Location = new System.Drawing.Point(32, 96);
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(24, 15);
+            this.lblRol.Size = new System.Drawing.Size(28, 19);
             this.lblRol.TabIndex = 22;
             this.lblRol.Text = "Rol";
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(114, 506);
+            this.btnConfirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnConfirmar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.btnConfirmar.Location = new System.Drawing.Point(109, 506);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(101, 23);
+            this.btnConfirmar.Size = new System.Drawing.Size(101, 39);
             this.btnConfirmar.TabIndex = 23;
             this.btnConfirmar.Text = "CONFIRMAR";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Visible = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(235, 506);
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnCancelar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.Location = new System.Drawing.Point(233, 506);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(101, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(101, 39);
             this.btnCancelar.TabIndex = 24;
             this.btnCancelar.Text = "CANCELAR";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // CrearPersona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(548, 585);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(488, 585);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.lblRol);

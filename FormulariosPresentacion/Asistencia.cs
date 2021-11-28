@@ -17,30 +17,7 @@ namespace FormulariosPresentacion
         {
             InitializeComponent();
             #region Formato DGV
-            //DataGridViewCheckBoxColumn columnaCheck = new DataGridViewCheckBoxColumn();
-            //DataGridViewTextBoxColumn colNombre = new DataGridViewTextBoxColumn();
-            //DataGridViewTextBoxColumn colApellido = new DataGridViewTextBoxColumn();
-            //DataGridViewTextBoxColumn colId = new DataGridViewTextBoxColumn();
-
-            ////dgvCatecumenos.Columns[1].HeaderText = "DNI";
-            //dgvPersonas.Columns.Add(colId);
-            //colId.Name = "Id";
-            //dgvPersonas.Columns["Id"].ReadOnly = true;
-            //dgvPersonas.Columns[0].HeaderText = "Id";
-
-            //dgvPersonas.Columns.Add(colNombre);
-            //colNombre.Name = "Nombre";
-            //dgvPersonas.Columns[1].HeaderText = "Nombre";
-            //dgvPersonas.Columns["Nombre"].ReadOnly = true;
-
-            //dgvPersonas.Columns.Add(colApellido);
-            //colApellido.Name = "Apellido";
-            //dgvPersonas.Columns[2].HeaderText = "Apellido";
-            //dgvPersonas.Columns["Apellido"].ReadOnly = true;
-
-            //dgvPersonas.Columns.Add(columnaCheck);
-            //columnaCheck.Name = "Presente";
-            //dgvPersonas.Columns[3].HeaderText = "Presente";
+           
             
             #endregion
 
@@ -84,6 +61,7 @@ namespace FormulariosPresentacion
             if (txtTema.Text == string.Empty)
             {
                 MessageBox.Show("Por favor, ingrese el tema del encuentro.");
+                txtTema.Focus();
 
             }
             else
@@ -147,38 +125,43 @@ namespace FormulariosPresentacion
 
         private void txtTema_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtTema.Text.Length <= 99)
-            {
+            //if (txtTema.Text.Length <= 99)
+            //{
 
-                if (Char.IsLetter(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else if (Char.IsControl(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else if (Char.IsSeparator(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else if (Char.IsDigit(e.KeyChar))
-                {
+            //    if (Char.IsLetter(e.KeyChar))
+            //    {
+            //        e.Handled = false;
+            //    }
+            //    else if (Char.IsControl(e.KeyChar))
+            //    {
+            //        e.Handled = false;
+            //    }
+            //    else if (Char.IsSeparator(e.KeyChar))
+            //    {
+            //        e.Handled = false;
+            //    }
+            //    else if (Char.IsDigit(e.KeyChar))
+            //    {
                                         
-                        e.Handled = false;
-                }
-                else
-                {
-                    e.Handled = true;
-                }
+            //            e.Handled = false;
+            //    }
+            //    else
+            //    {
+            //        e.Handled = true;
+            //    }
 
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
-                MessageBox.Show("Solo 100 caracteres disponibles");
-                txtTema.Text = string.Empty;
-            }
+            //    MessageBox.Show("Solo 100 caracteres disponibles");
+            //    txtTema.Text = string.Empty;
+            //}
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
