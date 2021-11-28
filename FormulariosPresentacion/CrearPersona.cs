@@ -27,11 +27,7 @@ namespace FormulariosPresentacion
             cbxSalon.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
             cbxCapilla.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
             cbxDia.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
-            if (editarpersona == true)
-            {
-                lblNuevaPersona.Text = "Editar Persona";
-                cbxRol.Visible = false;
-            }
+            
 
             GetCapillas();
 
@@ -455,6 +451,11 @@ namespace FormulariosPresentacion
 
         private void CrearPersona_Load(object sender, EventArgs e)
         {
+            if (editarpersona == true)
+            {
+                lblNuevaPersona.Text = "Editar Persona";
+                
+            }
             if (rol==0)
             {
                 cbxRol.SelectedIndex = 0;

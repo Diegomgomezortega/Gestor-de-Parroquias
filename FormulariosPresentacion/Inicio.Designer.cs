@@ -62,7 +62,6 @@ namespace FormulariosPresentacion
             this.dgvCatecumenos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCatecumenos.Location = new System.Drawing.Point(49, 388);
             this.dgvCatecumenos.Name = "dgvCatecumenos";
-            this.dgvCatecumenos.ReadOnly = true;
             this.dgvCatecumenos.RowTemplate.Height = 25;
             this.dgvCatecumenos.Size = new System.Drawing.Size(817, 150);
             this.dgvCatecumenos.TabIndex = 0;
@@ -262,7 +261,7 @@ namespace FormulariosPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 450);
+            this.ClientSize = new System.Drawing.Size(910, 567);
             this.Controls.Add(this.btnCatequesis);
             this.Controls.Add(this.btnAsistencia);
             this.Controls.Add(this.btnPersonas);

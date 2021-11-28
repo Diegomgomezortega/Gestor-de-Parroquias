@@ -18,25 +18,39 @@ namespace FormulariosPresentacion
         {
             InitializeComponent();
             #region Formato DGV
-            dgvCatecumenos.ColumnCount = 8;
-            dgvCatecumenos.Columns[0].HeaderText = "Id Cat";
-            dgvCatecumenos.Columns[1].HeaderText = "DNI";
-            dgvCatecumenos.Columns[2].HeaderText = "NOMBRE";
-            dgvCatecumenos.Columns[3].HeaderText = "APELLIDO";
-            dgvCatecumenos.Columns[4].HeaderText = "TELEFONO";
-            dgvCatecumenos.Columns[5].HeaderText = "NACIMIENTO";
-            dgvCatecumenos.Columns[6].HeaderText = "SEXO";
-            dgvCatecumenos.Columns[7].HeaderText = "CAT";
-            dgvCatecumenos.Columns[0].Width = 50;
-            dgvCatecumenos.Columns[1].Width = 100;
-            dgvCatecumenos.Columns[2].Width = 100;
-            dgvCatecumenos.Columns[3].Width = 100;
-            dgvCatecumenos.Columns[4].Width = 100;
-            dgvCatecumenos.Columns[5].Width = 100;
-            dgvCatecumenos.Columns[6].Width = 100;
-            dgvCatecumenos.Columns[7].Width = 50;
-            #endregion
+            DataGridViewCheckBoxColumn columnaCheck = new DataGridViewCheckBoxColumn();
+            DataGridViewTextBoxColumn colNombre = new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn colApellido = new DataGridViewTextBoxColumn();
             
+
+            //dgvCatecumenos.Columns[1].HeaderText = "DNI";
+            dgvCatecumenos.Columns.Add(colNombre);
+            colNombre.Name = "Nombre";
+
+            dgvCatecumenos.Columns[0].HeaderText = "Nombre";
+            dgvCatecumenos.Columns["Nombre"].ReadOnly = true;
+            dgvCatecumenos.Columns.Add(colApellido);
+            colApellido.Name = "Apellido";
+            dgvCatecumenos.Columns[1].HeaderText = "Apellido";
+            dgvCatecumenos.Columns["Apellido"].ReadOnly = true;
+            
+            dgvCatecumenos.Columns.Add(columnaCheck);
+            dgvCatecumenos.Columns[2].HeaderText = "Presente";
+            //dgvCatecumenos.Columns[4].HeaderText = "TELEFONO";
+            //dgvCatecumenos.Columns[5].HeaderText = "NACIMIENTO";
+            //dgvCatecumenos.Columns[6].HeaderText = "SEXO";
+            //dgvCatecumenos.Columns[7].HeaderText = "CAT";
+            //dgvCatecumenos.Columns[0].Width = 50;
+            //dgvCatecumenos.Columns[1].Width = 100;
+            //dgvCatecumenos.Columns[2].Width = 100;
+            //dgvCatecumenos.Columns[3].Width = 100;
+            //dgvCatecumenos.Columns[4].Width = 100;
+            //dgvCatecumenos.Columns[5].Width = 100;
+            //dgvCatecumenos.Columns[6].Width = 100;
+            //dgvCatecumenos.Columns[7].Width = 50;
+            #endregion
+            GetCapillas();
+
 
         }
         public string capilla;
@@ -44,23 +58,23 @@ namespace FormulariosPresentacion
         public int i;
         public string salon;
         public int cual;
-        public string que="";
+        public string que = "";
         public bool capillas;
         public bool catequesis;
         public int[] idCapilla;
+        public int Cod_cate;
 
 
-        //A la instancia de la clase Profesional de la capa de Entidad la llamaremos objEntProf
         public Catecumeno objEntCatecumeno = new Catecumeno();
-        //A la instancia de la clase NegProfesionales de la capa de Negocios la llamaremos objNegProf
-        public NegociosCatecumenos objNegCatecumeno = new NegociosCatecumenos();
+        public NegociosCatecumenos negociosCatecumeno = new NegociosCatecumenos();
         public NegociosParroquias negociosParroquias = new NegociosParroquias();
+        public NegociosAsistencia negociosAsistencia = new NegociosAsistencia();
         private void LlenarDGV(string que, int cual)
 
         {
             dgvCatecumenos.Rows.Clear();//vacia el DGV
             DataSet ds = new DataSet();
-            ds = objNegCatecumeno.listadoCatecumenos(que, cual);//Data set devuelve una lista, en este caso de catecumenos cargados, como el argumento es "Todos", me devolvera todos las personas cargadas
+            ds = negociosCatecumeno.listadoCatecumenos(que, cual);//Data set devuelve una lista, en este caso de catecumenos cargados, como el argumento es "Todos", me devolvera todos las personas cargadas
             if (ds.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
@@ -195,23 +209,28 @@ namespace FormulariosPresentacion
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
-            
-            //capilla = cbxCapilla.SelectedItem.ToString();
-            if (capillas)
-            {
-                i = cbxCapilla.SelectedIndex;
-                cual = idCapilla[i];
-                LlenarDGV("capillas", cual);
-            }
-            if(catequesis)
-            {
-                i = cbxDia.SelectedIndex;
-                cual = idCatequesis[i];
-                LlenarDGV("", cual);
+            i = cbxDia.SelectedIndex;
+            cual = idCatequesis[i];
+            DataSet ds = new DataSet();
+            ds = negociosCatecumeno.listadoCatecumenos("Asistencia", cual);
+            Asistencia asistencia = new Asistencia();
+            asistencia.LlenarDGV(ds,cual);
+            asistencia.Show();
 
-            }
+            //if (ds.Tables[0].Rows.Count > 0)
+            //{
+            //    foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
+            //    {
+            //        dgvCatecumenos.Rows.Add(dr[0], dr[1]);////Rellena el dgv por cada ds que trae de la bd
+            //    }
+            //}
+            //else
+            //{
+            //    //lblInformacion.Text = "No hay personas cargadas en el sistema";
+            //}
+            //dgvCatecumenos.Visible = true;
 
+           
 
         }
 

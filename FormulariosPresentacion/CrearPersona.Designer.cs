@@ -157,11 +157,11 @@ namespace FormulariosPresentacion
             // 
             this.lblNuevaPersona.AutoSize = true;
             this.lblNuevaPersona.Font = new System.Drawing.Font("Arial", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.lblNuevaPersona.Location = new System.Drawing.Point(188, 26);
+            this.lblNuevaPersona.Location = new System.Drawing.Point(168, 23);
             this.lblNuevaPersona.Name = "lblNuevaPersona";
-            this.lblNuevaPersona.Size = new System.Drawing.Size(139, 29);
+            this.lblNuevaPersona.Size = new System.Drawing.Size(185, 29);
             this.lblNuevaPersona.TabIndex = 17;
-            this.lblNuevaPersona.Text = "Formulario";
+            this.lblNuevaPersona.Text = "Nueva Persona";
             // 
             // rbMasculino
             // 

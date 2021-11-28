@@ -74,6 +74,11 @@ namespace Datos
                 
                 
             }
+            if (que == "Asistencia")
+            {
+                orden = "select c.Id_Catecumeno,c.Nombre, c.Apellido from Catecumenos c, Catequesis ca where c.Cod_Catequesis = ca.Id_Catequesis and ca.Id_Catequesis =" + cual + "";
+
+            }
             //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
             else
                 orden = "select * from Catecumenos";
