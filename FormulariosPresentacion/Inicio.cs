@@ -57,9 +57,9 @@ namespace FormulariosPresentacion
 
         }
         public string capilla;
+        public string salon;
         public int[] idCatequesis;
         public int i;
-        public string salon;
         public string salonhora;
         public int cual;
         public string que = "";
@@ -67,45 +67,17 @@ namespace FormulariosPresentacion
         public bool catequesis;
         public int[] idCapilla;
         public int Cod_cate;
+        public bool vercatequesis;
+        public bool tomarAsistencia;
+        public DateTime fecha;
 
 
         public Catecumeno objEntCatecumeno = new Catecumeno();
         public NegociosCatecumenos negociosCatecumeno = new NegociosCatecumenos();
         public NegociosParroquias negociosParroquias = new NegociosParroquias();
         public NegociosAsistencia negociosAsistencia = new NegociosAsistencia();
-        //private void LlenarDGV(string que, int cual)
-
-        //{
-        //    dgvCatecumenos.Rows.Clear();//vacia el DGV
-        //    DataSet ds = new DataSet();
-        //    ds = negociosCatecumeno.listadoCatecumenos(que, cual);//Data set devuelve una lista, en este caso de catecumenos cargados, como el argumento es "Todos", me devolvera todos las personas cargadas
-        //    if (ds.Tables[0].Rows.Count > 0)
-        //    {
-        //        foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
-        //        {
-        //            if (Convert.ToString(dr[6]) == "m")
-        //            {
-        //                dr[6] = "Masculino";
-        //            }
-        //            if (Convert.ToString(dr[6]) == "f")
-        //            {
-        //                dr[6] = "Femenino";
-        //            }
-        //            if (Convert.ToString(dr[6]) == "X")
-        //            {
-        //                dr[6] = "Indefinido";
-        //            }
-        //            dgvCatecumenos.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], Convert.ToDateTime(dr[5]).ToShortDateString(), dr[6], dr[7].ToString());////Rellena el dgv por cada ds que trae de la bd
-        //        }
-        //    }
-        //    else
-        //    {
-        //        //lblInformacion.Text = "No hay personas cargadas en el sistema";
-        //    }
-        //    dgvCatecumenos.Visible = true;
-
-        //}
-
+        
+        
         private void btnNuevaPersona_Click(object sender, EventArgs e)
         {
             CrearPersona crear = new CrearPersona();
@@ -184,6 +156,7 @@ namespace FormulariosPresentacion
         private void cbxCapilla_SelectedIndexChanged(object sender, EventArgs e)
         {
             capilla = cbxCapilla.SelectedItem.ToString();
+            cbxDia.Items.Clear();
             GetSalones(capilla);
         }
 
@@ -216,16 +189,31 @@ namespace FormulariosPresentacion
             i = cbxDia.SelectedIndex;
             cual = idCatequesis[i];
             DataSet ds = new DataSet();
-            ds = negociosCatecumeno.listadoCatecumenos("Asistencia", cual);
-            Asistencia asistencia = new Asistencia();
-            asistencia.LlenarDGV(ds,cual,salonhora);
-            asistencia.Show();
+            if (vercatequesis)
+            {
+                Catequesis listaCatequesis = new Catequesis();
+                ds = negociosAsistencia.listadoCatequesis("UnaCatequesis", cual,fecha);
+                listaCatequesis.LLenarDGV(ds, cual);
+                listaCatequesis.Show();
+
+            }
+            else
+            {
+                ds = negociosCatecumeno.listadoCatecumenos("TomarAsistencia", cual);
+                Asistencia asistencia = new Asistencia();
+                asistencia.LlenarDGV(ds, cual, salonhora);
+                asistencia.Show();
+
+            }
+                  
+            
 
         }
 
         private void cbxDia_SelectedIndexChanged(object sender, EventArgs e)
         {
             salonhora = salon+": "+ System.Convert.ToString(cbxDia.SelectedItem);
+            btnBuscar.Visible = true;
 
         }
 
@@ -260,7 +248,22 @@ namespace FormulariosPresentacion
 
         private void btnAsistencia_Click(object sender, EventArgs e)
         {
+            tomarAsistencia = true;
+            vercatequesis = false;
             gbxFiltro.Visible = true;
+            //dgvCatequesis.Visible = false;
+        }
+
+        private void btnCatequesis_Click(object sender, EventArgs e)
+        {
+            vercatequesis = true;
+            tomarAsistencia = false;
+            gbxFiltro.Visible = true;
+            
+            
+
+
+
         }
     }
 }

@@ -111,9 +111,9 @@ namespace FormulariosPresentacion
             this.gbxFiltro.Controls.Add(this.cbxCapilla);
             this.gbxFiltro.Controls.Add(this.lblSalon);
             this.gbxFiltro.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.gbxFiltro.Location = new System.Drawing.Point(22, 178);
+            this.gbxFiltro.Location = new System.Drawing.Point(18, 152);
             this.gbxFiltro.Name = "gbxFiltro";
-            this.gbxFiltro.Size = new System.Drawing.Size(768, 155);
+            this.gbxFiltro.Size = new System.Drawing.Size(392, 335);
             this.gbxFiltro.TabIndex = 4;
             this.gbxFiltro.TabStop = false;
             this.gbxFiltro.Visible = false;
@@ -122,9 +122,9 @@ namespace FormulariosPresentacion
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnCancelar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnCancelar.Location = new System.Drawing.Point(661, 92);
+            this.btnCancelar.Location = new System.Drawing.Point(195, 278);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(92, 34);
+            this.btnCancelar.Size = new System.Drawing.Size(80, 31);
             this.btnCancelar.TabIndex = 31;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -134,18 +134,19 @@ namespace FormulariosPresentacion
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnBuscar.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnBuscar.Location = new System.Drawing.Point(559, 92);
+            this.btnBuscar.Location = new System.Drawing.Point(93, 278);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(96, 34);
+            this.btnBuscar.Size = new System.Drawing.Size(84, 31);
             this.btnBuscar.TabIndex = 30;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Visible = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblDia
             // 
             this.lblDia.AutoSize = true;
-            this.lblDia.Location = new System.Drawing.Point(353, 68);
+            this.lblDia.Location = new System.Drawing.Point(91, 193);
             this.lblDia.Name = "lblDia";
             this.lblDia.Size = new System.Drawing.Size(35, 23);
             this.lblDia.TabIndex = 26;
@@ -154,7 +155,7 @@ namespace FormulariosPresentacion
             // labelSalon
             // 
             this.labelSalon.AutoSize = true;
-            this.labelSalon.Location = new System.Drawing.Point(188, 68);
+            this.labelSalon.Location = new System.Drawing.Point(91, 128);
             this.labelSalon.Name = "labelSalon";
             this.labelSalon.Size = new System.Drawing.Size(50, 23);
             this.labelSalon.TabIndex = 25;
@@ -163,7 +164,7 @@ namespace FormulariosPresentacion
             // lblCapilla
             // 
             this.lblCapilla.AutoSize = true;
-            this.lblCapilla.Location = new System.Drawing.Point(16, 69);
+            this.lblCapilla.Location = new System.Drawing.Point(91, 69);
             this.lblCapilla.Name = "lblCapilla";
             this.lblCapilla.Size = new System.Drawing.Size(59, 23);
             this.lblCapilla.TabIndex = 24;
@@ -173,9 +174,9 @@ namespace FormulariosPresentacion
             // 
             this.cbxDia.BackColor = System.Drawing.SystemColors.Control;
             this.cbxDia.FormattingEnabled = true;
-            this.cbxDia.Location = new System.Drawing.Point(353, 94);
+            this.cbxDia.Location = new System.Drawing.Point(91, 219);
             this.cbxDia.Name = "cbxDia";
-            this.cbxDia.Size = new System.Drawing.Size(200, 31);
+            this.cbxDia.Size = new System.Drawing.Size(184, 31);
             this.cbxDia.TabIndex = 29;
             this.cbxDia.SelectedIndexChanged += new System.EventHandler(this.cbxDia_SelectedIndexChanged);
             // 
@@ -183,9 +184,9 @@ namespace FormulariosPresentacion
             // 
             this.cbxSalon.BackColor = System.Drawing.SystemColors.Control;
             this.cbxSalon.FormattingEnabled = true;
-            this.cbxSalon.Location = new System.Drawing.Point(188, 94);
+            this.cbxSalon.Location = new System.Drawing.Point(91, 154);
             this.cbxSalon.Name = "cbxSalon";
-            this.cbxSalon.Size = new System.Drawing.Size(159, 31);
+            this.cbxSalon.Size = new System.Drawing.Size(184, 31);
             this.cbxSalon.TabIndex = 28;
             this.cbxSalon.SelectedIndexChanged += new System.EventHandler(this.cbxSalon_SelectedIndexChanged);
             // 
@@ -193,16 +194,16 @@ namespace FormulariosPresentacion
             // 
             this.cbxCapilla.BackColor = System.Drawing.SystemColors.Control;
             this.cbxCapilla.FormattingEnabled = true;
-            this.cbxCapilla.Location = new System.Drawing.Point(16, 94);
+            this.cbxCapilla.Location = new System.Drawing.Point(91, 94);
             this.cbxCapilla.Name = "cbxCapilla";
-            this.cbxCapilla.Size = new System.Drawing.Size(166, 31);
+            this.cbxCapilla.Size = new System.Drawing.Size(184, 31);
             this.cbxCapilla.TabIndex = 27;
             this.cbxCapilla.SelectedIndexChanged += new System.EventHandler(this.cbxCapilla_SelectedIndexChanged);
             // 
             // lblSalon
             // 
             this.lblSalon.AutoSize = true;
-            this.lblSalon.Location = new System.Drawing.Point(16, 19);
+            this.lblSalon.Location = new System.Drawing.Point(91, 19);
             this.lblSalon.Name = "lblSalon";
             this.lblSalon.Size = new System.Drawing.Size(184, 23);
             this.lblSalon.TabIndex = 23;
@@ -211,10 +212,10 @@ namespace FormulariosPresentacion
             // btnPersonas
             // 
             this.btnPersonas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnPersonas.Font = new System.Drawing.Font("Comic Sans MS", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnPersonas.Location = new System.Drawing.Point(599, 75);
+            this.btnPersonas.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.btnPersonas.Location = new System.Drawing.Point(287, 74);
             this.btnPersonas.Name = "btnPersonas";
-            this.btnPersonas.Size = new System.Drawing.Size(191, 77);
+            this.btnPersonas.Size = new System.Drawing.Size(123, 60);
             this.btnPersonas.TabIndex = 5;
             this.btnPersonas.Text = "Ver Personas";
             this.btnPersonas.UseVisualStyleBackColor = false;
@@ -223,10 +224,10 @@ namespace FormulariosPresentacion
             // btnAsistencia
             // 
             this.btnAsistencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAsistencia.Font = new System.Drawing.Font("Comic Sans MS", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnAsistencia.Location = new System.Drawing.Point(22, 75);
+            this.btnAsistencia.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.btnAsistencia.Location = new System.Drawing.Point(156, 74);
             this.btnAsistencia.Name = "btnAsistencia";
-            this.btnAsistencia.Size = new System.Drawing.Size(191, 77);
+            this.btnAsistencia.Size = new System.Drawing.Size(123, 60);
             this.btnAsistencia.TabIndex = 6;
             this.btnAsistencia.Text = "Tomar Asistencia";
             this.btnAsistencia.UseVisualStyleBackColor = false;
@@ -235,20 +236,21 @@ namespace FormulariosPresentacion
             // btnCatequesis
             // 
             this.btnCatequesis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnCatequesis.Font = new System.Drawing.Font("Comic Sans MS", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.btnCatequesis.Location = new System.Drawing.Point(318, 75);
+            this.btnCatequesis.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.btnCatequesis.Location = new System.Drawing.Point(18, 74);
             this.btnCatequesis.Name = "btnCatequesis";
-            this.btnCatequesis.Size = new System.Drawing.Size(191, 77);
+            this.btnCatequesis.Size = new System.Drawing.Size(123, 60);
             this.btnCatequesis.TabIndex = 7;
-            this.btnCatequesis.Text = "Ver Catequesis";
+            this.btnCatequesis.Text = "Grupos de Catequesis";
             this.btnCatequesis.UseVisualStyleBackColor = false;
+            this.btnCatequesis.Click += new System.EventHandler(this.btnCatequesis_Click);
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(835, 404);
+            this.ClientSize = new System.Drawing.Size(835, 576);
             this.Controls.Add(this.btnCatequesis);
             this.Controls.Add(this.btnAsistencia);
             this.Controls.Add(this.btnPersonas);
@@ -286,6 +288,8 @@ namespace FormulariosPresentacion
         private System.Windows.Forms.Button btnPersonas;
         private System.Windows.Forms.Button btnAsistencia;
         private System.Windows.Forms.Button btnCatequesis;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn capilla;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn salon;
     }
 }
 

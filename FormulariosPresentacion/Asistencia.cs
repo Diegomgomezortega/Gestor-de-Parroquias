@@ -24,7 +24,7 @@ namespace FormulariosPresentacion
         }
         NegociosAsistencia negociosAsistencia = new NegociosAsistencia();
         
-        string ordenSQL= "insert into Asistencia (Fecha,Tema,Asistencia,Id_Catecumeno,Cod_Catequesis) values ";
+        string ordenSQL= "insert into Asistencia (Fecha,Tema,Asistencia,Id_Catecumeno,Id_Catequesis) values ";
         char[] PresenteCate;
         int[] Id_Catecumeno;
         int Cod_Catequesis;

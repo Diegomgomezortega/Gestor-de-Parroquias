@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Datos
 {
@@ -13,20 +14,7 @@ namespace Datos
         public int AltaAsistencia( string orden)
         {
             int resultado = -1;
-            
-            //string orden = string.Empty;
-            //if (accion == "Alta")
-                //orden=insert into Catecumenos values(37594703,'Diana','Pezzelato',2512644879,'1993-10-05','f',8)
-                //orden = "insert into Sacerdotes values (" + objAsistencia.Dni + ",'" + objAsistencia.Nombre + "', '" + objAsistencia.Apellido + "', " + objAsistencia.Telefono + ",'" + objAsistencia.FechNac.Year + "/" + objAsistencia.FechNac.Date.Month + "/" + objAsistencia.FechNac.Date.Day + "', '" + objAsistencia.Sexo + "')";
-
-            //orden = "insert into Alumnos values (" + objalumno.Dni + ",'" + objalumno.Nombre + "','" + objalumno.Apellido + "','" + objalumno.Carrera + "','" + objalumno.Sexo + "','" + objalumno.FechNac.Year + "/" + objalumno.FechNac.Date.Month + "/" + objalumno.FechNac.Date.Day + "');"; Este es el que funciona en Alumnos
-            //if (accion == "Modificar")
-               // orden = "update Sacerdotes set DNI=" + objAsistencia.Dni + ",Nombre='" + objAsistencia.Nombre + "',Apellido='" + objAsistencia.Apellido + "',Telefono=" + objAsistencia.Telefono + ",Fecha_nac='" + objAsistencia.FechNac.Year + "/" + objAsistencia.FechNac.Date.Month + "/" + objAsistencia.FechNac.Date.Day + "',Sexo='" + objAsistencia.Sexo + "' where Id_Sacerdote=" + objAsistencia.Id_Sacerdote + "";
-            //UPDATE nombre_tabla SET columna1 = valor1, columna2 = valor2 WHERE columna3 = valor3
-            //if (accion == "Borrar")
-                //orden = "delete from Alumnos  where Legajo=" + objalumno.Legajo + "";
-                //orden = "delete from Sacerdotes  where Id_Sacerdote=" + objAsistencia.Id_Sacerdote + "";
-            //DELETE FROM nombre_tabla WHERE nombre_columna = valor
+                      
             SqlCommand cmd = new SqlCommand(orden, conexion);
             {
                 try
@@ -49,6 +37,48 @@ namespace Datos
                 }
                 return resultado;
             }
+        }
+        public DataSet listadoCatequesis(string que, int cual, DateTime fecha)
+        {
+            string orden = string.Empty;
+            if (que == "Todos")
+            {
+                orden= "select c.Id_Catequesis,cap.Nombre, s.Nombre, c.Hora from Catequesis c, Salones s,Capillas cap where cap.Id_Capilla = s.Id_Capilla and c.Id_salon = s.Id_Salon";
+
+            }
+            if (que =="UnaCatequesis")
+            {
+                orden = "select b.Id_Catecumeno, b.Nombre,b.Apellido, c.Nombre from Catequesis a, Catecumenos b, Catequistas c, Dictar d where b.Cod_Catequesis=a.Id_Catequesis and a.Id_Catequesis=d.Id_Catequesis and d.Id_Catequista=c.Id_Catequista and a.Id_Catequesis=" + cual + ";";
+
+            }
+            if (que == "Fechas")
+            {
+                orden = "select distinct Fecha from Asistencia a, Catequesis c where c.Id_Catequesis=" + cual + " and a.Id_Catequesis=c.Id_Catequesis";
+            }
+            if (que == "Tema")
+            {
+                orden = "select distinct Tema from Asistencia where Fecha='"+fecha.Year+"/"+fecha.Date.Month+"/"+fecha.Date.Day+"' and Id_Catequesis=" + cual + ";";
+            }
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            try
+            {
+                Abrirconexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al listar", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+            return ds;
         }
 
     }

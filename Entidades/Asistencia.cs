@@ -20,5 +20,19 @@ namespace Entidades
         public string Tema { get => tema; set => tema = value; }
         public DateTime Fecha { get => fecha; set => fecha = value; }
         public string Asistencias { get => asistencia; set => asistencia = value; }
+
+        public Asistencia()
+        {
+
+        }
+        public Asistencia( int ID, int Cod,string asis, string T, DateTime Fe)
+        {
+            id_catecumeno = ID;
+            cod_Catequesis = Cod;
+            asistencia = asis;
+            tema = T;
+            fecha = Fe;
+
+        }
     }
 }

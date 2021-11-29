@@ -40,7 +40,7 @@ namespace FormulariosPresentacion
 
 
         }
-        public CrearPersona Editar;
+        public CrearPersona Edicion;
         public string nombreColumna="columna";
         public string capilla;
         public int[] idCatequesis;
@@ -72,27 +72,7 @@ namespace FormulariosPresentacion
             DataSet ds = new DataSet();
             ds = objNegCatecumeno.listadoCatecumenos(que, cual);//Data set devuelve una lista, en este caso de catecumenos cargados, como el argumento es "Todos", me devolvera todos las personas cargadas
             LLenarDGV(ds);
-            //if (ds.Tables[0].Rows.Count > 0)
-            //{
-            //    foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
-            //    {
-            //        if (Convert.ToString(dr[6]) == "m")
-            //        {
-            //            dr[6] = "Masculino";
-            //        }
-            //        if (Convert.ToString(dr[6]) == "f")
-            //        {
-            //            dr[6] = "Femenino";
-            //        }
-                    
-            //        dgvPersonas.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3], dr[4], Convert.ToDateTime(dr[5]).ToShortDateString(), dr[6], dr[7].ToString());////Rellena el dgv por cada ds que trae de la bd
-            //    }
-            //}
-            //else
-            //{
-            //    lblInformacion.Visible = true;
-            //}
-            //dgvPersonas.Visible = true;
+            
 
         }
         private void LlenarDGVSacerdotes(string que, int cual)
@@ -192,7 +172,7 @@ namespace FormulariosPresentacion
         }
         private void EditarPersona()
         {
-            Editar = new CrearPersona();
+            Edicion = new CrearPersona();
             
             DataSet ds = new DataSet();
 
@@ -201,10 +181,10 @@ namespace FormulariosPresentacion
 
             if (EditarCatecumeno == true)
             {
-                ds = objNegCatecumeno.listadoCatecumenos("", id_Persona);
+                ds = objNegCatecumeno.listadoCatecumenos("UnCatecumeno", id_Persona);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    Editar.Ds_a_TxtBox(ds, EditarCatecumeno, id_Persona,0);
+                    Edicion.Ds_a_TxtBox(ds, EditarCatecumeno, id_Persona,0);
                     
                 }
 
@@ -214,7 +194,7 @@ namespace FormulariosPresentacion
                 ds = negociosCatequistas.listadoCatequistas("", id_Persona);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    Editar.Ds_a_TxtBox(ds, EditarCatequista, id_Persona,1);
+                    Edicion.Ds_a_TxtBox(ds, EditarCatequista, id_Persona,1);
                 }
 
             }
@@ -223,12 +203,12 @@ namespace FormulariosPresentacion
                 ds = negociosSacerdotes.listadoSacerdotes("", id_Persona);
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    Editar.Ds_a_TxtBox(ds, EditarSacerdote, id_Persona,2);
+                    Edicion.Ds_a_TxtBox(ds, EditarSacerdote, id_Persona,2);
                     
                 }
 
             }
-            Editar.ShowDialog();
+            Edicion.ShowDialog();
 
         }
 

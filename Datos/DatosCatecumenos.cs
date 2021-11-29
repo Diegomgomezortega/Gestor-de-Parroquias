@@ -57,31 +57,27 @@ namespace Datos
             }
         }
         #endregion
-        public DataSet listadoCatecumenos(string que, int cual)//Este método listadoAlumnos devuelve un DataSet ds con los registros solicitados,recibe un string que indica el código que deseo buscar, o si sesolicitan “Todos”
+        public DataSet listadoCatecumenos(string que, int cual)//
         {
             string orden = string.Empty;
-            //if (cual != "Todos")
-            //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
-            if(que != "Todos")
+            
+            if(que == "UnCatecumeno")
             {
-                //if (que == "capillas")
-                //{
-                //    orden = "select c.Id_Catecumeno,c.DNI,c.Nombre,c.Apellido,c.Telefono, c.Fecha_nac,c.Sexo,cap.Nombre as 'Salon' from Catecumenos c, Catequesis cq,Salones s, Capillas cap where cap.Id_Capilla='"+cual+"' and c.Cod_Catequesis=cq.Id_Catequesis and  cq.Id_Salon=s.Id_Salon and cap.Id_Capilla=s.Id_Capilla";
-                //}
+                
                 orden= "select * from Catecumenos where Id_Catecumeno = " + cual + ";";
 
-                //orden = "select c.Id_Catecumeno,c.DNI,c.Nombre,c.Apellido,c.Telefono, c.Fecha_nac,c.Sexo,s.Nombre from Catecumenos c, Catequesis cq,Salones s where c.Cod_Catequesis=cq.Id_Catequesis and c.Cod_Catequesis='" + cual + "' and cq.Id_Salon=s.Id_Salon";
-                
-                
             }
-            if (que == "Asistencia")
+            if (que == "TomarAsistencia")
             {
                 orden = "select c.Id_Catecumeno,c.Nombre, c.Apellido from Catecumenos c, Catequesis ca where c.Cod_Catequesis = ca.Id_Catequesis and ca.Id_Catequesis =" + cual + "";
 
             }
-            //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
-            else
+            
+            if (que == "Todos")
+            {
                 orden = "select * from Catecumenos";
+            }
+                
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter();
@@ -94,7 +90,7 @@ namespace Datos
             }
             catch (Exception e)
             {
-                throw new Exception("Error al listar Alumnos", e);
+                throw new Exception("Error al listar", e);
             }
             finally
             {
