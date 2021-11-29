@@ -14,22 +14,23 @@ namespace FormulariosPresentacion
 {
     public partial class Catequesis : Form
     {
+        #region Constructor Formulario Catequesis
         public Catequesis()
         {
             InitializeComponent();
-            cbxFecha.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbxFecha.DropDownStyle = ComboBoxStyle.DropDownList;//Combobox solo lectura
             GetFecha();
 
         }
+        #endregion
+        #region Atributos Propios del Formulario
         int id_Catequesis;
-        string fecha;
         DateTime[] fech = new DateTime[20];
-        
         int i = 0;
-
-        NegociosAsistencia negociosAsistencia = new NegociosAsistencia();
-        
-        public void LLenarDGV(DataSet ds, int id_catequesis)
+        NegociosAsistencia negociosAsistencia = new NegociosAsistencia();//Inicializo una instancia de NegociosAsistencia
+        #endregion
+        #region Métodos
+        public void LLenarDGV(DataSet ds, int id_catequesis)//Metodo publico, generalmente es invocado desde otro formulario
         {
 
             id_Catequesis = id_catequesis;
@@ -50,11 +51,10 @@ namespace FormulariosPresentacion
             }
             dgvPersonas.Visible = true;
         }
-        private void GetFecha()
+        private void GetFecha()//Metodo que trae de la base de datos los encuentros separados por fechas, para ver la asistencia
         {
-            //fech[0] = DateTime.Now;
             DataSet dataSet = new DataSet();
-            dataSet = negociosAsistencia.listadoCatequesis("Fechas", id_Catequesis);
+            dataSet = negociosAsistencia.listadoCatequesis("Fechas", id_Catequesis);//Metodo que recibe dos parametros
             fech = new DateTime[dataSet.Tables[0].Rows.Count];
             if (dataSet.Tables[0].Rows.Count > 0)
             {
@@ -69,9 +69,6 @@ namespace FormulariosPresentacion
                     i++;
                 }
             
-
-                //dgvPersonas.Rows.Add(dr[0].ToString(), dr[1], dr[2]);////Rellena el dgv por cada ds que trae de la bd
-                //lblNombre.Text = System.Convert.ToString(dr[3]);
             }
         }
         private void dgvCatequesis_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -82,7 +79,7 @@ namespace FormulariosPresentacion
         private void Catequesis_Load(object sender, EventArgs e)
         {
             GetFecha();
-        }
+        }//Se dispara cuando se comienza a cargar el formulario
 
         private void cbxFecha_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -90,7 +87,6 @@ namespace FormulariosPresentacion
             DataSet ds = new DataSet();
             i = cbxFecha.SelectedIndex;
             
-            //fecha = cbxFecha.SelectedItem.ToString();
             ds = negociosAsistencia.listadoCatequesis("Tema", id_Catequesis, fech[i]);
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -110,11 +106,15 @@ namespace FormulariosPresentacion
 
                     dgvPersonas.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3]);
                 }
-                    //
-                //////Rellena el dgv por cada ds que trae de la bd
-                //lblNombre.Text = System.Convert.ToString(dr[3]);
             }
 
-        }
+        }//Metodo que se dispara al seleccionar un item del combobox fecha
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }//Evento click del boton
+        #endregion
     }
 }

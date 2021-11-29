@@ -29,6 +29,7 @@ namespace FormulariosPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrearPersona));
             this.lbDNI = new System.Windows.Forms.Label();
             this.cbxRol = new System.Windows.Forms.ComboBox();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -55,16 +56,18 @@ namespace FormulariosPresentacion
             this.lblRol = new System.Windows.Forms.Label();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbSalon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbDNI
             // 
             this.lbDNI.AutoSize = true;
-            this.lbDNI.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lbDNI.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lbDNI.Location = new System.Drawing.Point(32, 128);
             this.lbDNI.Name = "lbDNI";
-            this.lbDNI.Size = new System.Drawing.Size(76, 19);
+            this.lbDNI.Size = new System.Drawing.Size(88, 22);
             this.lbDNI.TabIndex = 0;
             this.lbDNI.Text = "Documento";
             // 
@@ -72,7 +75,7 @@ namespace FormulariosPresentacion
             // 
             this.cbxRol.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.cbxRol.FormattingEnabled = true;
-            this.cbxRol.Location = new System.Drawing.Point(110, 88);
+            this.cbxRol.Location = new System.Drawing.Point(134, 83);
             this.cbxRol.Name = "cbxRol";
             this.cbxRol.Size = new System.Drawing.Size(200, 27);
             this.cbxRol.TabIndex = 12;
@@ -81,47 +84,47 @@ namespace FormulariosPresentacion
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblNombre.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblNombre.Location = new System.Drawing.Point(32, 169);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(58, 19);
+            this.lblNombre.Size = new System.Drawing.Size(66, 22);
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "Nombre";
             // 
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblApellido.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblApellido.Location = new System.Drawing.Point(32, 215);
             this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(60, 19);
+            this.lblApellido.Size = new System.Drawing.Size(66, 22);
             this.lblApellido.TabIndex = 3;
             this.lblApellido.Text = "Apellido";
             // 
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblTelefono.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblTelefono.Location = new System.Drawing.Point(32, 257);
             this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(64, 19);
+            this.lblTelefono.Size = new System.Drawing.Size(72, 22);
             this.lblTelefono.TabIndex = 4;
             this.lblTelefono.Text = "Teléfono";
             // 
             // lblFechaNac
             // 
             this.lblFechaNac.AutoSize = true;
-            this.lblFechaNac.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblFechaNac.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblFechaNac.Location = new System.Drawing.Point(33, 300);
             this.lblFechaNac.Name = "lblFechaNac";
-            this.lblFechaNac.Size = new System.Drawing.Size(79, 19);
+            this.lblFechaNac.Size = new System.Drawing.Size(89, 22);
             this.lblFechaNac.TabIndex = 6;
             this.lblFechaNac.Text = "Nacimiento";
             // 
             // dtpFecNac
             // 
             this.dtpFecNac.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.dtpFecNac.Location = new System.Drawing.Point(110, 300);
+            this.dtpFecNac.Location = new System.Drawing.Point(134, 295);
             this.dtpFecNac.Name = "dtpFecNac";
             this.dtpFecNac.Size = new System.Drawing.Size(199, 26);
             this.dtpFecNac.TabIndex = 17;
@@ -129,17 +132,17 @@ namespace FormulariosPresentacion
             // lblSexo
             // 
             this.lblSexo.AutoSize = true;
-            this.lblSexo.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblSexo.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblSexo.Location = new System.Drawing.Point(32, 343);
             this.lblSexo.Name = "lblSexo";
-            this.lblSexo.Size = new System.Drawing.Size(40, 19);
+            this.lblSexo.Size = new System.Drawing.Size(45, 22);
             this.lblSexo.TabIndex = 8;
             this.lblSexo.Text = "Sexo";
             // 
             // txtDNI
             // 
             this.txtDNI.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.txtDNI.Location = new System.Drawing.Point(109, 128);
+            this.txtDNI.Location = new System.Drawing.Point(133, 123);
             this.txtDNI.Name = "txtDNI";
             this.txtDNI.Size = new System.Drawing.Size(199, 26);
             this.txtDNI.TabIndex = 13;
@@ -149,7 +152,7 @@ namespace FormulariosPresentacion
             // txtApellido
             // 
             this.txtApellido.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.txtApellido.Location = new System.Drawing.Point(109, 207);
+            this.txtApellido.Location = new System.Drawing.Point(133, 202);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(199, 26);
             this.txtApellido.TabIndex = 15;
@@ -158,7 +161,7 @@ namespace FormulariosPresentacion
             // txtTelefono
             // 
             this.txtTelefono.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.txtTelefono.Location = new System.Drawing.Point(109, 249);
+            this.txtTelefono.Location = new System.Drawing.Point(133, 244);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(199, 26);
             this.txtTelefono.TabIndex = 16;
@@ -208,7 +211,7 @@ namespace FormulariosPresentacion
             this.gbSalon.Controls.Add(this.cbxSalon);
             this.gbSalon.Controls.Add(this.cbxCapilla);
             this.gbSalon.Controls.Add(this.lblSalon);
-            this.gbSalon.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.gbSalon.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.gbSalon.Location = new System.Drawing.Point(12, 367);
             this.gbSalon.Name = "gbSalon";
             this.gbSalon.Size = new System.Drawing.Size(477, 133);
@@ -221,7 +224,7 @@ namespace FormulariosPresentacion
             this.lblHorario.AutoSize = true;
             this.lblHorario.Location = new System.Drawing.Point(312, 48);
             this.lblHorario.Name = "lblHorario";
-            this.lblHorario.Size = new System.Drawing.Size(56, 19);
+            this.lblHorario.Size = new System.Drawing.Size(64, 22);
             this.lblHorario.TabIndex = 19;
             this.lblHorario.Text = "Horario";
             // 
@@ -230,7 +233,7 @@ namespace FormulariosPresentacion
             this.labelSalon.AutoSize = true;
             this.labelSalon.Location = new System.Drawing.Point(155, 48);
             this.labelSalon.Name = "labelSalon";
-            this.labelSalon.Size = new System.Drawing.Size(43, 19);
+            this.labelSalon.Size = new System.Drawing.Size(48, 22);
             this.labelSalon.TabIndex = 18;
             this.labelSalon.Text = "Salón";
             // 
@@ -239,7 +242,7 @@ namespace FormulariosPresentacion
             this.lblCapilla.AutoSize = true;
             this.lblCapilla.Location = new System.Drawing.Point(17, 48);
             this.lblCapilla.Name = "lblCapilla";
-            this.lblCapilla.Size = new System.Drawing.Size(50, 19);
+            this.lblCapilla.Size = new System.Drawing.Size(55, 22);
             this.lblCapilla.TabIndex = 17;
             this.lblCapilla.Text = "Capilla";
             // 
@@ -248,7 +251,7 @@ namespace FormulariosPresentacion
             this.cbxDia.FormattingEnabled = true;
             this.cbxDia.Location = new System.Drawing.Point(312, 78);
             this.cbxDia.Name = "cbxDia";
-            this.cbxDia.Size = new System.Drawing.Size(140, 27);
+            this.cbxDia.Size = new System.Drawing.Size(140, 30);
             this.cbxDia.TabIndex = 22;
             this.cbxDia.SelectedIndexChanged += new System.EventHandler(this.cbxDia_SelectedIndexChanged);
             // 
@@ -257,7 +260,7 @@ namespace FormulariosPresentacion
             this.cbxSalon.FormattingEnabled = true;
             this.cbxSalon.Location = new System.Drawing.Point(156, 78);
             this.cbxSalon.Name = "cbxSalon";
-            this.cbxSalon.Size = new System.Drawing.Size(150, 27);
+            this.cbxSalon.Size = new System.Drawing.Size(150, 30);
             this.cbxSalon.TabIndex = 21;
             this.cbxSalon.SelectedIndexChanged += new System.EventHandler(this.cbxSalon_SelectedIndexChanged);
             // 
@@ -266,7 +269,7 @@ namespace FormulariosPresentacion
             this.cbxCapilla.FormattingEnabled = true;
             this.cbxCapilla.Location = new System.Drawing.Point(17, 78);
             this.cbxCapilla.Name = "cbxCapilla";
-            this.cbxCapilla.Size = new System.Drawing.Size(125, 27);
+            this.cbxCapilla.Size = new System.Drawing.Size(125, 30);
             this.cbxCapilla.TabIndex = 20;
             this.cbxCapilla.SelectedIndexChanged += new System.EventHandler(this.cbxCapilla_SelectedIndexChanged);
             // 
@@ -275,14 +278,14 @@ namespace FormulariosPresentacion
             this.lblSalon.AutoSize = true;
             this.lblSalon.Location = new System.Drawing.Point(16, 19);
             this.lblSalon.Name = "lblSalon";
-            this.lblSalon.Size = new System.Drawing.Size(152, 19);
+            this.lblSalon.Size = new System.Drawing.Size(172, 22);
             this.lblSalon.TabIndex = 12;
             this.lblSalon.Text = "Seleccionar Catequesis";
             // 
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.txtNombre.Location = new System.Drawing.Point(110, 166);
+            this.txtNombre.Location = new System.Drawing.Point(134, 161);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(199, 26);
             this.txtNombre.TabIndex = 14;
@@ -291,10 +294,10 @@ namespace FormulariosPresentacion
             // lblRol
             // 
             this.lblRol.AutoSize = true;
-            this.lblRol.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lblRol.Font = new System.Drawing.Font("Comic Sans MS", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lblRol.Location = new System.Drawing.Point(32, 96);
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(28, 19);
+            this.lblRol.Size = new System.Drawing.Size(32, 22);
             this.lblRol.TabIndex = 22;
             this.lblRol.Text = "Rol";
             // 
@@ -323,12 +326,23 @@ namespace FormulariosPresentacion
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(352, 83);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(151, 161);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
             // CrearPersona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(488, 585);
+            this.ClientSize = new System.Drawing.Size(506, 585);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.lblRol);
@@ -349,10 +363,10 @@ namespace FormulariosPresentacion
             this.Controls.Add(this.cbxRol);
             this.Controls.Add(this.lbDNI);
             this.Name = "CrearPersona";
-            this.Text = "CrearPersona";
             this.Load += new System.EventHandler(this.CrearPersona_Load);
             this.gbSalon.ResumeLayout(false);
             this.gbSalon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,5 +400,6 @@ namespace FormulariosPresentacion
         private System.Windows.Forms.Label lblHorario;
         private System.Windows.Forms.Label labelSalon;
         private System.Windows.Forms.Label lblCapilla;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

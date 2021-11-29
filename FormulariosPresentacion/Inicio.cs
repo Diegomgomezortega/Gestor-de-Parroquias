@@ -17,38 +17,8 @@ namespace FormulariosPresentacion
         public Inicio()
         {
             InitializeComponent();
-            #region Formato DGV
-            //DataGridViewCheckBoxColumn columnaCheck = new DataGridViewCheckBoxColumn();
-            //DataGridViewTextBoxColumn colNombre = new DataGridViewTextBoxColumn();
-            //DataGridViewTextBoxColumn colApellido = new DataGridViewTextBoxColumn();
             
-
-            ////dgvCatecumenos.Columns[1].HeaderText = "DNI";
-            //dgvCatecumenos.Columns.Add(colNombre);
-            //colNombre.Name = "Nombre";
-
-            //dgvCatecumenos.Columns[0].HeaderText = "Nombre";
-            //dgvCatecumenos.Columns["Nombre"].ReadOnly = true;
-            //dgvCatecumenos.Columns.Add(colApellido);
-            //colApellido.Name = "Apellido";
-            //dgvCatecumenos.Columns[1].HeaderText = "Apellido";
-            //dgvCatecumenos.Columns["Apellido"].ReadOnly = true;
             
-            //dgvCatecumenos.Columns.Add(columnaCheck);
-            //dgvCatecumenos.Columns[2].HeaderText = "Presente";
-            //dgvCatecumenos.Columns[4].HeaderText = "TELEFONO";
-            //dgvCatecumenos.Columns[5].HeaderText = "NACIMIENTO";
-            //dgvCatecumenos.Columns[6].HeaderText = "SEXO";
-            //dgvCatecumenos.Columns[7].HeaderText = "CAT";
-            //dgvCatecumenos.Columns[0].Width = 50;
-            //dgvCatecumenos.Columns[1].Width = 100;
-            //dgvCatecumenos.Columns[2].Width = 100;
-            //dgvCatecumenos.Columns[3].Width = 100;
-            //dgvCatecumenos.Columns[4].Width = 100;
-            //dgvCatecumenos.Columns[5].Width = 100;
-            //dgvCatecumenos.Columns[6].Width = 100;
-            //dgvCatecumenos.Columns[7].Width = 50;
-            #endregion
             cbxSalon.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
             cbxCapilla.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
             cbxDia.DropDownStyle = ComboBoxStyle.DropDownList;//Hacer solo lectura el combobox
@@ -56,6 +26,8 @@ namespace FormulariosPresentacion
 
 
         }
+
+        #region Atributos
         public string capilla;
         public string salon;
         public int[] idCatequesis;
@@ -76,8 +48,11 @@ namespace FormulariosPresentacion
         public NegociosCatecumenos negociosCatecumeno = new NegociosCatecumenos();
         public NegociosParroquias negociosParroquias = new NegociosParroquias();
         public NegociosAsistencia negociosAsistencia = new NegociosAsistencia();
-        
-        
+        #endregion
+
+        #region Métodos
+
+
         private void btnNuevaPersona_Click(object sender, EventArgs e)
         {
             CrearPersona crear = new CrearPersona();
@@ -86,33 +61,6 @@ namespace FormulariosPresentacion
 
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
-            //LlenarDGV("Todos",cual);
-        }
-
-        private void cargarNuevaPersonaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CrearPersona crear = new CrearPersona();
-            crear.ShowDialog();
-        }
-
-        private void todosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //que = "Todos";            
-            //LlenarDGV(que,cual);
-            //dgvCatecumenos.Visible = true;
-        }
-
-        private void todosToolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void porCatequesisToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            gbxFiltro.Visible = true;
-            catequesis = true;
-            GetCapillas();
-
         }
 
         private void GetCapillas()
@@ -225,18 +173,6 @@ namespace FormulariosPresentacion
             capillas = false;
         }
 
-        private void porCapillaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            cbxCapilla.Items.Clear();
-            GetCapillas();
-            gbxFiltro.Visible = true;
-            cbxSalon.Visible = false;
-            cbxDia.Visible = false;
-            lblDia.Visible = false;
-            lblDia.Visible = false;
-            capillas = true;
-        }
-
         private void btnPersonas_Click(object sender, EventArgs e)
         {
             //ABM_Personas aBM_Personas = new ABM_Personas();
@@ -265,5 +201,6 @@ namespace FormulariosPresentacion
 
 
         }
+        #endregion
     }
 }

@@ -35,8 +35,8 @@ namespace FormulariosPresentacion
         }
 
 
-        //public ABM_Personas aBM = new ABM_Personas();
-        private bool catecumeno;
+        
+        
         public bool editarpersona;
         public string accion;
         string capilla;

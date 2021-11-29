@@ -16,14 +16,10 @@ namespace FormulariosPresentacion
         public Asistencia()
         {
             InitializeComponent();
-            #region Formato DGV
-           
-            
-            #endregion
-
+         
         }
+        #region Atributos
         NegociosAsistencia negociosAsistencia = new NegociosAsistencia();
-        
         string ordenSQL= "insert into Asistencia (Fecha,Tema,Asistencia,Id_Catecumeno,Id_Catequesis) values ";
         char[] PresenteCate;
         int[] Id_Catecumeno;
@@ -32,6 +28,7 @@ namespace FormulariosPresentacion
         int i;
         DateTime Fecha;
         string Tema;
+        #endregion
 
         public void LlenarDGV(DataSet ds, int id_Catequesis, string nombreSalon)
 
@@ -58,7 +55,7 @@ namespace FormulariosPresentacion
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (txtTema.Text == string.Empty)
+            if (txtTema.Text == string.Empty)//Si el txt tema esta vacio, no genera la carga
             {
                 MessageBox.Show("Por favor, ingrese el tema del encuentro.");
                 txtTema.Focus();
@@ -91,7 +88,7 @@ namespace FormulariosPresentacion
 
                     i++;
                 }
-                for (i = 0; i < CantidadCate; i++)
+                for (i = 0; i < CantidadCate; i++)//Utilizo un for para una consulta multiple de SQL
                 {
                     if (i == 0)
                     {
@@ -125,38 +122,6 @@ namespace FormulariosPresentacion
 
         private void txtTema_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //if (txtTema.Text.Length <= 99)
-            //{
-
-            //    if (Char.IsLetter(e.KeyChar))
-            //    {
-            //        e.Handled = false;
-            //    }
-            //    else if (Char.IsControl(e.KeyChar))
-            //    {
-            //        e.Handled = false;
-            //    }
-            //    else if (Char.IsSeparator(e.KeyChar))
-            //    {
-            //        e.Handled = false;
-            //    }
-            //    else if (Char.IsDigit(e.KeyChar))
-            //    {
-                                        
-            //            e.Handled = false;
-            //    }
-            //    else
-            //    {
-            //        e.Handled = true;
-            //    }
-
-            //}
-            //else
-            //{
-
-            //    MessageBox.Show("Solo 100 caracteres disponibles");
-            //    txtTema.Text = string.Empty;
-            //}
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

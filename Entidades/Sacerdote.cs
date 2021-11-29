@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Sacerdote: Persona
+    public class Sacerdote : Persona
     {
+        #region Atributos
         private int id_Sacerdote;
-
+        #endregion
+        #region Propiedades y Encapsulamiento
         public int Id_Sacerdote { get => id_Sacerdote; set => id_Sacerdote = value; }
 
+        #endregion
+        #region Constructores
         public Sacerdote()
         {
 
@@ -33,5 +37,6 @@ namespace Entidades
             id_Sacerdote = Id_Sac;
 
         }
+        #endregion
     }
 }
