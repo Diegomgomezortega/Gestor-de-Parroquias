@@ -22,6 +22,11 @@ namespace Negocios
         {
             return objDatosAsistencia.AltaAsistencia(orden);
         }
+        public DataSet listadoCatequesis(string que, int cual)
+        {
+            return objDatosAsistencia.listadoCatequesis(que, cual);
+
+        }
 
         public DataSet listadoCatequesis(string que, int cual, DateTime fecha)
         {

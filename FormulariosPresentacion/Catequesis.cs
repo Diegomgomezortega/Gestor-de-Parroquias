@@ -52,16 +52,18 @@ namespace FormulariosPresentacion
         }
         private void GetFecha()
         {
-            fech[0] = DateTime.Now;
+            //fech[0] = DateTime.Now;
             DataSet dataSet = new DataSet();
-            dataSet = negociosAsistencia.listadoCatequesis("Fechas", id_Catequesis,fech[0]);
-            fech = new DateTime[dataSet.Tables.Count];
+            dataSet = negociosAsistencia.listadoCatequesis("Fechas", id_Catequesis);
+            fech = new DateTime[dataSet.Tables[0].Rows.Count];
             if (dataSet.Tables[0].Rows.Count > 0)
             {
+                i = 0;
                 
             
                 foreach (DataRow dr in dataSet.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
                 {
+
                 cbxFecha.Items.Add(Convert.ToDateTime(dr[0]).ToShortDateString());
                 fech[i] = Convert.ToDateTime(dr[0]);
                     i++;
@@ -84,6 +86,7 @@ namespace FormulariosPresentacion
 
         private void cbxFecha_SelectedIndexChanged(object sender, EventArgs e)
         {
+            dgvPersonas.Rows.Clear();
             DataSet ds = new DataSet();
             i = cbxFecha.SelectedIndex;
             
@@ -95,10 +98,20 @@ namespace FormulariosPresentacion
 
                 foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
                 {
-                    lblTema.Text = System.Convert.ToString(dr[0]);
+                    if (Convert.ToString(dr[3]) == "p")
+                    {
+                        dr[3] = "Presente";
+                    }
+                    else
+                    {
+                        dr[3] = "Ausente";
+                    }
+                    lblTema.Text = System.Convert.ToString(dr[4]);
+
+                    dgvPersonas.Rows.Add(dr[0].ToString(), dr[1], dr[2], dr[3]);
                 }
                     //
-                //dgvPersonas.Rows.Add(dr[0].ToString(), dr[1], dr[2]);////Rellena el dgv por cada ds que trae de la bd
+                //////Rellena el dgv por cada ds que trae de la bd
                 //lblNombre.Text = System.Convert.ToString(dr[3]);
             }
 

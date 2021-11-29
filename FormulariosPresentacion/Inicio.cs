@@ -192,7 +192,7 @@ namespace FormulariosPresentacion
             if (vercatequesis)
             {
                 Catequesis listaCatequesis = new Catequesis();
-                ds = negociosAsistencia.listadoCatequesis("UnaCatequesis", cual,fecha);
+                ds = negociosAsistencia.listadoCatequesis("UnaCatequesis", cual);
                 listaCatequesis.LLenarDGV(ds, cual);
                 listaCatequesis.Show();
 

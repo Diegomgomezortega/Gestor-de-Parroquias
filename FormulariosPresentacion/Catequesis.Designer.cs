@@ -33,12 +33,13 @@ namespace FormulariosPresentacion
             this.lblCatequista = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.dgvPersonas = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblNombre = new System.Windows.Forms.Label();
             this.cbxFecha = new System.Windows.Forms.ComboBox();
             this.lblTema = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Asistencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,36 +80,16 @@ namespace FormulariosPresentacion
             this.dgvPersonas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Nombre,
-            this.Apellido});
+            this.Apellido,
+            this.Asistencia});
             this.dgvPersonas.Location = new System.Drawing.Point(37, 215);
             this.dgvPersonas.Name = "dgvPersonas";
             this.dgvPersonas.RowHeadersVisible = false;
             this.dgvPersonas.RowTemplate.Height = 25;
             this.dgvPersonas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvPersonas.Size = new System.Drawing.Size(294, 206);
+            this.dgvPersonas.Size = new System.Drawing.Size(395, 206);
             this.dgvPersonas.TabIndex = 11;
             this.dgvPersonas.Visible = false;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 50;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 120;
-            // 
-            // Apellido
-            // 
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            this.Apellido.Width = 120;
             // 
             // lblNombre
             // 
@@ -138,6 +119,33 @@ namespace FormulariosPresentacion
             this.lblTema.TabIndex = 20;
             this.lblTema.Text = "label1";
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 50;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 120;
+            // 
+            // Apellido
+            // 
+            this.Apellido.HeaderText = "Apellido";
+            this.Apellido.Name = "Apellido";
+            this.Apellido.ReadOnly = true;
+            this.Apellido.Width = 120;
+            // 
+            // Asistencia
+            // 
+            this.Asistencia.HeaderText = "Asistencia";
+            this.Asistencia.Name = "Asistencia";
+            this.Asistencia.ReadOnly = true;
+            // 
             // Catequesis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
@@ -165,11 +173,12 @@ namespace FormulariosPresentacion
         private System.Windows.Forms.Label lblCatequista;
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.DataGridView dgvPersonas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.ComboBox cbxFecha;
         private System.Windows.Forms.Label lblTema;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Asistencia;
     }
 }

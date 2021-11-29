@@ -38,7 +38,7 @@ namespace Datos
                 return resultado;
             }
         }
-        public DataSet listadoCatequesis(string que, int cual, DateTime fecha)
+        public DataSet listadoCatequesis(string que, int cual)
         {
             string orden = string.Empty;
             if (que == "Todos")
@@ -55,9 +55,50 @@ namespace Datos
             {
                 orden = "select distinct Fecha from Asistencia a, Catequesis c where c.Id_Catequesis=" + cual + " and a.Id_Catequesis=c.Id_Catequesis";
             }
+            
+            SqlCommand cmd = new SqlCommand(orden, conexion);
+            DataSet ds = new DataSet();
+            SqlDataAdapter da = new SqlDataAdapter();
+            try
+            {
+                Abrirconexion();
+                cmd.ExecuteNonQuery();
+                da.SelectCommand = cmd;
+                da.Fill(ds);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error al listar", e);
+            }
+            finally
+            {
+                Cerrarconexion();
+                cmd.Dispose();
+            }
+            return ds;
+        }
+
+        public DataSet listadoCatequesis(string que, int cual, DateTime fecha)
+        {
+            string orden = string.Empty;
+            //if (que == "Todos")
+            //{
+            //    orden = "select c.Id_Catequesis,cap.Nombre, s.Nombre, c.Hora from Catequesis c, Salones s,Capillas cap where cap.Id_Capilla = s.Id_Capilla and c.Id_salon = s.Id_Salon";
+
+            //}
+            //if (que == "UnaCatequesis")
+            //{
+            //    orden = "select b.Id_Catecumeno, b.Nombre,b.Apellido, c.Nombre from Catequesis a, Catecumenos b, Catequistas c, Dictar d where b.Cod_Catequesis=a.Id_Catequesis and a.Id_Catequesis=d.Id_Catequesis and d.Id_Catequista=c.Id_Catequista and a.Id_Catequesis=" + cual + ";";
+
+            //}
+            //if (que == "Fechas")
+            //{
+            //    orden = "select distinct Fecha from Asistencia a, Catequesis c where c.Id_Catequesis=" + cual + " and a.Id_Catequesis=c.Id_Catequesis";
+            //}
             if (que == "Tema")
             {
-                orden = "select distinct Tema from Asistencia where Fecha='"+fecha.Year+"/"+fecha.Date.Month+"/"+fecha.Date.Day+"' and Id_Catequesis=" + cual + ";";
+                orden = "select b.Id_Catecumeno, b.Nombre,b.Apellido,e.Asistencia, e.Tema  from Catequesis a, Catecumenos b, Asistencia e where b.Cod_Catequesis=a.Id_Catequesis and b.Id_Catecumeno=e.Id_Catecumeno and a.Id_Catequesis=" + cual + " and e.Fecha='" + fecha.Year + "/" + fecha.Date.Month + "/" + fecha.Date.Day + "'";
+                //orden = "select distinct Tema from Asistencia where Fecha='"+fecha.Year+"/"+fecha.Date.Month+"/"+fecha.Date.Day+"' and Id_Catequesis=" + cual + ";";
             }
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();
