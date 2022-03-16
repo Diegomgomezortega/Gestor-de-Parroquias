@@ -34,7 +34,6 @@ namespace FormulariosPresentacion
             this.cargarNuevaPersonaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarNuevaCapillaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevaCatequesisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbxFiltro = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -48,6 +47,7 @@ namespace FormulariosPresentacion
             this.btnPersonas = new System.Windows.Forms.Button();
             this.btnAsistencia = new System.Windows.Forms.Button();
             this.btnCatequesis = new System.Windows.Forms.Button();
+            this.nuevaCatequesisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.gbxFiltro.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +58,7 @@ namespace FormulariosPresentacion
             this.archivoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(835, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(548, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -76,27 +76,21 @@ namespace FormulariosPresentacion
             // cargarNuevaPersonaToolStripMenuItem
             // 
             this.cargarNuevaPersonaToolStripMenuItem.Name = "cargarNuevaPersonaToolStripMenuItem";
-            this.cargarNuevaPersonaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.cargarNuevaPersonaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cargarNuevaPersonaToolStripMenuItem.Text = "Nueva Persona";
             this.cargarNuevaPersonaToolStripMenuItem.Click += new System.EventHandler(this.cargarNuevaPersonaToolStripMenuItem_Click);
             // 
             // cargarNuevaCapillaToolStripMenuItem
             // 
             this.cargarNuevaCapillaToolStripMenuItem.Name = "cargarNuevaCapillaToolStripMenuItem";
-            this.cargarNuevaCapillaToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.cargarNuevaCapillaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cargarNuevaCapillaToolStripMenuItem.Text = "Nueva Capilla";
             // 
             // cargarToolStripMenuItem
             // 
             this.cargarToolStripMenuItem.Name = "cargarToolStripMenuItem";
-            this.cargarToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.cargarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cargarToolStripMenuItem.Text = "Nuevo Salón";
-            // 
-            // nuevaCatequesisToolStripMenuItem
-            // 
-            this.nuevaCatequesisToolStripMenuItem.Name = "nuevaCatequesisToolStripMenuItem";
-            this.nuevaCatequesisToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.nuevaCatequesisToolStripMenuItem.Text = "Nueva Catequesis";
             // 
             // gbxFiltro
             // 
@@ -245,12 +239,18 @@ namespace FormulariosPresentacion
             this.btnCatequesis.UseVisualStyleBackColor = false;
             this.btnCatequesis.Click += new System.EventHandler(this.btnCatequesis_Click);
             // 
+            // nuevaCatequesisToolStripMenuItem
+            // 
+            this.nuevaCatequesisToolStripMenuItem.Name = "nuevaCatequesisToolStripMenuItem";
+            this.nuevaCatequesisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevaCatequesisToolStripMenuItem.Text = "Nueva Catequesis";
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(835, 576);
+            this.ClientSize = new System.Drawing.Size(548, 576);
             this.Controls.Add(this.btnCatequesis);
             this.Controls.Add(this.btnAsistencia);
             this.Controls.Add(this.btnPersonas);
@@ -274,7 +274,6 @@ namespace FormulariosPresentacion
         private System.Windows.Forms.ToolStripMenuItem cargarNuevaPersonaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cargarNuevaCapillaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cargarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevaCatequesisToolStripMenuItem;
         private System.Windows.Forms.GroupBox gbxFiltro;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnBuscar;
@@ -288,6 +287,7 @@ namespace FormulariosPresentacion
         private System.Windows.Forms.Button btnPersonas;
         private System.Windows.Forms.Button btnAsistencia;
         private System.Windows.Forms.Button btnCatequesis;
+        private System.Windows.Forms.ToolStripMenuItem nuevaCatequesisToolStripMenuItem;
         //private System.Windows.Forms.DataGridViewTextBoxColumn capilla;
         //private System.Windows.Forms.DataGridViewTextBoxColumn salon;
     }

@@ -31,11 +31,7 @@ namespace Datos
                 orden = "select c.Id_Catequesis,c.Dia, c.Hora from Catequesis c, Salones s where c.Id_Salon=s.Id_Salon and s.Nombre='"+cual+"'";
                 //orden = "select s.Id_Capilla,c.Nombre,s.Nombre from Capillas c,Salones s where  c.Id_Capilla=s.Id_Capilla";
             }
-            //if (que == "Hora")
-            //{
-            //    orden = "select c.Id_Catequesis,c.Hora from Catequesis c, Salones s where c.Id_Salon=s.Id_Salon and s.Nombre='" + cual + "'";
-            //    //orden = "select s.Id_Capilla,c.Nombre,s.Nombre from Capillas c,Salones s where  c.Id_Capilla=s.Id_Capilla";
-            //}
+            
 
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();

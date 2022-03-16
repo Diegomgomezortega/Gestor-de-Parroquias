@@ -17,10 +17,10 @@ namespace Negocios
             return ObjDatosCatequista.listadoCatequistas(que, cual);
         }
 
-        DatosCatequistas objDatosCatequista = new DatosCatequistas();
+        //DatosCatequistas objDatosCatequista = new DatosCatequistas();
         public int abmCatequista(string accion, Catequista objCatequista)
         {
-            return objDatosCatequista.abmCatequista(accion, objCatequista);
+            return ObjDatosCatequista.abmCatequista(accion, objCatequista);
         }
     }
 }

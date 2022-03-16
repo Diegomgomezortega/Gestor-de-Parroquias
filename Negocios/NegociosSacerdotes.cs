@@ -17,10 +17,10 @@ namespace Negocios
             return ObjDatosSacerdote.listadoSacerdotes(que, cual);
         }
 
-        DatosSacerdotes objDatosSacerdote = new DatosSacerdotes();
+        //DatosSacerdotes objDatosSacerdote = new DatosSacerdotes();
         public int abmSacerdotes(string accion, Sacerdote objSacerdote)
         {
-            return objDatosSacerdote.abmSacerdotes(accion, objSacerdote);
+            return ObjDatosSacerdote.abmSacerdotes(accion, objSacerdote);
         }
     }
 }

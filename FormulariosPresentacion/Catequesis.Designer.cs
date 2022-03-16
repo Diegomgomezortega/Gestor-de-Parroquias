@@ -85,7 +85,7 @@ namespace FormulariosPresentacion
             this.dgvPersonas.RowHeadersVisible = false;
             this.dgvPersonas.RowTemplate.Height = 25;
             this.dgvPersonas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvPersonas.Size = new System.Drawing.Size(294, 206);
+            this.dgvPersonas.Size = new System.Drawing.Size(360, 206);
             this.dgvPersonas.TabIndex = 11;
             this.dgvPersonas.Visible = false;
             // 
@@ -134,9 +134,9 @@ namespace FormulariosPresentacion
             this.lblTema.AutoSize = true;
             this.lblTema.Location = new System.Drawing.Point(135, 164);
             this.lblTema.Name = "lblTema";
-            this.lblTema.Size = new System.Drawing.Size(47, 19);
+            this.lblTema.Size = new System.Drawing.Size(144, 19);
             this.lblTema.TabIndex = 20;
-            this.lblTema.Text = "label1";
+            this.lblTema.Text = "Seleccione una fecha";
             // 
             // Catequesis
             // 

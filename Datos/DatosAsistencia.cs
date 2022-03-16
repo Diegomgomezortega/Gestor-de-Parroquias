@@ -57,7 +57,7 @@ namespace Datos
             }
             if (que == "Tema")
             {
-                orden = "select distinct Tema from Asistencia where Fecha='"+fecha.Year+"/"+fecha.Date.Month+"/"+fecha.Date.Day+"' and Id_Catequesis=" + cual + ";";
+                orden = "select distinct Tema from Asistencia  where Fecha='"+fecha.Year+"/"+fecha.Date.Month+"/"+fecha.Date.Day+"' and Id_Catequesis=" + cual + ";";
             }
             SqlCommand cmd = new SqlCommand(orden, conexion);
             DataSet ds = new DataSet();

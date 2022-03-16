@@ -11,12 +11,7 @@ namespace Negocios
 {
     public class NegociosAsistencia
     {
-        DatosAsistencia ObjDatosAsistencia = new DatosAsistencia();
-        //public DataSet listadoAsistencia(string que, int cual)
-        //{
-        //    return ObjDatosAsistencia.listadoAsistencia(que, cual);
-        //}
-
+        
         DatosAsistencia objDatosAsistencia = new DatosAsistencia();
         public int altaAsistencia( string orden)
         {

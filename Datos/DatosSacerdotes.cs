@@ -56,15 +56,13 @@ namespace Datos
         public DataSet listadoSacerdotes(string que, int cual)//Este método listadoSacerdotes devuelve un DataSet ds con los registros solicitados,recibe un string que indica el código que deseo buscar, o si sesolicitan “Todos”
         {
             string orden = string.Empty;
-            //if (cual != "Todos")
-            //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
+            
             if (que != "Todos")
             {
                 orden = "select * from Sacerdotes where Id_Sacerdote = " + cual + ";";
                 
-
             }
-            //    orden = "select * from Alumnos where Legajo = " + int.Parse(cual) + ";";
+            
             else
                 orden = "select * from Sacerdotes";
             SqlCommand cmd = new SqlCommand(orden, conexion);

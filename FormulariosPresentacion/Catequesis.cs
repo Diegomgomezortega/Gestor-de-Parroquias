@@ -18,12 +18,14 @@ namespace FormulariosPresentacion
         {
             InitializeComponent();
             cbxFecha.DropDownStyle = ComboBoxStyle.DropDownList;
+            
             GetFecha();
-
         }
+        //DateTime[] fech = new DateTime[20];
+        DateTime[] fech;
         int id_Catequesis;
         string fecha;
-        DateTime[] fech = new DateTime[20];
+        
         
         int i = 0;
 
@@ -52,13 +54,15 @@ namespace FormulariosPresentacion
         }
         private void GetFecha()
         {
+            fech = new DateTime[20];
             fech[0] = DateTime.Now;
             DataSet dataSet = new DataSet();
             dataSet = negociosAsistencia.listadoCatequesis("Fechas", id_Catequesis,fech[0]);
-            fech = new DateTime[dataSet.Tables.Count];
+            fech = new DateTime[dataSet.Tables[0].Rows.Count];
+            
             if (dataSet.Tables[0].Rows.Count > 0)
             {
-                
+               
             
                 foreach (DataRow dr in dataSet.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
                 {
@@ -95,7 +99,7 @@ namespace FormulariosPresentacion
 
                 foreach (DataRow dr in ds.Tables[0].Rows)//Lo que muestra esta en dr[0].ToString(), dr[1].ToString(),y asi sucesivamente
                 {
-                    lblTema.Text = System.Convert.ToString(dr[0]);
+                    lblTema.Text = "Tema: "+System.Convert.ToString(dr[0]);
                 }
                     //
                 //dgvPersonas.Rows.Add(dr[0].ToString(), dr[1], dr[2]);////Rellena el dgv por cada ds que trae de la bd
