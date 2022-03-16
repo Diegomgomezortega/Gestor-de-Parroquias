@@ -9,13 +9,13 @@ using System.Data;
 
 namespace Datos
 {
-    public class DatosAsistencia: DatosConexionBD
+    public class DatosAsistencia: DatosConexionBD//Clase DatosAsistencia que hereda de DatosConexion
     {
         public int AltaAsistencia( string orden)
         {
             int resultado = -1;
                       
-            SqlCommand cmd = new SqlCommand(orden, conexion);
+            SqlCommand cmd = new SqlCommand(orden, conexion); //Instancio e inicializo un objeto SqlCommand que necesita de argumento la orden a ejecutar y la conexion a la BD
             {
                 try
                 {
@@ -26,7 +26,7 @@ namespace Datos
                 {
 
 
-                    throw new Exception("Error al tratar de guardar,borrar o modificar sacerdotes", e);
+                    throw new Exception("Error al tratar de guardar,borrar o modificar la asistencia", e);
 
 
                 }

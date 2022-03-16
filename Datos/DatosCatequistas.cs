@@ -52,7 +52,7 @@ namespace Datos
             }
         }
         #endregion
-        public DataSet listadoCatequistas(string que, int cual)//Este método listadoAlumnos devuelve un DataSet ds con los registros solicitados,recibe un string que indica el código que deseo buscar, o si sesolicitan “Todos”
+        public DataSet listadoCatequistas(string que, int cual)//Este método listadoCatequistas devuelve un DataSet ds con los registros solicitados,recibe un string que indica el código que deseo buscar, o si sesolicitan “Todos”
         {
             string orden = string.Empty;
             //if (cual != "Todos")

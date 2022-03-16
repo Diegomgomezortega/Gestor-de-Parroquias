@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Datos
 {
-    public class DatosCatecumenos: DatosConexionBD
+    public class DatosCatecumenos: DatosConexionBD //Creo una clase DatosCatecumenos que hereda de DatosConexionBD para poder acceder a sus atributos y metodos
     {
         #region Metodo ABM Catecumeno
         public int abmCatecumeno(string accion, Catecumeno objCatecumeno)
@@ -57,7 +57,7 @@ namespace Datos
             }
         }
         #endregion
-        public DataSet listadoCatecumenos(string que, int cual)//
+        public DataSet listadoCatecumenos(string que, int cual)//Metodo que devuelve un data set con los datos de la base de datos los catecumenos, Uno, o tomar asistencia
         {
             string orden = string.Empty;
             
@@ -78,15 +78,15 @@ namespace Datos
                 orden = "select * from Catecumenos";
             }
                 
-            SqlCommand cmd = new SqlCommand(orden, conexion);
-            DataSet ds = new DataSet();
+            SqlCommand cmd = new SqlCommand(orden, conexion); //Instancio e inicializo un objeto SqlCommand que necesita de argumento la orden a ejecutar y la conexion a la BD
+            DataSet ds = new DataSet(); //Instancio e inicializo un objeto tipo DataSet para cargar en el, los datos que voy a trar de la BD
             SqlDataAdapter da = new SqlDataAdapter();
             try
             {
-                Abrirconexion();
-                cmd.ExecuteNonQuery();
-                da.SelectCommand = cmd;
-                da.Fill(ds);
+                Abrirconexion();//Abro la conexion
+                cmd.ExecuteNonQuery();//Ejecuto la orden
+                da.SelectCommand = cmd;//cargo en el dataAdapter lo que tiene el cmd
+                da.Fill(ds);//Cargo en el data set lo que tiene el data adapter
             }
             catch (Exception e)
             {
@@ -97,7 +97,7 @@ namespace Datos
                 Cerrarconexion();
                 cmd.Dispose();
             }
-            return ds;
+            return ds;//Retorna el ds completo con los datos consultados de la BD
         }
     }
 }
